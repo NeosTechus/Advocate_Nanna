@@ -495,9 +495,9 @@ const LEGAL_SOURCES=new Set(['Dept of Legal Affairs','Dept of Justice','NCLT','N
 
 // ONLY show posts relevant for a senior advocate (20+ yrs) seeking high-level appointments
 // Judicial Member, Presiding Officer, Member (Tribunal/Commission), Chairperson, Ombudsman, Lokayukta
-// Positions for advocate (NOT judge): judicial member, presiding officer, member, standing counsel etc.
-// Excluded: chairperson, chairman, president — these mostly need HC/SC judges
-const SENIOR_POSTS=/\b(judicial\s*member|member\s*\(judicial|member\s*\(law|technical\s*member|presiding\s*officer|advocate\s*general|additional\s*advocate|standing\s*counsel|government\s*pleader|public\s*prosecutor|additional\s*pp|member\b.*(?:tribunal|commission|ncdrc|nclat|nclt|ngt|cat|aft|sat|tdsat|cestat|cci|ibbi|consumer|electricity|appellate)|information\s*commissioner|legal\s*advisor|legal\s*member|law\s*member|vacancy\s*circular.*(?:member|judicial|presiding)|selection.*(?:member|judicial|presiding)|filling.*(?:member|judicial|post\s*of)|appointment.*(?:member|judicial))\b/i;
+// Positions for advocate (20+ yrs): judicial member, presiding officer, member, ombudsman, lokayukta, etc.
+// Chairperson is included but NOT_ELIGIBLE filter will block where HC Judge is needed
+const SENIOR_POSTS=/\b(judicial\s*member|member\s*\(judicial|member\s*\(law|technical\s*member|presiding\s*officer|ombudsman|lokayukta|up.?lokayukta|chairperson|chairman|president\b.*(?:tribunal|commission|authority)|vice.?chairman|advocate\s*general|additional\s*advocate|standing\s*counsel|government\s*pleader|public\s*prosecutor|additional\s*pp|member\b.*(?:tribunal|commission|ncdrc|nclat|nclt|ngt|cat|aft|sat|tdsat|cestat|cci|ibbi|rera|nhrc|shrc|consumer|electricity|appellate)|information\s*commissioner|legal\s*advisor|legal\s*member|law\s*member|vacancy\s*circular.*(?:member|judicial|presiding|chairperson|ombudsman)|selection.*(?:member|judicial|presiding|ombudsman)|filling.*(?:member|judicial|post\s*of)|appointment.*(?:member|judicial|ombudsman))\b/i;
 
 // ELIGIBILITY CHECK: Positions requiring HC Judge / SC Judge - father is NOT eligible
 // Father's profile: 20+ yrs advocate, 5 yrs Additional PP, NOT a HC/SC Judge

@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judicial & Tribunal Vacancy Tracker - India</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1a237e;
+            --primary-light: #3949ab;
+            --accent: #ff6f00;
+            --accent-light: #ffa000;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+            --text: #212121;
+            --text-light: #616161;
+            --success: #2e7d32;
+            --danger: #c62828;
+            --warning: #f57f17;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 24px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .header h1 { font-size: 24px; font-weight: 700; }
+        .header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .last-updated {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-bottom: 2px solid var(--border);
+            overflow-x: auto;
+            padding: 0 24px;
+        }
+        .nav-tab {
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .nav-tab:hover { color: var(--primary); background: #f0f0ff; }
+        .nav-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main Content */
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .stat-card .number.danger { color: var(--danger); }
+        .stat-card .number.success { color: var(--success); }
+        .stat-card .number.warning { color: var(--warning); }
+        .stat-card .label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-group { display: flex; flex-direction: column; gap: 4px; }
+        .filter-group label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+        .filter-group select, .filter-group input {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            min-width: 180px;
+        }
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26,35,126,0.1);
+        }
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* Table */
+        .table-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .table-title {
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .table-title .count {
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background: #fafafa;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+        }
+        th:hover { background: #f0f0f0; }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 14px;
+        }
+        tr:hover td { background: #fafafe; }
+        tr:last-child td { border-bottom: none; }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge-active { background: #e8f5e9; color: #2e7d32; }
+        .badge-vacant { background: #fce4ec; color: #c62828; }
+        .badge-check { background: #fff3e0; color: #e65100; }
+        .badge-upcoming { background: #e3f2fd; color: #1565c0; }
+        .badge-critical { background: #c62828; color: white; }
+
+        .eligibility-yes { color: #2e7d32; font-weight: 600; }
+        .eligibility-partial { color: #f57f17; font-weight: 600; }
+        .eligibility-check { color: #1565c0; }
+
+        /* Links */
+        a.portal-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a.portal-link:hover { text-decoration: underline; }
+        .visit-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .visit-btn:hover { background: var(--primary-light); }
+        .pdf-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #e65100;
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .pdf-btn:hover { background: #bf360c; }
+        .source-btn {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e0e0e0;
+            color: #424242;
+            border-radius: 4px;
+            font-size: 10px;
+            text-decoration: none;
+            transition: background 0.2s;
+            margin-left: 4px;
+        }
+        .source-btn:hover { background: #bdbdbd; }
+
+        /* Section */
+        .section { margin-bottom: 32px; }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Tab Content */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Daily Checklist */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+        .checklist-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+        }
+        .checklist-card h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-top: 3px;
+            accent-color: var(--primary);
+        }
+        .checklist-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .checklist-item a:hover { text-decoration: underline; }
+
+        /* Google Alerts */
+        .alerts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 12px;
+        }
+        .alert-item {
+            background: white;
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .alert-query {
+            font-family: monospace;
+            background: #f5f5f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            flex: 1;
+            margin-right: 12px;
+            word-break: break-all;
+        }
+        .copy-btn {
+            padding: 4px 10px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 11px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .copy-btn:hover { background: var(--accent-light); }
+
+        /* State cards for region view */
+        .region-section {
+            margin-bottom: 24px;
+        }
+        .region-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background: var(--primary);
+            padding: 10px 16px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header { padding: 16px; }
+            .header h1 { font-size: 18px; }
+            .container { padding: 12px; }
+            .nav-tab { padding: 10px 14px; font-size: 13px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .filters { flex-direction: column; }
+            .filter-group select, .filter-group input { min-width: 100%; }
+            td, th { padding: 8px 10px; font-size: 12px; }
+            .alerts-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Priority indicator */
+        .priority-high { border-left: 4px solid #c62828; }
+        .priority-medium { border-left: 4px solid #f57f17; }
+        .priority-low { border-left: 4px solid #2e7d32; }
+
+        /* Vacancy crisis highlight */
+        .crisis-banner {
+            background: linear-gradient(135deg, #c62828, #e53935);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .crisis-banner .icon { font-size: 28px; }
+        .crisis-banner h3 { font-size: 16px; }
+        .crisis-banner p { font-size: 13px; opacity: 0.9; }
+
+        /* Pulse animation for live indicator */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Expired row styling */
+        tr.row-expired td { opacity: 0.5; }
+        tr.row-expired td .vacancy-title { text-decoration: line-through; color: #9e9e9e; }
+
+        /* Deadline urgency badges */
+        .deadline-urgent { color: #c62828; font-weight: 700; }
+        .deadline-warning { color: #e65100; font-weight: 600; }
+        .deadline-normal { color: var(--text-light); }
+        .deadline-expired { color: #9e9e9e; text-decoration: line-through; }
+
+        /* Urgent deadlines section */
+        .urgent-deadlines {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            border-left: 4px solid #c62828;
+            overflow: hidden;
+        }
+        .urgent-deadlines .urgent-header {
+            background: linear-gradient(135deg, #c62828, #e53935);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .urgent-deadlines .urgent-list {
+            padding: 0;
+        }
+        .urgent-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 13px;
+        }
+        .urgent-item:last-child { border-bottom: none; }
+        .urgent-item .days-left {
+            min-width: 60px;
+            text-align: center;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .days-left.critical { background: #ffebee; color: #c62828; }
+        .days-left.warn { background: #fff3e0; color: #e65100; }
+        .urgent-item .urgent-title { flex: 1; }
+        .urgent-item .urgent-source { color: var(--text-light); font-size: 11px; min-width: 100px; }
+
+        /* Dashboard deadline widget */
+        .deadline-widget {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--accent);
+            overflow: hidden;
+        }
+        .deadline-widget .dw-header {
+            padding: 14px 20px;
+            font-weight: 700;
+            font-size: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .deadline-widget .dw-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 13px;
+        }
+        .deadline-widget .dw-item:last-child { border-bottom: none; }
+        .dw-empty { padding: 20px; text-align: center; color: var(--text-light); font-size: 13px; }
+
+        /* Print */
+        @media print {
+            .header { position: static; }
+            .nav-tabs { display: none; }
+            .tab-content { display: block !important; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="header-row">
+        <div>
+            <h1>Judicial & Tribunal Vacancy Tracker</h1>
+            <p>High-level Government Positions for Senior Advocates across India</p>
+        </div>
+        <div class="last-updated" id="lastUpdated"></div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-tabs">
+    <div class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</div>
+    <div class="nav-tab" onclick="switchTab('livefeed')" id="livefeed-tab" style="position:relative;">LIVE FEED <span style="display:inline-block;width:8px;height:8px;background:#c62828;border-radius:50%;margin-left:4px;animation:pulse 1.5s infinite;"></span></div>
+    <div class="nav-tab" onclick="switchTab('central')">Central Tribunals</div>
+    <div class="nav-tab" onclick="switchTab('states')">State-wise Positions</div>
+    <div class="nav-tab" onclick="switchTab('crisis')">Vacancy Crisis</div>
+    <div class="nav-tab" onclick="switchTab('daily')">Daily Checklist</div>
+    <div class="nav-tab" onclick="switchTab('alerts')">Google Alerts Setup</div>
+    <div class="nav-tab" onclick="switchTab('master')" style="font-weight:700;">ALL 72 POSITIONS</div>
+    <div class="nav-tab" onclick="switchTab('portals')">All Portals</div>
+</div>
+
+<div class="container">
+
+    <!-- ==================== LIVE FEED TAB ==================== -->
+    <div class="tab-content" id="tab-livefeed">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+            <div class="section-title" style="margin-bottom:0; border:none; padding:0;">Live Vacancy Feed - Scraped from Official Portals</div>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <span id="live-status" style="font-size:12px; color:var(--text-light);">Loading...</span>
+                <button onclick="loadLiveData()" style="padding:8px 16px; background:var(--primary); color:white; border:none; border-radius:8px; cursor:pointer; font-size:13px; font-weight:600;">Refresh Data</button>
+            </div>
+        </div>
+
+        <!-- Live Stats -->
+        <div class="stats-bar" id="live-stats">
+            <div class="stat-card"><div class="number" id="live-total">--</div><div class="label">Total Listings Found</div></div>
+            <div class="stat-card"><div class="number success" id="live-active">--</div><div class="label">Active Vacancies</div></div>
+            <div class="stat-card"><div class="number danger" id="live-expired">--</div><div class="label">Expired</div></div>
+            <div class="stat-card"><div class="number success" id="live-sources">--</div><div class="label">Sources Checked</div></div>
+            <div class="stat-card"><div class="number warning" id="live-errors">--</div><div class="label">Source Errors</div></div>
+            <div class="stat-card"><div class="number" id="live-updated">--</div><div class="label" style="font-size:11px;">Last Scraped</div></div>
+        </div>
+
+        <!-- Live Filters -->
+        <div class="filters">
+            <div class="filter-group">
+                <label>Source</label>
+                <select id="liveSourceFilter" onchange="filterLiveData()">
+                    <option value="all">All Sources</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="liveCategoryFilter" onchange="filterLiveData()">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Status</label>
+                <select id="liveStatusFilter" onchange="filterLiveData()">
+                    <option value="active">Active Only</option>
+                    <option value="all">All</option>
+                    <option value="expired">Expired</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <label style="font-size:11px; font-weight:600; text-transform:uppercase; color:var(--text-light); display:block; margin-bottom:4px;">Search Live Feed</label>
+                <input type="text" id="liveSearch" placeholder="Search vacancies..." oninput="filterLiveData()">
+            </div>
+        </div>
+
+        <!-- Urgent Deadlines Section -->
+        <div class="urgent-deadlines" id="urgent-deadlines-section" style="display:none;">
+            <div class="urgent-header">
+                <span>URGENT DEADLINES - Closing Within 30 Days</span>
+                <span id="urgent-count-badge" style="background:rgba(255,255,255,0.25); padding:2px 10px; border-radius:12px; font-size:12px;">0</span>
+            </div>
+            <div class="urgent-list" id="urgent-deadlines-list"></div>
+        </div>
+
+        <!-- Source Status -->
+        <div class="table-wrapper" id="source-status-wrapper" style="margin-bottom:16px;">
+            <div class="table-title">Source Status <span class="count" id="source-count">0</span></div>
+            <div id="source-status-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:8px; padding:12px;"></div>
+        </div>
+
+        <!-- Live Vacancies Table -->
+        <div class="table-wrapper">
+            <div class="table-title">Scraped Vacancies <span class="count" id="vacancy-count">0</span></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th onclick="sortLive('source')">Source</th>
+                        <th onclick="sortLive('category')">Category</th>
+                        <th onclick="sortLive('title')">Title / Description</th>
+                        <th onclick="sortLive('posted_date')">Posted Date</th>
+                        <th onclick="sortLive('last_date')">Last Date / Deadline</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody id="live-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Run Scraper Instructions -->
+        <div class="table-wrapper" style="margin-top:16px;">
+            <div class="table-title">How to Update Live Data</div>
+            <div style="padding:20px; font-size:14px; line-height:2;">
+                <p><strong>Run the scraper to fetch fresh data from all portals:</strong></p>
+                <pre style="background:#1a1a2e; color:#e0e0e0; padding:16px; border-radius:8px; margin:12px 0; overflow-x:auto; font-size:13px;">
+cd /Users/harshakolla/Nanna/vacancies
+source venv/bin/activate
+python3 scraper.py</pre>
+                <p style="margin-top:8px;"><strong>To run automatically every day at 8 AM:</strong></p>
+                <pre style="background:#1a1a2e; color:#e0e0e0; padding:16px; border-radius:8px; margin:12px 0; overflow-x:auto; font-size:13px;">
+# Add this to your crontab (run: crontab -e)
+0 8 * * * cd /Users/harshakolla/Nanna/vacancies && ./venv/bin/python3 scraper.py >> scraper.log 2>&1</pre>
+                <p style="color:var(--text-light); font-size:12px; margin-top:8px;">The scraper checks 20+ government portals including Dept of Legal Affairs, LiveLaw, NCLT, NCLAT, NHRC, ITAT, GSTAT, RERA portals, and more.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DASHBOARD TAB ==================== -->
+    <div class="tab-content active" id="tab-dashboard">
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="number">50+</div>
+                <div class="label">Total Positions Tracked</div>
+            </div>
+            <div class="stat-card">
+                <div class="number success" id="dash-active">--</div>
+                <div class="label">Active Vacancies (Live)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number danger" id="dash-expired">--</div>
+                <div class="label">Expired (Live)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number danger">17/35</div>
+                <div class="label">State Commissions Without President</div>
+            </div>
+            <div class="stat-card">
+                <div class="number warning">641</div>
+                <div class="label">Consumer Forum Vacancies</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">28</div>
+                <div class="label">States Covered</div>
+            </div>
+        </div>
+
+        <!-- Upcoming Deadlines Widget -->
+        <div class="deadline-widget" id="dash-deadline-widget" style="display:none;">
+            <div class="dw-header">Upcoming Deadlines (Next 5 Closest)</div>
+            <div id="dash-deadline-list"></div>
+        </div>
+
+        <div class="crisis-banner">
+            <div class="icon">!</div>
+            <div>
+                <h3>India Justice Report 2026: Massive Vacancy Crisis</h3>
+                <p>17 of 35 State Consumer Commissions have NO President. 90 districts have ZERO consumer forum. Kerala DCDRC: 93% vacancy. West Bengal DCDRC President: 65% vacant. Gujarat DCDRC President: 63% vacant. This is the best time to apply.</p>
+            </div>
+        </div>
+
+        <!-- Candidate Profile -->
+        <div class="table-wrapper" style="border-left: 4px solid var(--accent);">
+            <div class="table-title">Candidate Profile</div>
+            <table>
+                <tr><td style="width:200px; font-weight:600;">Experience</td><td>20+ years as Advocate</td></tr>
+                <tr><td style="font-weight:600;">Previous Role</td><td>Additional Public Prosecutor, District Court (5 years)</td></tr>
+                <tr><td style="font-weight:600;">Achievements</td><td>Multiple appreciations in service</td></tr>
+                <tr><td style="font-weight:600;">Support</td><td>State Government recommendation available</td></tr>
+                <tr><td style="font-weight:600;">Target Positions</td><td>Judicial Member (Tribunals), Commissioner, High-level Government Posts</td></tr>
+            </table>
+        </div>
+
+        <!-- Quick Links - Most Urgent -->
+        <div class="section-title">Most Urgent Openings</div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Vacancies</th>
+                        <th>Eligibility</th>
+                        <th>Status</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="priority-high">
+                        <td><strong>CAT Judicial Member</strong></td>
+                        <td>5 posts</td>
+                        <td class="eligibility-yes">Eligible</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Apply</a></td>
+                    </tr>
+                    <tr class="priority-high">
+                        <td><strong>NCLT Judicial Member</strong></td>
+                        <td>Multiple</td>
+                        <td class="eligibility-yes">Eligible</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://apptrbmembermca.gov.in/" target="_blank">Apply</a></td>
+                    </tr>
+                    <tr class="priority-high">
+                        <td><strong>NGT Judicial Member</strong></td>
+                        <td>5 posts</td>
+                        <td class="eligibility-yes">Eligible</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Apply</a></td>
+                    </tr>
+                    <tr class="priority-high">
+                        <td><strong>NCLAT Judicial Member</strong></td>
+                        <td>Active circular</td>
+                        <td class="eligibility-yes">Eligible</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://nclat.nic.in/recruitment" target="_blank">Apply</a></td>
+                    </tr>
+                    <tr class="priority-high">
+                        <td><strong>Maharashtra Administrative Tribunal (Judicial)</strong></td>
+                        <td>Aurangabad</td>
+                        <td class="eligibility-yes">Eligible</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://www.livelaw.in/job-updates/job-updates-member-judicial-vacancy-at-maharashtra-administrative-tribunal-264475" target="_blank">View</a></td>
+                    </tr>
+                    <tr class="priority-high">
+                        <td><strong>Karnataka RERA Appellate Tribunal</strong></td>
+                        <td>Judicial Member</td>
+                        <td class="eligibility-yes">Eligible (20 yrs)</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://www.livelaw.in/job-updates/job-updates-judicial-member-vacancy-at-karnataka-real-estate-appellate-tribunal-256826" target="_blank">View</a></td>
+                    </tr>
+                    <tr class="priority-medium">
+                        <td><strong>NCDRC Member</strong></td>
+                        <td>Circular Dec 2025</td>
+                        <td class="eligibility-partial">Check details</td>
+                        <td><span class="badge badge-check">Check</span></td>
+                        <td><a class="visit-btn" href="https://ncdrc.nic.in/careers.html" target="_blank">Check</a></td>
+                    </tr>
+                    <tr class="priority-medium">
+                        <td><strong>CESTAT Member (Judicial)</strong></td>
+                        <td>Active</td>
+                        <td class="eligibility-partial">If tax experience</td>
+                        <td><span class="badge badge-check">Check</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Check</a></td>
+                    </tr>
+                    <tr class="priority-medium">
+                        <td><strong>Presiding Officer - Industrial Tribunal</strong></td>
+                        <td>7 cities</td>
+                        <td class="eligibility-partial">If District Judge exp</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://labour.gov.in/" target="_blank">Check</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ==================== CENTRAL TRIBUNALS TAB ==================== -->
+    <div class="tab-content" id="tab-central">
+        <div class="section-title">Central Tribunal Positions</div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tribunal</th>
+                        <th>Position</th>
+                        <th>Vacancies</th>
+                        <th>Eligibility Requirement</th>
+                        <th>Your Eligibility</th>
+                        <th>Salary/Pay</th>
+                        <th>Status</th>
+                        <th>Official Portal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Central Administrative Tribunal (CAT)</strong></td>
+                        <td>Judicial Member</td>
+                        <td>5</td>
+                        <td>10+ yrs as advocate with experience in service matters</td>
+                        <td class="eligibility-yes">YES - 20 yrs</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NCLT</strong></td>
+                        <td>Judicial Member</td>
+                        <td>Multiple</td>
+                        <td>10+ yrs as advocate, company law experience preferred</td>
+                        <td class="eligibility-yes">YES - 20 yrs</td>
+                        <td>Rs 2,25,000/month + allowances</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://apptrbmembermca.gov.in/" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NCLAT</strong></td>
+                        <td>Judicial Member</td>
+                        <td>Active</td>
+                        <td>10+ yrs as advocate with company law experience</td>
+                        <td class="eligibility-yes">YES - 20 yrs</td>
+                        <td>Rs 2,25,000/month + allowances</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://nclat.nic.in/recruitment" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>National Green Tribunal (NGT)</strong></td>
+                        <td>Judicial Member</td>
+                        <td>5</td>
+                        <td>10+ yrs as advocate with environmental law experience</td>
+                        <td class="eligibility-yes">YES - 20 yrs</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CESTAT</strong></td>
+                        <td>Member (Judicial)</td>
+                        <td>Active</td>
+                        <td>Advocate with customs/excise/service tax experience</td>
+                        <td class="eligibility-partial">If relevant exp</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-check">Check</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NCDRC</strong></td>
+                        <td>Member</td>
+                        <td>Circular Dec 2025</td>
+                        <td>Retired HC Judge / District Judge experience</td>
+                        <td class="eligibility-partial">Check criteria</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-check">Check</span></td>
+                        <td><a class="visit-btn" href="https://ncdrc.nic.in/careers.html" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ITAT</strong></td>
+                        <td>Judicial Member</td>
+                        <td>Recurring</td>
+                        <td>Advocate with income tax experience</td>
+                        <td class="eligibility-partial">If tax exp</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-upcoming">Recurring</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/itat-recruitment/" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>GSTAT (GST Appellate Tribunal)</strong></td>
+                        <td>Judicial Member</td>
+                        <td>31 state benches (62+ posts)</td>
+                        <td>Must be HC Judge</td>
+                        <td class="eligibility-check">Not eligible (HC Judge required)</td>
+                        <td>Rs 2,25,000/month</td>
+                        <td><span class="badge badge-active">New - Feb 2026</span></td>
+                        <td><a class="visit-btn" href="https://dor.gov.in/gstat-recruitment" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Armed Forces Tribunal</strong></td>
+                        <td>Judicial Member</td>
+                        <td>Recurring</td>
+                        <td>10+ yrs advocate / retired District Judge</td>
+                        <td class="eligibility-yes">YES - 20 yrs</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-upcoming">Check</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Railway Claims Tribunal</strong></td>
+                        <td>Judicial Member</td>
+                        <td>Recurring</td>
+                        <td>Advocate / District Judge experience</td>
+                        <td class="eligibility-yes">YES</td>
+                        <td>HC Judge level</td>
+                        <td><span class="badge badge-upcoming">Check</span></td>
+                        <td><a class="visit-btn" href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Visit</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Industrial Tribunal-cum-Labour Court</strong></td>
+                        <td>Presiding Officer</td>
+                        <td>7 cities (Delhi, Mumbai, Kolkata, Chandigarh, Guwahati, Kanpur, Ernakulam)</td>
+                        <td>District Judge + Addl. District Judge 10 yrs</td>
+                        <td class="eligibility-partial">If DJ exp</td>
+                        <td>District Judge level</td>
+                        <td><span class="badge badge-active">Active</span></td>
+                        <td><a class="visit-btn" href="https://labour.gov.in/" target="_blank">Visit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ==================== STATE-WISE TAB ==================== -->
+    <div class="tab-content" id="tab-states">
+        <div class="filters">
+            <div class="filter-group">
+                <label>Region</label>
+                <select id="regionFilter" onchange="filterStates()">
+                    <option value="all">All Regions</option>
+                    <option value="south">South India</option>
+                    <option value="west">West & Central India</option>
+                    <option value="north">North India</option>
+                    <option value="east">East & Northeast India</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Position Type</label>
+                <select id="positionFilter" onchange="filterStates()">
+                    <option value="all">All Positions</option>
+                    <option value="scdrc">SCDRC Member/President</option>
+                    <option value="dcdrc">DCDRC President/Member</option>
+                    <option value="rera">RERA Tribunal</option>
+                    <option value="shrc">Human Rights Commission</option>
+                    <option value="sic">Information Commissioner</option>
+                    <option value="lokayukta">Lokayukta</option>
+                    <option value="electricity">Electricity Commission</option>
+                    <option value="admin">Administrative Tribunal</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Status</label>
+                <select id="statusFilter" onchange="filterStates()">
+                    <option value="all">All</option>
+                    <option value="active">Active / Vacant</option>
+                    <option value="check">Check Latest</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <label style="font-size:11px; font-weight:600; text-transform:uppercase; color:var(--text-light); display:block; margin-bottom:4px;">Search</label>
+                <input type="text" id="stateSearch" placeholder="Search state or position..." oninput="filterStates()">
+            </div>
+        </div>
+
+        <!-- South India -->
+        <div class="region-section" data-region="south">
+            <div class="region-title">South India</div>
+            <div class="table-wrapper" style="border-radius: 0 0 12px 12px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Position</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                            <th>Portal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="state-rows">
+                        <tr data-state="andhra pradesh" data-type="scdrc" data-status="active"><td>Andhra Pradesh</td><td>SCDRC President/Member</td><td>scdrc</td><td><span class="badge badge-vacant">Vacancy Exists</span></td><td>Low vacancy score in IJR 2026</td><td><a class="visit-btn" href="http://consumercom.nic.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="andhra pradesh" data-type="rera" data-status="check"><td>Andhra Pradesh</td><td>RERA Appellate Tribunal Member</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>20+ yrs advocate required</td><td><a class="visit-btn" href="https://rera.ap.gov.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="andhra pradesh" data-type="lokayukta" data-status="check"><td>Andhra Pradesh</td><td>Uplokayukta Member</td><td>lokayukta</td><td><span class="badge badge-check">Check</span></td><td>State Govt appointment</td><td>State Gazette</td></tr>
+                        <tr data-state="andhra pradesh" data-type="shrc" data-status="check"><td>Andhra Pradesh</td><td>SHRC Member</td><td>shrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>AP SHRC Website</td></tr>
+
+                        <tr data-state="telangana" data-type="scdrc" data-status="active"><td>Telangana</td><td>SCDRC President</td><td>scdrc</td><td><span class="badge badge-critical">VACANT</span></td><td>No President as of 2025</td><td><a class="visit-btn" href="https://scdrc.tg.nic.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="telangana" data-type="rera" data-status="check"><td>Telangana</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level appointment</td><td><a class="visit-btn" href="https://rera.telangana.gov.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="telangana" data-type="sic" data-status="check"><td>Telangana</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-check">Check</span></td><td>Governor appointment</td><td>TS SIC Website</td></tr>
+
+                        <tr data-state="tamil nadu" data-type="sic" data-status="active"><td>Tamil Nadu</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-active">2 Posts Advertised</span></td><td>Deadline was Jan 2026 - check extension</td><td><a class="visit-btn" href="https://www.livelaw.in/job-updates/state-information-commissioners-vacancy-at-tamil-nadu-information-commission-520590" target="_blank">View</a></td></tr>
+                        <tr data-state="tamil nadu" data-type="scdrc" data-status="check"><td>Tamil Nadu</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>TN Consumer Commission</td></tr>
+                        <tr data-state="tamil nadu" data-type="rera" data-status="check"><td>Tamil Nadu</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>20+ yrs advocate</td><td>TN RERA</td></tr>
+
+                        <tr data-state="karnataka" data-type="rera" data-status="active"><td>Karnataka</td><td>RERA Appellate Tribunal Judicial Member</td><td>rera</td><td><span class="badge badge-active">Actively Filling</span></td><td>HC ordered appointment</td><td><a class="visit-btn" href="https://www.livelaw.in/job-updates/job-updates-judicial-member-vacancy-at-karnataka-real-estate-appellate-tribunal-256826" target="_blank">View</a></td></tr>
+                        <tr data-state="karnataka" data-type="scdrc" data-status="check"><td>Karnataka</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>KA Consumer Commission</td></tr>
+                        <tr data-state="karnataka" data-type="electricity" data-status="check"><td>Karnataka</td><td>Electricity Regulatory Commission (Law Member)</td><td>electricity</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>KERC Website</td></tr>
+
+                        <tr data-state="kerala" data-type="dcdrc" data-status="active"><td>Kerala</td><td>DCDRC President/Members</td><td>dcdrc</td><td><span class="badge badge-critical">93% VACANCY</span></td><td>Only 2 members against 28 sanctioned!</td><td>Kerala Consumer Commission</td></tr>
+                        <tr data-state="kerala" data-type="scdrc" data-status="check"><td>Kerala</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Kerala SCDRC</td></tr>
+                        <tr data-state="kerala" data-type="electricity" data-status="check"><td>Kerala</td><td>Electricity Regulatory Commission (Law Member)</td><td>electricity</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>KSERC Website</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- West & Central India -->
+        <div class="region-section" data-region="west">
+            <div class="region-title">West & Central India</div>
+            <div class="table-wrapper" style="border-radius: 0 0 12px 12px;">
+                <table>
+                    <thead>
+                        <tr><th>State</th><th>Position</th><th>Type</th><th>Status</th><th>Notes</th><th>Portal</th></tr>
+                    </thead>
+                    <tbody class="state-rows">
+                        <tr data-state="maharashtra" data-type="admin" data-status="active"><td>Maharashtra</td><td>Administrative Tribunal Member (Judicial)</td><td>admin</td><td><span class="badge badge-active">Active - Aurangabad</span></td><td>State Govt appointment</td><td><a class="visit-btn" href="https://www.livelaw.in/job-updates/job-updates-member-judicial-vacancy-at-maharashtra-administrative-tribunal-264475" target="_blank">View</a></td></tr>
+                        <tr data-state="maharashtra" data-type="scdrc" data-status="check"><td>Maharashtra</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>Has minimum strength</td><td>Maharashtra Consumer Commission</td></tr>
+                        <tr data-state="maharashtra" data-type="rera" data-status="check"><td>Maharashtra</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td><a class="visit-btn" href="https://mahareat.maharashtra.gov.in/" target="_blank">Visit</a></td></tr>
+
+                        <tr data-state="gujarat" data-type="dcdrc" data-status="active"><td>Gujarat</td><td>DCDRC President</td><td>dcdrc</td><td><span class="badge badge-critical">63% VACANT</span></td><td>Severe shortage</td><td>Gujarat Consumer Commission</td></tr>
+                        <tr data-state="gujarat" data-type="dcdrc" data-status="active"><td>Gujarat</td><td>DCDRC Members</td><td>dcdrc</td><td><span class="badge badge-critical">60% VACANT</span></td><td>Severe shortage</td><td>Gujarat Consumer Commission</td></tr>
+                        <tr data-state="gujarat" data-type="scdrc" data-status="check"><td>Gujarat</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Gujarat SCDRC</td></tr>
+                        <tr data-state="gujarat" data-type="rera" data-status="check"><td>Gujarat</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td>Gujarat RERA</td></tr>
+
+                        <tr data-state="rajasthan" data-type="scdrc" data-status="check"><td>Rajasthan</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>Has minimum strength</td><td><a class="visit-btn" href="https://rscdrc.food.rajasthan.gov.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="rajasthan" data-type="shrc" data-status="check"><td>Rajasthan</td><td>SHRC Member</td><td>shrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Rajasthan SHRC</td></tr>
+                        <tr data-state="rajasthan" data-type="lokayukta" data-status="check"><td>Rajasthan</td><td>Lokayukta/Uplokayukta</td><td>lokayukta</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>State Gazette</td></tr>
+
+                        <tr data-state="madhya pradesh" data-type="electricity" data-status="active"><td>Madhya Pradesh</td><td>Electricity Ombudsman</td><td>electricity</td><td><span class="badge badge-active">Vacancy Exists</span></td><td>State-level appointment</td><td><a class="visit-btn" href="https://www.mperc.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="madhya pradesh" data-type="scdrc" data-status="check"><td>Madhya Pradesh</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>MP Consumer Commission</td></tr>
+                        <tr data-state="madhya pradesh" data-type="rera" data-status="check"><td>Madhya Pradesh</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td>MP RERA</td></tr>
+
+                        <tr data-state="chhattisgarh" data-type="electricity" data-status="active"><td>Chhattisgarh</td><td>Electricity Regulatory Commission Member</td><td>electricity</td><td><span class="badge badge-active">Vacancy</span></td><td>State appointment</td><td>CG SERC</td></tr>
+                        <tr data-state="chhattisgarh" data-type="scdrc" data-status="check"><td>Chhattisgarh</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>CG Consumer Commission</td></tr>
+
+                        <tr data-state="goa" data-type="rera" data-status="check"><td>Goa</td><td>RERA Appellate Tribunal Member</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td>Goa RERA</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- North India -->
+        <div class="region-section" data-region="north">
+            <div class="region-title">North India</div>
+            <div class="table-wrapper" style="border-radius: 0 0 12px 12px;">
+                <table>
+                    <thead>
+                        <tr><th>State</th><th>Position</th><th>Type</th><th>Status</th><th>Notes</th><th>Portal</th></tr>
+                    </thead>
+                    <tbody class="state-rows">
+                        <tr data-state="uttar pradesh" data-type="lokayukta" data-status="check"><td>Uttar Pradesh</td><td>Lokayukta/Uplokayukta</td><td>lokayukta</td><td><span class="badge badge-check">Check</span></td><td>Tenure 5 yrs, age limit 70</td><td>State Gazette</td></tr>
+                        <tr data-state="uttar pradesh" data-type="scdrc" data-status="check"><td>Uttar Pradesh</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td><a class="visit-btn" href="https://scdrc.up.nic.in" target="_blank">Visit</a></td></tr>
+                        <tr data-state="uttar pradesh" data-type="dcdrc" data-status="active"><td>Uttar Pradesh</td><td>DCDRC President</td><td>dcdrc</td><td><span class="badge badge-vacant">Multiple Vacancies</span></td><td>1000+ judicial vacancies in state</td><td>UP Consumer Commission</td></tr>
+
+                        <tr data-state="haryana" data-type="sic" data-status="active"><td>Haryana</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-critical">VACANT</span></td><td>State Govt appointment</td><td>Haryana SIC</td></tr>
+                        <tr data-state="haryana" data-type="shrc" data-status="active"><td>Haryana</td><td>SHRC Member</td><td>shrc</td><td><span class="badge badge-critical">VACANT</span></td><td>State Govt appointment</td><td>Haryana SHRC</td></tr>
+                        <tr data-state="haryana" data-type="lokayukta" data-status="active"><td>Haryana</td><td>Lokayukta</td><td>lokayukta</td><td><span class="badge badge-critical">VACANT</span></td><td>State Govt appointment</td><td>State Gazette</td></tr>
+                        <tr data-state="haryana" data-type="rera" data-status="check"><td>Haryana</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td><a class="visit-btn" href="https://haryanarera.gov.in" target="_blank">Visit</a></td></tr>
+
+                        <tr data-state="punjab" data-type="scdrc" data-status="check"><td>Punjab</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Punjab Consumer Commission</td></tr>
+                        <tr data-state="punjab" data-type="rera" data-status="check"><td>Punjab</td><td>RERA Appellate Tribunal</td><td>rera</td><td><span class="badge badge-check">Check</span></td><td>State-level</td><td><a class="visit-btn" href="https://rera.punjab.gov.in/appellate-tribunal.html" target="_blank">Visit</a></td></tr>
+                        <tr data-state="punjab" data-type="sic" data-status="check"><td>Punjab</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Punjab SIC</td></tr>
+
+                        <tr data-state="himachal pradesh" data-type="scdrc" data-status="check"><td>Himachal Pradesh</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td><a class="visit-btn" href="https://hpconsumercommission.nic.in/" target="_blank">Visit</a></td></tr>
+                        <tr data-state="himachal pradesh" data-type="sic" data-status="check"><td>Himachal Pradesh</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>HP SIC</td></tr>
+
+                        <tr data-state="uttarakhand" data-type="scdrc" data-status="check"><td>Uttarakhand</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Uttarakhand Consumer Commission</td></tr>
+
+                        <tr data-state="delhi" data-type="scdrc" data-status="check"><td>Delhi</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td><a class="visit-btn" href="http://delhistatecommission.nic.in/" target="_blank">Visit</a></td></tr>
+                        <tr data-state="delhi" data-type="scdrc" data-status="check"><td>Delhi</td><td>Additional Public Prosecutor (196 posts)</td><td>admin</td><td><span class="badge badge-upcoming">Upcoming via UPSC</span></td><td>196 vacancies expected</td><td><a class="visit-btn" href="https://upsconline.gov.in" target="_blank">Visit</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- East & Northeast -->
+        <div class="region-section" data-region="east">
+            <div class="region-title">East & Northeast India</div>
+            <div class="table-wrapper" style="border-radius: 0 0 12px 12px;">
+                <table>
+                    <thead>
+                        <tr><th>State</th><th>Position</th><th>Type</th><th>Status</th><th>Notes</th><th>Portal</th></tr>
+                    </thead>
+                    <tbody class="state-rows">
+                        <tr data-state="west bengal" data-type="dcdrc" data-status="active"><td>West Bengal</td><td>DCDRC President</td><td>dcdrc</td><td><span class="badge badge-critical">65% VACANT</span></td><td>Severe shortage</td><td>WB Consumer Commission</td></tr>
+                        <tr data-state="west bengal" data-type="scdrc" data-status="check"><td>West Bengal</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>WB SCDRC</td></tr>
+                        <tr data-state="west bengal" data-type="sic" data-status="check"><td>West Bengal</td><td>State Information Commissioner</td><td>sic</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>WB SIC</td></tr>
+
+                        <tr data-state="bihar" data-type="scdrc" data-status="check"><td>Bihar</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>Has minimum strength</td><td>Bihar Consumer Commission</td></tr>
+                        <tr data-state="bihar" data-type="shrc" data-status="check"><td>Bihar</td><td>SHRC Member</td><td>shrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Bihar SHRC</td></tr>
+
+                        <tr data-state="jharkhand" data-type="scdrc" data-status="check"><td>Jharkhand</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Jharkhand Consumer Commission</td></tr>
+
+                        <tr data-state="odisha" data-type="scdrc" data-status="check"><td>Odisha</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Odisha Consumer Commission</td></tr>
+                        <tr data-state="odisha" data-type="shrc" data-status="check"><td>Odisha</td><td>SHRC Member</td><td>shrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Odisha SHRC</td></tr>
+
+                        <tr data-state="assam" data-type="scdrc" data-status="check"><td>Assam</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Assam Consumer Commission</td></tr>
+                        <tr data-state="assam" data-type="admin" data-status="active"><td>Assam / NE</td><td>Presiding Officer, Industrial Tribunal (Guwahati)</td><td>admin</td><td><span class="badge badge-active">Active</span></td><td>Ministry of Labour vacancy</td><td><a class="visit-btn" href="https://ghconline.gov.in" target="_blank">Visit</a></td></tr>
+
+                        <tr data-state="meghalaya" data-type="scdrc" data-status="check"><td>Meghalaya</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Meghalaya Consumer Commission</td></tr>
+                        <tr data-state="manipur" data-type="scdrc" data-status="check"><td>Manipur</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Manipur Consumer Commission</td></tr>
+                        <tr data-state="tripura" data-type="scdrc" data-status="check"><td>Tripura</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Tripura Consumer Commission</td></tr>
+                        <tr data-state="nagaland" data-type="scdrc" data-status="check"><td>Nagaland</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Nagaland Consumer Commission</td></tr>
+                        <tr data-state="mizoram" data-type="scdrc" data-status="check"><td>Mizoram</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Mizoram Consumer Commission</td></tr>
+                        <tr data-state="arunachal pradesh" data-type="scdrc" data-status="check"><td>Arunachal Pradesh</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Arunachal Consumer Commission</td></tr>
+                        <tr data-state="sikkim" data-type="scdrc" data-status="check"><td>Sikkim</td><td>SCDRC Member</td><td>scdrc</td><td><span class="badge badge-check">Check</span></td><td>State appointment</td><td>Sikkim Consumer Commission</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== VACANCY CRISIS TAB ==================== -->
+    <div class="tab-content" id="tab-crisis">
+        <div class="section-title">India Justice Report 2026 - Vacancy Crisis = Opportunity</div>
+
+        <div class="stats-bar">
+            <div class="stat-card"><div class="number danger">17/35</div><div class="label">State Commissions Without President</div></div>
+            <div class="stat-card"><div class="number danger">93</div><div class="label">SCDRC Vacancies</div></div>
+            <div class="stat-card"><div class="number danger">548</div><div class="label">DCDRC Vacancies</div></div>
+            <div class="stat-card"><div class="number danger">90</div><div class="label">Districts With Zero Forum</div></div>
+            <div class="stat-card"><div class="number danger">4,855</div><div class="label">Judicial Officer Posts Vacant</div></div>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="table-title">Worst Vacancy States - Best Opportunity for Appointment</div>
+            <table>
+                <thead>
+                    <tr><th>State</th><th>Position</th><th>Vacancy Rate</th><th>Sanctioned</th><th>In Position</th><th>Opportunity Level</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="priority-high"><td><strong>Kerala</strong></td><td>DCDRC Members</td><td style="color:#c62828; font-weight:800;">93%</td><td>28</td><td>2</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-high"><td><strong>West Bengal</strong></td><td>DCDRC President</td><td style="color:#c62828; font-weight:800;">65%</td><td>-</td><td>-</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-high"><td><strong>Gujarat</strong></td><td>DCDRC President</td><td style="color:#c62828; font-weight:800;">63%</td><td>-</td><td>-</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-high"><td><strong>Gujarat</strong></td><td>DCDRC Members</td><td style="color:#c62828; font-weight:800;">60%</td><td>-</td><td>-</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-high"><td><strong>Telangana</strong></td><td>SCDRC President</td><td style="color:#c62828; font-weight:800;">100%</td><td>1</td><td>0</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-high"><td><strong>17 States</strong></td><td>SCDRC President (Judicial)</td><td style="color:#c62828; font-weight:800;">49%</td><td>35</td><td>18</td><td><span class="badge badge-critical">CRITICAL</span></td></tr>
+                    <tr class="priority-medium"><td><strong>Haryana</strong></td><td>State Info Commissioner</td><td style="color:#e65100; font-weight:700;">Vacant</td><td>-</td><td>-</td><td><span class="badge badge-vacant">High</span></td></tr>
+                    <tr class="priority-medium"><td><strong>Haryana</strong></td><td>SHRC Member</td><td style="color:#e65100; font-weight:700;">Vacant</td><td>-</td><td>-</td><td><span class="badge badge-vacant">High</span></td></tr>
+                    <tr class="priority-medium"><td><strong>Haryana</strong></td><td>Lokayukta</td><td style="color:#e65100; font-weight:700;">Vacant</td><td>-</td><td>-</td><td><span class="badge badge-vacant">High</span></td></tr>
+                    <tr class="priority-medium"><td><strong>All India</strong></td><td>DCDRC (total)</td><td style="color:#e65100; font-weight:700;">39%</td><td>1,384</td><td>849</td><td><span class="badge badge-vacant">High</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-wrapper" style="margin-top:16px;">
+            <div class="table-title">Key Insight</div>
+            <div style="padding:20px; font-size:14px; line-height:1.8;">
+                <p><strong>Why this matters for your father:</strong></p>
+                <ul style="margin-left:20px; margin-top:8px;">
+                    <li>Supreme Court has been actively pushing states to fill these vacancies</li>
+                    <li>State governments are under pressure to appoint - your recommendation support is highly valuable right now</li>
+                    <li>SCDRC President/Member and DCDRC President positions are <strong>directly appointed by state government</strong></li>
+                    <li>With 20+ years experience as advocate + Additional PP background, your father exceeds the minimum qualification for most positions</li>
+                    <li>The vacancy crisis means less competition and faster appointment processes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DAILY CHECKLIST TAB ==================== -->
+    <div class="tab-content" id="tab-daily">
+        <div class="section-title">Daily Monitoring Checklist</div>
+        <p style="margin-bottom:16px; color:var(--text-light); font-size:14px;">Check these portals daily. Tick off as you check each day. Checkmarks reset when you reload the page.</p>
+
+        <div class="checklist-grid">
+            <div class="checklist-card" style="border-left-color: #c62828;">
+                <h3>PRIORITY 1 - Check Every Day</h3>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Dept of Legal Affairs - Vacancy Circulars</a> (All central tribunal posts)</span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://doj.gov.in/vacancy-position/" target="_blank">Dept of Justice - Vacancy Positions</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://www.livelaw.in/tags/judicial-member-vacancy" target="_blank">LiveLaw - Judicial Member Vacancy Tag</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://www.livelaw.in/job-updates" target="_blank">LiveLaw - All Job Updates</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://apptrbmembermca.gov.in/" target="_blank">MCA Portal - NCLT/NCLAT Appointments</a></span></div>
+            </div>
+
+            <div class="checklist-card" style="border-left-color: #e65100;">
+                <h3>PRIORITY 2 - Check Every 2-3 Days</h3>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://nclt.gov.in/job-openings" target="_blank">NCLT Job Openings</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://nclat.nic.in/recruitment" target="_blank">NCLAT Recruitment</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://ncdrc.nic.in/careers.html" target="_blank">NCDRC Careers</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://nhrc.nic.in/activities/vacancies-results" target="_blank">NHRC Vacancies</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://labour.gov.in/" target="_blank">Ministry of Labour - What's New</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://legalaffairs.gov.in/itat-recruitment/" target="_blank">ITAT Recruitment</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://dor.gov.in/gstat-recruitment" target="_blank">GSTAT Recruitment</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://upsconline.gov.in" target="_blank">UPSC ORA Portal</a></span></div>
+            </div>
+
+            <div class="checklist-card" style="border-left-color: #2e7d32;">
+                <h3>PRIORITY 3 - Check Weekly</h3>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://www.allahabadhighcourt.in/misc/tribunal_vacancy.html" target="_blank">Allahabad HC - Tribunal Vacancies</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://www.cercind.gov.in/vacancy.html" target="_blank">Central Electricity Regulatory Commission</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://govtjobguru.in/govt-jobs-by-department/judicial-jobs/" target="_blank">GovtJobGuru - Judicial Jobs</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span><a href="https://judicialcompetitiontimes.in/Jobs/Index" target="_blank">Judicial Competition Times</a></span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Your State High Court Website</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Your State Government Gazette</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Your State RERA Website</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Your State Consumer Commission Website</span></div>
+            </div>
+
+            <div class="checklist-card" style="border-left-color: #1565c0;">
+                <h3>Social Media - Follow These</h3>
+                <div class="checklist-item"><input type="checkbox"><span>@LiveLawIndia (Twitter/X) - posts vacancies instantly</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>@baaboradvo (Twitter/X)</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>Bar & Bench Newsletter - subscribe for email alerts</span></div>
+                <div class="checklist-item"><input type="checkbox"><span>SCC Online - job alerts subscription</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== GOOGLE ALERTS TAB ==================== -->
+    <div class="tab-content" id="tab-alerts">
+        <div class="section-title">Google Alerts Setup - Automated Daily Notifications</div>
+        <p style="margin-bottom:16px; color:var(--text-light); font-size:14px;">
+            Go to <a href="https://www.google.com/alerts" target="_blank" style="color:var(--primary); font-weight:600;">google.com/alerts</a> and create an alert for each query below. Set frequency to "As-it-happens" or "Once a day". Click "Copy" to copy each query.
+        </p>
+
+        <div class="alerts-grid">
+            <div class="alert-item">
+                <div class="alert-query">"judicial member" vacancy tribunal India</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"member judicial" vacancy appointment 2026</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"consumer commission" president member vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"SCDRC" OR "DCDRC" president member vacancy India</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"RERA" "judicial member" OR "appellate tribunal" vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"information commissioner" vacancy appointment India</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"lokayukta" OR "human rights commission" member vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"NCLT" OR "NCLAT" judicial member vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"electricity regulatory commission" member vacancy India</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">site:legalaffairs.gov.in vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">site:livelaw.in judicial member vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+            <div class="alert-item">
+                <div class="alert-query">"presiding officer" "industrial tribunal" OR "labour court" vacancy</div>
+                <button class="copy-btn" onclick="copyAlert(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="table-wrapper" style="margin-top:24px;">
+            <div class="table-title">Setup Instructions</div>
+            <div style="padding:20px; font-size:14px; line-height:2;">
+                <ol>
+                    <li>Go to <a href="https://www.google.com/alerts" target="_blank">google.com/alerts</a></li>
+                    <li>Sign in with your Gmail account</li>
+                    <li>Paste each query from above into the search box</li>
+                    <li>Click "Show options"</li>
+                    <li>Set <strong>How often</strong>: "As-it-happens" (recommended) or "Once a day"</li>
+                    <li>Set <strong>Sources</strong>: "Automatic"</li>
+                    <li>Set <strong>Language</strong>: "English"</li>
+                    <li>Set <strong>Region</strong>: "India"</li>
+                    <li>Set <strong>How many</strong>: "All results"</li>
+                    <li>Set <strong>Deliver to</strong>: Your email</li>
+                    <li>Click <strong>"Create Alert"</strong></li>
+                    <li>Repeat for all 12 queries above</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MASTER POSITIONS TAB ==================== -->
+    <div class="tab-content" id="tab-master">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+            <div class="section-title" style="margin-bottom:0; border:none; padding:0;">Complete Master List - Every Judicial Member Post in India (72 Position Types)</div>
+        </div>
+
+        <div class="stats-bar" id="master-stats">
+            <div class="stat-card"><div class="number" id="master-total">72</div><div class="label">Position Types</div></div>
+            <div class="stat-card"><div class="number success" id="master-eligible">--</div><div class="label">Eligible Positions</div></div>
+            <div class="stat-card"><div class="number" id="master-sanctioned">--</div><div class="label">Total Sanctioned Posts</div></div>
+            <div class="stat-card"><div class="number" id="master-categories">--</div><div class="label">Categories</div></div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="masterCatFilter" onchange="filterMaster()">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Eligibility</label>
+                <select id="masterEligFilter" onchange="filterMaster()">
+                    <option value="all">All</option>
+                    <option value="YES">Definitely Eligible</option>
+                    <option value="CHECK">Needs Checking</option>
+                    <option value="NO">Not Eligible</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <label style="font-size:11px; font-weight:600; text-transform:uppercase; color:var(--text-light); display:block; margin-bottom:4px;">Search</label>
+                <input type="text" id="masterSearch" placeholder="Search tribunal, position, act..." oninput="filterMaster()">
+            </div>
+        </div>
+
+        <div id="master-content"></div>
+    </div>
+
+    <!-- ==================== ALL PORTALS TAB ==================== -->
+    <div class="tab-content" id="tab-portals">
+        <div class="section-title">All Official Portals - Quick Access</div>
+
+        <div class="checklist-grid">
+            <div class="checklist-card">
+                <h3>Central Government</h3>
+                <div class="checklist-item"><span><a href="https://legalaffairs.gov.in/vacancy-circulars" target="_blank">Dept of Legal Affairs - Vacancy Circulars</a></span></div>
+                <div class="checklist-item"><span><a href="https://legalaffairs.gov.in/vacancy-circulars-archives" target="_blank">Dept of Legal Affairs - Archive</a></span></div>
+                <div class="checklist-item"><span><a href="https://doj.gov.in/vacancy-position/" target="_blank">Dept of Justice - Vacancies</a></span></div>
+                <div class="checklist-item"><span><a href="https://upsconline.gov.in" target="_blank">UPSC ORA Portal</a></span></div>
+                <div class="checklist-item"><span><a href="https://labour.gov.in/" target="_blank">Ministry of Labour & Employment</a></span></div>
+                <div class="checklist-item"><span><a href="https://consumeraffairs.gov.in" target="_blank">Ministry of Consumer Affairs</a></span></div>
+            </div>
+
+            <div class="checklist-card">
+                <h3>Tribunals</h3>
+                <div class="checklist-item"><span><a href="https://apptrbmembermca.gov.in/" target="_blank">MCA - NCLT/NCLAT Appointments</a></span></div>
+                <div class="checklist-item"><span><a href="https://nclt.gov.in/job-openings" target="_blank">NCLT Job Openings</a></span></div>
+                <div class="checklist-item"><span><a href="https://nclat.nic.in/recruitment" target="_blank">NCLAT Recruitment</a></span></div>
+                <div class="checklist-item"><span><a href="https://itat.gov.in/" target="_blank">ITAT</a></span></div>
+                <div class="checklist-item"><span><a href="https://dor.gov.in/gstat-recruitment" target="_blank">GSTAT Recruitment</a></span></div>
+                <div class="checklist-item"><span><a href="https://www.cercind.gov.in/vacancy.html" target="_blank">CERC Vacancy</a></span></div>
+            </div>
+
+            <div class="checklist-card">
+                <h3>Commissions</h3>
+                <div class="checklist-item"><span><a href="https://ncdrc.nic.in/careers.html" target="_blank">NCDRC Careers</a></span></div>
+                <div class="checklist-item"><span><a href="https://nhrc.nic.in/activities/vacancies-results" target="_blank">NHRC Vacancies</a></span></div>
+                <div class="checklist-item"><span><a href="http://consumercom.nic.in" target="_blank">Consumer Commissions Directory</a></span></div>
+                <div class="checklist-item"><span><a href="https://lokpal.gov.in" target="_blank">Lokpal Portal</a></span></div>
+            </div>
+
+            <div class="checklist-card">
+                <h3>High Courts (Tribunal Vacancies)</h3>
+                <div class="checklist-item"><span><a href="https://www.allahabadhighcourt.in/misc/tribunal_vacancy.html" target="_blank">Allahabad HC - Tribunal Vacancies</a></span></div>
+                <div class="checklist-item"><span><a href="https://ghconline.gov.in" target="_blank">Gauhati HC</a></span></div>
+                <div class="checklist-item"><span><a href="https://tshc.gov.in" target="_blank">Telangana HC</a></span></div>
+                <div class="checklist-item"><span><a href="https://hcmadras.tn.gov.in/vacancy.php" target="_blank">Madras HC</a></span></div>
+                <div class="checklist-item"><span><a href="https://delhihighcourt.nic.in/web/job-openings" target="_blank">Delhi HC</a></span></div>
+                <div class="checklist-item"><span><a href="https://highcourtchd.gov.in" target="_blank">Punjab & Haryana HC</a></span></div>
+            </div>
+
+            <div class="checklist-card">
+                <h3>RERA (State-wise)</h3>
+                <div class="checklist-item"><span><a href="https://rera.ap.gov.in" target="_blank">AP RERA</a></span></div>
+                <div class="checklist-item"><span><a href="https://rera.telangana.gov.in" target="_blank">Telangana RERA</a></span></div>
+                <div class="checklist-item"><span><a href="https://mahareat.maharashtra.gov.in/" target="_blank">Maharashtra RERA Tribunal</a></span></div>
+                <div class="checklist-item"><span><a href="https://haryanarera.gov.in" target="_blank">Haryana RERA</a></span></div>
+                <div class="checklist-item"><span><a href="https://rera.punjab.gov.in/appellate-tribunal.html" target="_blank">Punjab RERA</a></span></div>
+            </div>
+
+            <div class="checklist-card">
+                <h3>Job Aggregators</h3>
+                <div class="checklist-item"><span><a href="https://www.livelaw.in/job-updates" target="_blank">LiveLaw Job Updates</a></span></div>
+                <div class="checklist-item"><span><a href="https://www.livelaw.in/tags/judicial-member-vacancy" target="_blank">LiveLaw - Judicial Member Tag</a></span></div>
+                <div class="checklist-item"><span><a href="https://govtjobguru.in/govt-jobs-by-department/judicial-jobs/" target="_blank">GovtJobGuru - Judicial Jobs</a></span></div>
+                <div class="checklist-item"><span><a href="https://judicialcompetitiontimes.in/Jobs/Index" target="_blank">Judicial Competition Times</a></span></div>
+                <div class="checklist-item"><span><a href="https://www.freejobalert.com/government-jobs/" target="_blank">FreeJobAlert</a></span></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Set date
+    document.getElementById('lastUpdated').textContent = 'Last Updated: ' + new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+
+    // Tab switching
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('tab-' + tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+
+    // Filter states
+    function filterStates() {
+        const region = document.getElementById('regionFilter').value;
+        const position = document.getElementById('positionFilter').value;
+        const status = document.getElementById('statusFilter').value;
+        const search = document.getElementById('stateSearch').value.toLowerCase();
+
+        document.querySelectorAll('.region-section').forEach(section => {
+            const sectionRegion = section.getAttribute('data-region');
+            if (region === 'all' || sectionRegion === region) {
+                section.style.display = '';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('.state-rows tr').forEach(row => {
+            const rowType = row.getAttribute('data-type');
+            const rowStatus = row.getAttribute('data-status');
+            const rowText = row.textContent.toLowerCase();
+
+            let show = true;
+            if (position !== 'all' && rowType !== position) show = false;
+            if (status !== 'all' && rowStatus !== status) show = false;
+            if (search && !rowText.includes(search)) show = false;
+
+            row.style.display = show ? '' : 'none';
+        });
+    }
+
+    // Copy alert query
+    function copyAlert(btn) {
+        const query = btn.previousElementSibling.textContent;
+        navigator.clipboard.writeText(query).then(() => {
+            btn.textContent = 'Copied!';
+            btn.style.background = '#2e7d32';
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.style.background = '';
+            }, 2000);
+        });
+    }
+
+    // ============================================================
+    // LIVE DATA FEED
+    // ============================================================
+    let liveData = null;
+    let currentSort = { field: null, asc: true };
+
+    function loadLiveData() {
+        const statusEl = document.getElementById('live-status');
+        statusEl.textContent = 'Loading...';
+        statusEl.style.color = 'var(--warning)';
+
+        fetch('data.json?' + Date.now())
+            .then(r => {
+                if (!r.ok) throw new Error('data.json not found. Run the scraper first.');
+                return r.json();
+            })
+            .then(d => {
+                liveData = d;
+                renderLiveData();
+                statusEl.textContent = 'Data loaded successfully';
+                statusEl.style.color = 'var(--success)';
+
+                // Update dashboard live count
+                const dashTotal = document.getElementById('live-total');
+                if (dashTotal) dashTotal.textContent = d.vacancies.length;
+            })
+            .catch(err => {
+                statusEl.textContent = 'Error: ' + err.message;
+                statusEl.style.color = 'var(--danger)';
+                document.getElementById('live-tbody').innerHTML =
+                    '<tr><td colspan="7" style="text-align:center; padding:40px; color:var(--danger);">' +
+                    '<strong>No live data found.</strong><br><br>' +
+                    'Run the scraper to fetch data:<br>' +
+                    '<code style="background:#f5f5f5; padding:8px 12px; border-radius:4px; display:inline-block; margin-top:8px;">' +
+                    'cd /Users/harshakolla/Nanna/vacancies && source venv/bin/activate && python3 scraper.py</code>' +
+                    '</td></tr>';
+            });
+    }
+
+    function getDeadlineInfo(lastDate) {
+        if (!lastDate) return { daysLeft: null, cls: 'deadline-normal', label: '--' };
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const deadline = new Date(lastDate);
+        deadline.setHours(0, 0, 0, 0);
+        const diff = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+        if (diff < 0) return { daysLeft: diff, cls: 'deadline-expired', label: 'Expired' };
+        if (diff <= 7) return { daysLeft: diff, cls: 'deadline-urgent', label: diff === 0 ? 'TODAY' : diff + 'd left' };
+        if (diff <= 30) return { daysLeft: diff, cls: 'deadline-warning', label: diff + 'd left' };
+        return { daysLeft: diff, cls: 'deadline-normal', label: diff + 'd left' };
+    }
+
+    function formatDate(dateStr) {
+        if (!dateStr) return '--';
+        try {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        } catch(e) { return dateStr; }
+    }
+
+    function buildLinkButtons(v) {
+        const applyUrl = v.apply_url;
+        const sourceUrl = v.url;
+
+        if (applyUrl && applyUrl !== sourceUrl) {
+            // apply_url exists and is different from url
+            const isPdf = applyUrl.toLowerCase().endsWith('.pdf');
+            const btnClass = isPdf ? 'pdf-btn' : 'visit-btn';
+            const btnLabel = isPdf ? 'Download PDF' : 'Apply/View';
+            return `<a class="${btnClass}" href="${applyUrl}" target="_blank">${btnLabel}</a> <a class="source-btn" href="${sourceUrl}" target="_blank">Source</a>`;
+        } else if (applyUrl) {
+            // apply_url exists but same as url
+            const isPdf = applyUrl.toLowerCase().endsWith('.pdf');
+            if (isPdf) {
+                return `<a class="pdf-btn" href="${applyUrl}" target="_blank">Download PDF</a>`;
+            }
+            return `<a class="visit-btn" href="${applyUrl}" target="_blank">Open</a>`;
+        } else {
+            // Only url exists
+            return `<a class="visit-btn" href="${sourceUrl}" target="_blank">Open</a>`;
+        }
+    }
+
+    function renderLiveData() {
+        if (!liveData) return;
+
+        // Compute active/expired counts
+        const activeCount = liveData.active_count !== undefined ? liveData.active_count : liveData.vacancies.filter(v => v.status === 'active').length;
+        const expiredCount = liveData.expired_count !== undefined ? liveData.expired_count : liveData.vacancies.filter(v => v.status === 'expired').length;
+
+        // Stats
+        document.getElementById('live-total').textContent = liveData.vacancies.length;
+        document.getElementById('live-active').textContent = activeCount;
+        document.getElementById('live-expired').textContent = expiredCount;
+        document.getElementById('live-sources').textContent = liveData.sources.length;
+        document.getElementById('live-errors').textContent = liveData.errors.length;
+        document.getElementById('live-updated').textContent = liveData.last_updated || '--';
+        document.getElementById('vacancy-count').textContent = liveData.vacancies.length;
+        document.getElementById('source-count').textContent = liveData.sources.length;
+
+        // Dashboard active/expired
+        document.getElementById('dash-active').textContent = activeCount;
+        document.getElementById('dash-expired').textContent = expiredCount;
+
+        // Update header last updated
+        document.getElementById('lastUpdated').textContent = 'Data: ' + (liveData.last_updated || 'N/A');
+
+        // Source status grid
+        const sgrid = document.getElementById('source-status-grid');
+        sgrid.innerHTML = liveData.sources.map(s => {
+            const isOk = s.status === 'ok';
+            const color = isOk ? '#e8f5e9' : '#fce4ec';
+            const icon = isOk ? 'OK' : 'ERR';
+            const iconColor = isOk ? '#2e7d32' : '#c62828';
+            return `<div style="background:${color}; padding:8px 12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; font-size:12px;">
+                <a href="${s.url}" target="_blank" style="color:var(--text); text-decoration:none; font-weight:500;">${s.name}</a>
+                <span style="color:${iconColor}; font-weight:700; font-size:11px;">${icon}</span>
+            </div>`;
+        }).join('');
+
+        // Populate filter dropdowns
+        const sources = [...new Set(liveData.vacancies.map(v => v.source))].sort();
+        const categories = [...new Set(liveData.vacancies.map(v => v.category))].sort();
+
+        const srcSelect = document.getElementById('liveSourceFilter');
+        srcSelect.innerHTML = '<option value="all">All Sources (' + liveData.vacancies.length + ')</option>' +
+            sources.map(s => {
+                const cnt = liveData.vacancies.filter(v => v.source === s).length;
+                return `<option value="${s}">${s} (${cnt})</option>`;
+            }).join('');
+
+        const catSelect = document.getElementById('liveCategoryFilter');
+        catSelect.innerHTML = '<option value="all">All Categories</option>' +
+            categories.map(c => `<option value="${c}">${c}</option>`).join('');
+
+        // Render urgent deadlines section
+        renderUrgentDeadlines();
+
+        // Render dashboard deadline widget
+        renderDashDeadlines();
+
+        filterLiveData();
+    }
+
+    function renderUrgentDeadlines() {
+        const section = document.getElementById('urgent-deadlines-section');
+        const list = document.getElementById('urgent-deadlines-list');
+        const badge = document.getElementById('urgent-count-badge');
+
+        // Get upcoming deadlines: either from data.upcoming_deadlines or compute
+        let upcoming = [];
+        if (liveData.upcoming_deadlines && liveData.upcoming_deadlines.length > 0) {
+            upcoming = liveData.upcoming_deadlines;
+        } else {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            upcoming = liveData.vacancies.filter(v => {
+                if (!v.last_date || v.status === 'expired') return false;
+                const dl = new Date(v.last_date);
+                dl.setHours(0, 0, 0, 0);
+                const diff = (dl - today) / (1000 * 60 * 60 * 24);
+                return diff >= 0 && diff <= 30;
+            });
+        }
+
+        // Sort by soonest deadline first
+        upcoming.sort((a, b) => new Date(a.last_date) - new Date(b.last_date));
+
+        if (upcoming.length === 0) {
+            section.style.display = 'none';
+            return;
+        }
+
+        section.style.display = '';
+        badge.textContent = upcoming.length;
+
+        list.innerHTML = upcoming.map(v => {
+            const info = getDeadlineInfo(v.last_date);
+            const daysCls = info.daysLeft <= 7 ? 'critical' : 'warn';
+            return `<div class="urgent-item">
+                <span class="days-left ${daysCls}">${info.label}</span>
+                <span class="urgent-title"><a href="${v.apply_url || v.url}" target="_blank" style="color:var(--text); text-decoration:none;">${v.title}</a></span>
+                <span class="urgent-source">${v.source || ''}</span>
+                <span style="font-size:12px; color:var(--text-light);">${formatDate(v.last_date)}</span>
+                ${buildLinkButtons(v)}
+            </div>`;
+        }).join('');
+    }
+
+    function renderDashDeadlines() {
+        const widget = document.getElementById('dash-deadline-widget');
+        const list = document.getElementById('dash-deadline-list');
+
+        // Get upcoming deadlines, take top 5
+        let upcoming = [];
+        if (liveData.upcoming_deadlines && liveData.upcoming_deadlines.length > 0) {
+            upcoming = [...liveData.upcoming_deadlines];
+        } else {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            upcoming = liveData.vacancies.filter(v => {
+                if (!v.last_date || v.status === 'expired') return false;
+                const dl = new Date(v.last_date);
+                dl.setHours(0, 0, 0, 0);
+                const diff = (dl - today) / (1000 * 60 * 60 * 24);
+                return diff >= 0 && diff <= 30;
+            });
+        }
+
+        upcoming.sort((a, b) => new Date(a.last_date) - new Date(b.last_date));
+        upcoming = upcoming.slice(0, 5);
+
+        if (upcoming.length === 0) {
+            widget.style.display = 'none';
+            return;
+        }
+
+        widget.style.display = '';
+        list.innerHTML = upcoming.map(v => {
+            const info = getDeadlineInfo(v.last_date);
+            const daysCls = info.daysLeft <= 7 ? 'critical' : 'warn';
+            return `<div class="dw-item">
+                <span class="days-left ${daysCls}" style="min-width:60px; text-align:center; padding:4px 8px; border-radius:8px; font-weight:700; font-size:12px;">${info.label}</span>
+                <span style="flex:1;"><a href="${v.apply_url || v.url}" target="_blank" style="color:var(--text); text-decoration:none; font-size:13px;">${v.title}</a></span>
+                <span style="font-size:11px; color:var(--text-light);">${formatDate(v.last_date)}</span>
+            </div>`;
+        }).join('');
+    }
+
+    function filterLiveData() {
+        if (!liveData) return;
+
+        const src = document.getElementById('liveSourceFilter').value;
+        const cat = document.getElementById('liveCategoryFilter').value;
+        const statusFilter = document.getElementById('liveStatusFilter').value;
+        const search = document.getElementById('liveSearch').value.toLowerCase();
+
+        let filtered = liveData.vacancies.filter(v => {
+            if (src !== 'all' && v.source !== src) return false;
+            if (cat !== 'all' && v.category !== cat) return false;
+            if (statusFilter === 'active' && v.status === 'expired') return false;
+            if (statusFilter === 'expired' && v.status !== 'expired') return false;
+            if (search && !v.title.toLowerCase().includes(search) && !v.source.toLowerCase().includes(search) && !v.category.toLowerCase().includes(search)) return false;
+            return true;
+        });
+
+        // Sort
+        if (currentSort.field) {
+            filtered.sort((a, b) => {
+                const va = (a[currentSort.field] || '').toLowerCase();
+                const vb = (b[currentSort.field] || '').toLowerCase();
+                return currentSort.asc ? va.localeCompare(vb) : vb.localeCompare(va);
+            });
+        }
+
+        document.getElementById('vacancy-count').textContent = filtered.length;
+
+        const tbody = document.getElementById('live-tbody');
+        if (filtered.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:20px; color:var(--text-light);">No matching vacancies found</td></tr>';
+            return;
+        }
+
+        const categoryColors = {
+            'Central Tribunal': '#e8eaf6',
+            'Consumer Commission': '#fce4ec',
+            'Commission': '#f3e5f5',
+            'Job Update': '#e0f2f1',
+            'Job Aggregator': '#fff3e0',
+            'Tribunal Vacancy': '#e3f2fd',
+            'Industrial Tribunal': '#fbe9e7',
+            'State RERA': '#f1f8e9',
+            'UPSC': '#fff8e1',
+            'Central Government': '#e8f5e9',
+            'Electricity Commission': '#fff9c4',
+        };
+
+        tbody.innerHTML = filtered.map((v, i) => {
+            const bgColor = categoryColors[v.category] || '#f5f5f5';
+            const isExpired = v.status === 'expired';
+            const rowClass = isExpired ? 'row-expired' : '';
+            const dlInfo = getDeadlineInfo(v.last_date);
+
+            // Deadline cell content
+            let deadlineHtml = '<span style="color:#9e9e9e; font-style:italic; font-size:12px;">Check portal</span>';
+            if (v.last_date) {
+                deadlineHtml = `<span class="${dlInfo.cls}">${formatDate(v.last_date)}</span>`;
+                if (dlInfo.daysLeft !== null) {
+                    if (dlInfo.daysLeft < 0) {
+                        deadlineHtml += `<br><span style="font-size:11px; color:#9e9e9e;">(expired)</span>`;
+                    } else if (dlInfo.daysLeft <= 3) {
+                        deadlineHtml += `<br><span style="font-size:11px; color:var(--danger); font-weight:600;">(${dlInfo.daysLeft === 0 ? 'TODAY' : dlInfo.daysLeft + ' days left'})</span>`;
+                    } else {
+                        deadlineHtml += `<br><span style="font-size:11px; color:var(--success);">(${dlInfo.daysLeft} days left)</span>`;
+                    }
+                }
+            }
+
+            return `<tr class="${rowClass}">
+                <td style="color:var(--text-light); font-size:12px;">${i + 1}</td>
+                <td><strong style="font-size:13px;">${v.source}</strong></td>
+                <td><span style="background:${bgColor}; padding:3px 8px; border-radius:8px; font-size:11px; font-weight:600;">${v.category}</span></td>
+                <td style="max-width:400px;"><a href="${v.apply_url || v.url}" target="_blank" class="vacancy-title" style="color:var(--text); text-decoration:none; font-size:13px;">${v.title}</a></td>
+                <td style="font-size:12px; white-space:nowrap;">${v.posted_date ? formatDate(v.posted_date) : '-'}</td>
+                <td style="font-size:12px; white-space:nowrap;">${deadlineHtml}</td>
+                <td>${buildLinkButtons(v)}</td>
+            </tr>`;
+        }).join('');
+    }
+
+    function sortLive(field) {
+        if (currentSort.field === field) {
+            currentSort.asc = !currentSort.asc;
+        } else {
+            currentSort.field = field;
+            currentSort.asc = true;
+        }
+        filterLiveData();
+    }
+
+    // ============================================================
+    // MASTER POSITIONS LIST
+    // ============================================================
+    let masterData = null;
+
+    function loadMasterData() {
+        fetch('positions.json?' + Date.now())
+            .then(r => r.json())
+            .then(d => {
+                masterData = d;
+                renderMasterData();
+            })
+            .catch(err => {
+                document.getElementById('master-content').innerHTML =
+                    '<div class="table-wrapper"><div style="padding:40px; text-align:center; color:var(--danger);">Could not load positions.json</div></div>';
+            });
+    }
+
+    function renderMasterData() {
+        if (!masterData) return;
+
+        const allPositions = masterData.categories.flatMap(c => c.positions.map(p => ({...p, categoryName: c.name})));
+        const totalSanctioned = allPositions.reduce((s, p) => s + (p.total_sanctioned || 0), 0);
+        const eligibleCount = allPositions.filter(p => p.eligible && p.eligible.startsWith('YES')).length;
+
+        document.getElementById('master-total').textContent = allPositions.length;
+        document.getElementById('master-eligible').textContent = eligibleCount;
+        document.getElementById('master-sanctioned').textContent = totalSanctioned.toLocaleString();
+        document.getElementById('master-categories').textContent = masterData.categories.length;
+
+        // Populate category filter
+        const catSelect = document.getElementById('masterCatFilter');
+        catSelect.innerHTML = '<option value="all">All Categories (' + allPositions.length + ')</option>' +
+            masterData.categories.map(c => `<option value="${c.name}">${c.name} (${c.positions.length})</option>`).join('');
+
+        filterMaster();
+    }
+
+    function filterMaster() {
+        if (!masterData) return;
+
+        const cat = document.getElementById('masterCatFilter').value;
+        const elig = document.getElementById('masterEligFilter').value;
+        const search = document.getElementById('masterSearch').value.toLowerCase();
+
+        let html = '';
+        masterData.categories.forEach(category => {
+            if (cat !== 'all' && category.name !== cat) return;
+
+            let positions = category.positions;
+            if (elig !== 'all') {
+                positions = positions.filter(p => {
+                    if (elig === 'YES') return p.eligible && p.eligible.startsWith('YES');
+                    if (elig === 'CHECK') return p.eligible && p.eligible.startsWith('CHECK');
+                    if (elig === 'NO') return p.eligible && p.eligible.startsWith('NO');
+                    return true;
+                });
+            }
+            if (search) {
+                positions = positions.filter(p =>
+                    (p.tribunal + ' ' + p.position + ' ' + p.eligibility + ' ' + p.act + ' ' + p.eligible).toLowerCase().includes(search)
+                );
+            }
+            if (positions.length === 0) return;
+
+            const eligColors = {'YES': 'badge-active', 'CHECK': 'badge-check', 'NO': 'badge-vacant'};
+
+            html += `<div class="table-wrapper" style="margin-bottom:16px;">
+                <div class="table-title">${category.name} <span style="font-size:12px; font-weight:400; color:var(--text-light); margin-left:8px;">${category.description}</span> <span class="count">${positions.length}</span></div>
+                <table>
+                    <thead><tr>
+                        <th style="width:30px">#</th>
+                        <th>Tribunal / Body</th>
+                        <th>Position</th>
+                        <th>Sanctioned</th>
+                        <th>Eligibility</th>
+                        <th>Your Match</th>
+                        <th>Salary</th>
+                        <th>Tenure</th>
+                        <th>Appointing Authority</th>
+                        <th>Portal</th>
+                    </tr></thead>
+                    <tbody>${positions.map(p => {
+                        const eligClass = p.eligible.startsWith('YES') ? 'eligibility-yes' :
+                                          p.eligible.startsWith('CHECK') ? 'eligibility-partial' : 'eligibility-check';
+                        const badgeClass = p.eligible.startsWith('YES') ? 'badge-active' :
+                                           p.eligible.startsWith('CHECK') ? 'badge-check' : 'badge-vacant';
+                        const portalLink = p.portal.startsWith('http') ?
+                            `<a class="visit-btn" href="${p.portal}" target="_blank">Visit</a>` :
+                            `<span style="font-size:11px; color:var(--text-light);">${p.portal}</span>`;
+                        return `<tr class="${p.eligible.startsWith('YES') ? 'priority-low' : p.eligible.startsWith('NO') ? '' : 'priority-medium'}">
+                            <td style="font-size:11px; color:var(--text-light);">${p.id}</td>
+                            <td><strong style="font-size:13px;">${p.tribunal}</strong><br><span style="font-size:11px; color:var(--text-light);">${p.act || ''}</span></td>
+                            <td style="font-weight:600;">${p.position}</td>
+                            <td style="text-align:center; font-weight:600;">${p.total_sanctioned}</td>
+                            <td style="font-size:12px; max-width:200px;">${p.eligibility}</td>
+                            <td><span class="badge ${badgeClass}">${p.eligible}</span></td>
+                            <td style="font-size:12px;">${p.salary || '-'}</td>
+                            <td style="font-size:12px;">${p.tenure || '-'}</td>
+                            <td style="font-size:12px;">${p.appointing_authority || '-'}</td>
+                            <td>${portalLink}</td>
+                        </tr>`;
+                    }).join('')}</tbody>
+                </table>
+            </div>`;
+        });
+
+        document.getElementById('master-content').innerHTML = html || '<div class="table-wrapper"><div style="padding:40px; text-align:center; color:var(--text-light);">No positions match your filters</div></div>';
+    }
+
+    // Load all data on page load
+    loadLiveData();
+    loadMasterData();
+</script>
+
+</body>
+</html>
