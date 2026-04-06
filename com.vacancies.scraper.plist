@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.vacancies.scraper</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/harshakolla/Nanna/vacancies/run_scraper.sh</string>
+    </array>
+
+    <!-- Run daily at 8:00 AM and 6:00 PM -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>8</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>18</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/Users/harshakolla/Nanna/vacancies/logs/launchd_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/harshakolla/Nanna/vacancies/logs/launchd_stderr.log</string>
+
+    <!-- Working directory -->
+    <key>WorkingDirectory</key>
+    <string>/Users/harshakolla/Nanna/vacancies</string>
+
+    <!-- Environment variables -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+</dict>
+</plist>

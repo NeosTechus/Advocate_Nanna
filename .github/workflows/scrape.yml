@@ -1,0 +1,44 @@
+name: Daily Vacancy Scraper
+
+on:
+  schedule:
+    # 8 AM IST = 2:30 AM UTC
+    - cron: '30 2 * * *'
+    # 6 PM IST = 12:30 PM UTC
+    - cron: '30 12 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml feedparser
+
+      - name: Run scraper
+        run: python3 scraper.py
+        timeout-minutes: 10
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update vacancy data $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

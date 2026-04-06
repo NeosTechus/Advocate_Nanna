@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Judicial Vacancy Tracker</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0f172a;--navy-mid:#1e293b;--navy-light:#334155;
+  --blue:#2563eb;--blue-light:#3b82f6;--blue-bg:#eff6ff;
+  --saffron:#ea580c;--saffron-light:#f97316;--saffron-bg:#fff7ed;
+  --green:#16a34a;--green-bg:#f0fdf4;
+  --red:#dc2626;--red-bg:#fef2f2;
+  --amber:#d97706;--amber-bg:#fffbeb;
+  --bg:#f8fafc;--white:#fff;
+  --text:#0f172a;--text-2:#475569;--text-3:#94a3b8;
+  --border:#e2e8f0;--border-light:#f1f5f9;
+  --r:10px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.hdr{background:var(--navy);border-bottom:3px solid var(--saffron)}
+.hdr-in{max-width:1200px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;color:#fff}
+.logo-box{width:40px;height:40px;background:var(--saffron);border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:16px;color:#fff}
+.logo h1{font-size:18px;font-weight:700;letter-spacing:-.3px}
+.logo small{display:block;font-size:11px;color:#94a3b8;font-weight:400}
+.hdr-r{color:#94a3b8;font-size:12px;text-align:right}
+.hdr-r b{color:#e2e8f0;font-size:14px}
+.live{display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;animation:blink 2s infinite;margin-right:3px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* SEARCH */
+.srch{background:var(--navy-mid);padding:12px 0}
+.srch-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.srch-box{flex:1;min-width:260px;position:relative}
+.srch-box input{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--navy-light);border-radius:8px;font-size:14px;background:var(--navy);color:#fff;outline:none}
+.srch-box input:focus{border-color:var(--blue)}
+.srch-box input::placeholder{color:#64748b}
+.srch-box .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#64748b}
+select.pill{padding:8px 12px;border-radius:8px;font-size:13px;border:1px solid var(--navy-light);background:var(--navy);color:#cbd5e1;cursor:pointer;outline:none}
+select.pill:focus{border-color:var(--blue)}
+select.pill option{background:var(--navy)}
+.btn-pill{padding:8px 14px;border-radius:8px;font-size:13px;border:1px solid var(--navy-light);background:transparent;color:#cbd5e1;cursor:pointer;font-weight:600}
+.btn-pill.on{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* MAIN */
+.mn{max-width:1200px;margin:0 auto;padding:20px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:20px}
+.st{background:#fff;border-radius:var(--r);padding:14px 16px;text-align:center;border:1px solid var(--border)}
+.st b{font-size:26px;display:block;line-height:1.2}
+.st span{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3)}
+.st b.g{color:var(--green)}.st b.r{color:var(--red)}.st b.a{color:var(--amber)}.st b.bl{color:var(--blue)}
+
+/* ALERT BANNER */
+.alert{background:var(--red-bg);border:1px solid #fecaca;border-radius:var(--r);padding:14px 18px;margin-bottom:18px;display:none}
+.alert h4{font-size:13px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.3px;margin-bottom:8px}
+.alert-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:13px;border-bottom:1px solid #fee2e2}
+.alert-row:last-child{border:none}
+.alert-row a{color:var(--text);font-weight:500}
+.alert-row a:hover{color:var(--blue)}
+.alert-tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.alert-tag.crit{background:#dc2626;color:#fff}
+.alert-tag.warn{background:#f59e0b;color:#fff}
+
+/* NAV TABS */
+.nav{display:flex;gap:2px;margin-bottom:18px;border-bottom:2px solid var(--border);padding-bottom:0}
+.nav button{padding:10px 16px;font-size:14px;font-weight:600;border:none;background:none;cursor:pointer;color:var(--text-3);border-bottom:2px solid transparent;margin-bottom:-2px;transition:.15s}
+.nav button:hover{color:var(--text)}
+.nav button.on{color:var(--blue);border-bottom-color:var(--blue)}
+.nav .cnt{font-size:11px;background:var(--border-light);padding:1px 7px;border-radius:8px;margin-left:4px;color:var(--text-2)}
+.nav button.on .cnt{background:var(--blue-bg);color:var(--blue)}
+
+/* JOB CARDS */
+.jobs{display:flex;flex-direction:column;gap:8px}
+.card{background:#fff;border-radius:var(--r);padding:16px 18px;border:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;transition:.12s}
+.card:hover{border-color:var(--blue-light);box-shadow:0 2px 8px rgba(37,99,235,.08)}
+.card.urg{border-left:3px solid var(--red)}
+.card.wrn{border-left:3px solid var(--amber)}
+.card.exp{opacity:.45;border-left:3px solid var(--border)}
+.card.exp .ttl a{text-decoration:line-through;color:var(--text-3)}
+
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.3px}
+.tag.src{background:var(--blue-bg);color:var(--blue)}
+.tag.cat{background:var(--border-light);color:var(--text-2)}
+.tag.pos{background:var(--green-bg);color:var(--green)}
+.tag.lvl{background:var(--saffron-bg);color:var(--saffron)}
+.ttl{font-size:15px;font-weight:600;line-height:1.4;margin-bottom:5px}
+.ttl a{color:var(--text);text-decoration:none}
+.ttl a:hover{color:var(--blue)}
+.meta{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--text-2)}
+.meta i{font-style:normal;margin-right:2px}
+
+.acts{display:flex;flex-direction:column;align-items:flex-end;gap:5px;min-width:100px}
+.bdg{font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;text-align:center;white-space:nowrap}
+.bdg.open{background:var(--green-bg);color:var(--green)}
+.bdg.soon{background:var(--amber-bg);color:var(--amber)}
+.bdg.crit{background:var(--red-bg);color:var(--red)}
+.bdg.gone{background:var(--border-light);color:var(--text-3)}
+.bdg.unk{background:var(--bg);color:var(--text-3);font-weight:500;border:1px solid var(--border)}
+.abtn{display:inline-flex;align-items:center;gap:3px;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;color:#fff;text-decoration:none;transition:.1s}
+.abtn:hover{opacity:.85;text-decoration:none}
+.abtn.pri{background:var(--blue)}
+.abtn.pdf{background:var(--saffron)}
+.abtn.sec{background:var(--navy);font-size:12px;padding:6px 12px}
+
+/* REFERENCE GUIDE */
+.rsec{display:none}
+.ref-banner{background:#f0f9ff;border:1px solid #bae6fd;border-radius:var(--r);padding:12px 18px;margin-bottom:16px;font-size:13px;color:#0369a1;display:flex;align-items:center;gap:8px}
+.ref-banner svg{flex-shrink:0}
+.ref-cat{background:#fff;border-radius:var(--r);border:1px solid var(--border);margin-bottom:12px;overflow:hidden}
+.ref-cat-h{background:linear-gradient(135deg,#f8fafc,#f1f5f9);padding:14px 18px;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background .15s;user-select:none}
+.ref-cat-h:hover{background:linear-gradient(135deg,#eff6ff,#e0f2fe)}
+.ref-cat-h .ref-cnt{font-size:11px;background:var(--blue-bg);color:var(--blue);padding:2px 10px;border-radius:10px;font-weight:600}
+.ref-cat-h .ref-chev{transition:transform .2s;color:var(--text-3)}
+.ref-cat-h.open .ref-chev{transform:rotate(180deg)}
+.ref-cat-desc{font-size:12px;color:var(--text-2);font-weight:400;margin-left:8px}
+.ref-body{display:none;padding:0}
+.ref-body.open{display:block}
+.ref-row{display:grid;grid-template-columns:1.5fr 1fr 60px 1.6fr 70px 1fr auto;gap:10px;padding:12px 18px;border-bottom:1px solid var(--border-light);align-items:start;font-size:12px;transition:background .1s}
+.ref-row:hover{background:#fafbfe}
+.ref-row:last-child{border-bottom:none}
+.ref-hdr{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-3);font-weight:700;background:var(--bg);padding:8px 18px;border-bottom:1px solid var(--border);position:sticky;top:0}
+.ref-name{font-weight:700;color:var(--navy);font-size:13px;line-height:1.4}
+.ref-name small{display:block;font-size:10px;color:var(--text-3);font-weight:400;margin-top:1px}
+.ref-pos{font-weight:600;color:var(--text)}
+.ref-posts{text-align:center;font-weight:800;color:var(--blue);font-size:14px}
+.ref-elig{color:var(--text-2);line-height:1.4;max-width:220px}
+.ref-match{font-weight:700;font-size:11px;padding:3px 8px;border-radius:6px;text-align:center;white-space:nowrap;display:inline-block}
+.ref-match.yes{background:var(--green-bg);color:var(--green)}
+.ref-match.check{background:var(--amber-bg);color:var(--amber)}
+.ref-auth{color:var(--text-2);font-size:11px;line-height:1.3}
+.ref-visit{display:inline-flex;align-items:center;gap:3px;padding:5px 10px;border-radius:6px;font-size:11px;font-weight:600;color:var(--blue);text-decoration:none;border:1px solid var(--blue-bg);background:var(--blue-bg);transition:.15s;white-space:nowrap}
+.ref-visit:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+@media(max-width:900px){
+  .ref-row{grid-template-columns:1fr;gap:4px}
+  .ref-hdr{display:none}
+  .ref-row>div:before{content:attr(data-label);font-size:10px;color:var(--text-3);text-transform:uppercase;font-weight:600;display:block;margin-bottom:1px}
+}
+
+/* PORTAL STATUS DOTS (used in Reference Guide) */
+.pdot{width:7px;height:7px;border-radius:50%;display:inline-block}.pdot.ok{background:var(--green)}.pdot.er{background:var(--red)}
+
+/* ELIGIBILITY FILTER BUTTONS */
+.elig-btn{padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);color:var(--text-2);cursor:pointer;margin-left:4px}
+.elig-btn:hover{border-color:var(--blue)}
+.elig-btn.on{background:var(--green);border-color:var(--green);color:#fff}
+
+/* NEWS */
+.nsec{display:none}
+.ncard{background:#fff;border-radius:var(--r);padding:16px 18px;border:1px solid var(--border);margin-bottom:8px;transition:.12s}
+.ncard:hover{border-color:var(--blue-light);box-shadow:0 2px 8px rgba(37,99,235,.08)}
+.ncard .ndate{font-size:11px;color:var(--text-3);font-weight:600;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px}
+.ncard .ntitle{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ncard .ntitle a{color:var(--text);text-decoration:none}
+.ncard .ntitle a:hover{color:var(--blue)}
+.ncard .nsrc{font-size:12px;color:var(--blue);font-weight:600}
+.ncard .ndesc{font-size:13px;color:var(--text-2);margin-top:4px;line-height:1.5}
+
+/* EMPTY */
+.empty{text-align:center;padding:48px 20px;color:var(--text-3)}
+.empty h3{color:var(--text-2);font-size:16px;margin-bottom:6px}
+
+/* FOOTER */
+.ft{max-width:1200px;margin:32px auto 16px;padding:0 20px;text-align:center;font-size:11px;color:var(--text-3)}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hdr-in{padding:14px 16px}.mn{padding:14px 16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .card{grid-template-columns:1fr;gap:10px}
+  .acts{flex-direction:row;align-items:center;flex-wrap:wrap}
+  .nav button{padding:8px 10px;font-size:13px}
+  .pgrid{grid-template-columns:1fr}
+}
+@media print{.hdr,.srch,.nav,.acts,.ft{display:none!important}.card{border:1px solid #ccc;box-shadow:none;page-break-inside:avoid}.mn{padding:0}}
+</style>
+</head>
+<body>
+
+<header class="hdr"><div class="hdr-in">
+  <div class="logo"><div class="logo-box">JV</div><div><h1>Judicial Vacancy Tracker</h1><small>Tribunals, Commissions & Govt Posts</small></div></div>
+  <div class="hdr-r"><div><span class="live"></span> <b id="h-act">--</b> Active Openings</div><div id="h-upd">Updated: --</div></div>
+</div></header>
+
+<div class="srch"><div class="srch-in">
+  <div class="srch-box">
+    <span class="ico"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="m11 11 3 3"/></svg></span>
+    <input type="text" id="q" placeholder="Search tribunal, position, keyword...">
+  </div>
+  <select class="pill" id="fp"><option value="">All Positions</option></select>
+  <select class="pill" id="fl"><option value="">All Levels</option></select>
+  <select class="pill" id="fc"><option value="">All Categories</option></select>
+  <select class="pill" id="fs"><option value="">All Sources</option></select>
+  <button class="btn-pill on" id="fst">Active Only</button>
+  <button class="btn-pill" id="fcl">Clear Filters</button>
+</div></div>
+
+<main class="mn">
+  <div class="stats">
+    <div class="st"><b class="bl" id="s1">--</b><span>Total</span></div>
+    <div class="st"><b class="g" id="s2">--</b><span>Active</span></div>
+    <div class="st"><b class="r" id="s3">--</b><span>Closing Soon</span></div>
+    <div class="st"><b class="a" id="s4">--</b><span>With Deadline</span></div>
+    <div class="st"><b id="s5">--</b><span>Sources</span></div>
+  </div>
+
+  <div class="alert" id="alrt">
+    <h4>Closing Soon - Apply Now</h4>
+    <div id="alrt-body"></div>
+  </div>
+
+  <div class="nav">
+    <button class="on" data-v="jobs">Vacancies <span class="cnt" id="nc">0</span></button>
+    <button data-v="recent">Recent <span class="cnt" id="rc">0</span></button>
+    <button data-v="refguide">Reference Guide <span class="cnt" id="rgc">100</span></button>
+    <button data-v="news">News <span class="cnt" id="nnc">0</span></button>
+  </div>
+
+  <div id="v-jobs" class="jobs"></div>
+  <div id="v-recent" class="jobs" style="display:none"></div>
+  <div id="v-refguide" class="rsec"></div>
+  <div id="v-news" class="nsec" style="display:none"></div>
+</main>
+
+<footer class="ft">Judicial Vacancy Tracker &middot; Scrapes 40+ official portals &middot; Run <code>./refresh.sh</code> to update</footer>
+
+<script>
+let D=null,P=null,hideExp=true,view='jobs',eligFilter='yes';
+
+async function boot(){
+  try{
+    const[a,b]=await Promise.all([fetch('data.json?'+Date.now()),fetch('positions.json?'+Date.now()).catch(()=>null)]);
+    D=await a.json();
+    if(b&&b.ok)P=await b.json();
+    go();
+  }catch(e){
+    $('v-jobs').innerHTML='<div class="empty"><h3>No data found</h3><p>Run <code>./refresh.sh</code> to scrape</p></div>';
+  }
+}
+
+function go(){
+  if(!D)return;
+  // Pre-filter once — keep clean list but preserve full list for News
+  D._allVacancies=D.vacancies||[];
+  D.vacancies=D._allVacancies.filter(isVacancy);
+  if(D.summary&&D.summary.upcoming_deadlines){
+    D.summary.upcoming_deadlines=D.summary.upcoming_deadlines.filter(isVacancy);
+  }
+  const v=D.vacancies.filter(x=>x.last_date),s=D.summary||{},src=D.sources||[];
+  const active=v.filter(x=>x.status==='active');
+  const closing=active.filter(x=>x.last_date&&dd(x.last_date)>=0&&dd(x.last_date)<=7);
+  const withDl=v.filter(x=>x.last_date);
+
+  $('s1').textContent=v.length;
+  $('s2').textContent=active.length;
+  $('s3').textContent=closing.length;
+  $('s4').textContent=withDl.length;
+  $('s5').textContent=src.length;
+  $('h-act').textContent=active.length;
+  $('h-upd').textContent='Updated: '+fdt(D.last_updated);
+
+  // Filters
+  const cats=[...new Set(v.map(x=>x.category))].sort();
+  const srcs=[...new Set(v.map(x=>x.source))].sort();
+  const posTypes=[...new Set(v.map(x=>positionLabel(x)).filter(Boolean))].sort();
+  const levels=[...new Set(v.map(x=>detectLevel(x)).filter(Boolean))].sort();
+  $('fc').innerHTML='<option value="">All Categories</option>'+cats.map(c=>'<option>'+c+'</option>').join('');
+  $('fs').innerHTML='<option value="">All Sources</option>'+srcs.map(c=>'<option>'+c+'</option>').join('');
+  $('fp').innerHTML='<option value="">All Positions</option>'+posTypes.map(c=>'<option>'+c+'</option>').join('');
+  $('fl').innerHTML='<option value="">All Levels</option>'+levels.map(c=>'<option>'+c+'</option>').join('');
+
+  // Urgent
+  const urg=(s.upcoming_deadlines||[]).filter(x=>dd(x.last_date)<=7&&dd(x.last_date)>=0);
+  if(urg.length){
+    $('alrt').style.display='block';
+    $('alrt-body').innerHTML=urg.map(u=>{
+      const d=dd(u.last_date),lnk=u.apply_url||u.url;
+      return `<div class="alert-row"><a href="${lnk}" target="_blank">${esc(u.title).substring(0,75)}${u.title.length>75?'...':''}</a><span class="alert-tag ${d<=1?'crit':'warn'}">${d===0?'TODAY':d+'d left'}</span></div>`;
+    }).join('');
+  }
+
+  render();
+  renderRecent();
+  renderRefGuide();
+  renderNews();
+}
+
+// Extract organization name from vacancy
+function extractOrg(j){
+  const t=(j.title||'');
+  // Try to find "at <org>" or "in <org>"
+  const m=t.match(/(?:vacancy\s+)?(?:at|in)\s+(.+?)(?:\s*[\[\(,]|$)/i);
+  if(m&&m[1].length>3&&m[1].length<80)return m[1].trim();
+  // Try known tribunal names
+  const tribunals=[
+    [/central\s+administrative\s+tribunal/i,'Central Administrative Tribunal (CAT)'],
+    [/income\s+tax\s+appellate/i,'Income Tax Appellate Tribunal (ITAT)'],
+    [/national\s+company\s+law\s+tribunal/i,'National Company Law Tribunal (NCLT)'],
+    [/national\s+company\s+law\s+appellate/i,'NCLAT'],
+    [/national\s+green\s+tribunal/i,'National Green Tribunal (NGT)'],
+    [/armed\s+forces\s+tribunal/i,'Armed Forces Tribunal (AFT)'],
+    [/railway\s+claims\s+tribunal/i,'Railway Claims Tribunal (RCT)'],
+    [/consumer\s+disputes?\s+redressal/i,'Consumer Disputes Redressal Commission'],
+    [/electricity\s+regulatory/i,'Electricity Regulatory Commission'],
+    [/real\s+estate\s+(appellate|regulatory)/i,'RERA Appellate Tribunal'],
+    [/human\s+rights\s+commission/i,'Human Rights Commission'],
+    [/high\s+court/i,'High Court'],
+    [/supreme\s+court/i,'Supreme Court'],
+    [/district\s+court/i,'District Court'],
+  ];
+  for(const[re,name]of tribunals){if(re.test(t))return name;}
+  // Fallback to source
+  return j.source||'';
+}
+
+// Extract place/state from title
+function extractPlace(t){
+  const places=['Delhi','Mumbai','Chennai','Kolkata','Bengaluru','Hyderabad','Ahmedabad','Pune','Jaipur','Lucknow','Chandigarh','Guwahati','Patna','Ranchi','Cuttack','Ernakulam','Kochi','Aurangabad','Jabalpur','Allahabad','Prayagraj','Indore','Bhopal','Shimla','Dehradun','Raipur','Panaji','Srinagar','Jammu','Andhra Pradesh','Telangana','Tamil Nadu','Karnataka','Kerala','Maharashtra','Gujarat','Rajasthan','Madhya Pradesh','Uttar Pradesh','Bihar','Jharkhand','West Bengal','Odisha','Chhattisgarh','Punjab','Haryana','Himachal Pradesh','Uttarakhand','Assam','Meghalaya','Arunachal Pradesh','Sikkim','Goa','New Delhi'];
+  for(const p of places){if((t||'').toLowerCase().includes(p.toLowerCase()))return p;}
+  return '';
+}
+
+// Clean description - remove redundancy
+function cleanDesc(title){
+  let t=(title||'').replace(/\s+/g,' ').trim();
+  if(t.length>100)t=t.substring(0,97)+'...';
+  return t;
+}
+
+function render(){
+  const f=filtered();
+  $('nc').textContent=f.length;
+  const el=$('v-jobs');
+  if(!f.length){el.innerHTML='<div class="empty"><h3>No matching vacancies</h3><p>Try a different search or filter</p></div>';return}
+
+  el.innerHTML=f.map(j=>{
+    const d=j.last_date?dd(j.last_date):null;
+    const lnk=j.apply_url||j.url;
+    const pdf=(lnk||'').toLowerCase().endsWith('.pdf');
+    let cls='card';
+    if(j.status==='expired')cls+=' exp';
+    else if(d!==null&&d<=3&&d>=0)cls+=' urg';
+    else if(d!==null&&d<=14&&d>=0)cls+=' wrn';
+
+    let bdg='';
+    if(j.status==='expired')bdg='<div class="bdg gone">Expired</div>';
+    else if(d===null)bdg='<div class="bdg unk">Check Portal</div>';
+    else if(d===0)bdg='<div class="bdg crit">TODAY</div>';
+    else if(d<=3)bdg='<div class="bdg crit">'+d+'d left</div>';
+    else if(d<=14)bdg='<div class="bdg soon">'+d+'d left</div>';
+    else bdg='<div class="bdg open">'+d+'d left</div>';
+
+    let btn='';
+    if(j.apply_url){
+      const apdf=(j.apply_url||'').toLowerCase().endsWith('.pdf');
+      btn+=`<a class="abtn ${apdf?'pdf':'pri'}" href="${j.apply_url}" target="_blank">${apdf?'PDF':'Apply'}</a>`;
+    }
+    if(j.url){
+      btn+=`<a class="abtn sec" href="${j.url}" target="_blank">Source</a>`;
+    }
+    if(!btn&&lnk){
+      btn=`<a class="abtn pri" href="${lnk}" target="_blank">View</a>`;
+    }
+
+    const pos=positionLabel(j);
+    const org=extractOrg(j);
+    const place=extractPlace(j.title);
+    const desc=cleanDesc(j.title);
+
+    return `<div class="${cls}"><div>
+      <div style="font-size:17px;font-weight:800;color:#0f172a;margin-bottom:2px">${esc(pos)}</div>
+      <div style="font-size:13px;font-weight:600;color:#2563eb;margin-bottom:4px">${esc(org)}${place?' <span style="color:#ea580c;font-weight:700">'+esc(place)+'</span>':''}</div>
+      <div style="font-size:13px;color:#475569;margin-bottom:6px"><a href="${lnk||'#'}" target="_blank" style="color:#475569;text-decoration:none">${esc(desc)}</a></div>
+      <div class="meta">
+        <span class="tag src">${esc(j.source)}</span>
+        ${j.posted_date?'<span><i>Posted:</i> '+fd(j.posted_date)+'</span>':''}
+        ${j.last_date?'<span><i>Deadline:</i> '+fd(j.last_date)+'</span>':''}
+      </div>
+    </div><div class="acts">${bdg}${btn}</div></div>`;
+  }).join('');
+}
+
+// POSITION TYPE & COURT LEVEL DETECTION
+function detectPosition(title){
+  const t=(title||'').toLowerCase();
+  // Specific roles — most specific first
+  if(/\bjudicial\s*member\b|\bmember\s*\(judicial\)|\bmember\s*\(law\)/.test(t))return 'Judicial Member';
+  if(/\btechnical\s*member\b|\bmember\s*\(technical\)|\bexpert\s*member\b/.test(t))return 'Technical Member';
+  if(/\badministrative\s*member\b/.test(t))return 'Administrative Member';
+  if(/\bmember\b.*\b(tribunal|commission|ncdrc|nclat|nclt|ngt|cat|aft|sat|tdsat|cestat|cci|ibbi|rct|drat|gstat|aptel)\b/.test(t))return 'Tribunal Member';
+  if(/\bmember\b.*\b(consumer|lokayukta|lokpal|nhrc|human\s*rights|regulatory|electricity)\b/.test(t))return 'Commission Member';
+  if(/\bpresiding\s*officer\b/.test(t))return 'Presiding Officer';
+  if(/\bdistrict\s*judge\b/.test(t))return 'District Judge';
+  if(/\bcivil\s*judge\b|\bmunsif\b/.test(t))return 'Civil Judge';
+  if(/\bmagistrate\b/.test(t))return 'Magistrate';
+  if(/\bsuperior\s*judicial\s*service\b|\bhigher\s*judicial\s*service\b/.test(t))return 'Higher Judicial Service';
+  if(/\bjudicial\s*service\b/.test(t))return 'Judicial Service Exam';
+  if(/\bchairperson\b/.test(t))return 'Chairperson';
+  if(/\bpresident\b.*\b(commission|tribunal|forum)\b/.test(t))return 'President';
+  if(/\bvice.?chairman\b/.test(t))return 'Vice Chairman';
+  if(/\bprincipal\s*registrar\b/.test(t))return 'Principal Registrar';
+  if(/\bjoint\s*registrar\b/.test(t))return 'Joint Registrar';
+  if(/\bdeputy\s*registrar\b/.test(t))return 'Deputy Registrar';
+  if(/\bassistant\s*registrar\b/.test(t))return 'Assistant Registrar';
+  if(/\bregistrar\b/.test(t))return 'Registrar';
+  if(/\blaw\s*clerk\b|\blegal\s*research\s*assistant\b|\blaw\s*researcher\b/.test(t))return 'Law Clerk / Research Assistant';
+  if(/\blegal\s*(advisor|adviser|consultant)\b/.test(t))return 'Legal Advisor';
+  if(/\bpublic\s*prosecutor\b|\bprosecuting\s*officer\b/.test(t))return 'Public Prosecutor';
+  if(/\bstanding\s*counsel\b/.test(t))return 'Standing Counsel';
+  if(/\badvocate\s*general\b/.test(t))return 'Advocate General';
+  if(/\bgovernment\s*pleader\b|\bpleader\b/.test(t))return 'Government Pleader';
+  if(/\badvocate\b/.test(t))return 'Advocate';
+  if(/\bombudsman\b/.test(t))return 'Ombudsman';
+  if(/\bnotary\b/.test(t))return 'Notary Public';
+  if(/\bmediator\b/.test(t))return 'Mediator';
+  if(/\barbitrat/.test(t))return 'Arbitrator';
+  if(/\blokayukta\b/.test(t))return 'Lokayukta Member';
+  if(/\bconsultant\b/.test(t))return 'Consultant';
+  if(/\bpresenting\s*officer\b/.test(t))return 'Presenting Officer';
+  if(/\bsection\s*officer\b|\btribunal\s*officer\b/.test(t))return 'Tribunal Officer';
+  if(/\bvarious\s*posts?\b/.test(t))return 'Various Posts (Deputation)';
+  if(/\bempanelment.*mediator\b|\bempanelled.*mediator\b/.test(t))return 'Mediator Empanelment';
+  if(/\bengagement.*law\s*clerk\b|\blaw\s*clerks?\b/i.test(t))return 'Law Clerk';
+  if(/\bappointment\s*of\s*members?\b/.test(t))return 'Tribunal Member';
+  // Try to extract "post of X" pattern
+  const postOf=t.match(/(?:post|posts)\s+of\s+(.+?)(?:\s+in\b|\s+on\b|\s+at\b|\s+dt\.|\s*$)/);
+  if(postOf){
+    const p=postOf[1].replace(/[^a-z\s]/g,'').trim();
+    if(p.length>3&&p.length<40)return p.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+  }
+  // Try "selection for X" pattern
+  const selFor=t.match(/selection\s+(?:for\s+)?(?:the\s+)?(?:posts?\s+of\s+)?(.+?)(?:\s+in\b|\s+on\b|\s+at\b|\s*$)/);
+  if(selFor){
+    const p=selFor[1].replace(/[^a-z\s]/g,'').trim();
+    if(p.length>3&&p.length<40)return p.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+  }
+  // Try "filling up of X" pattern
+  const fill=t.match(/filling\s+(?:up\s+)?(?:of\s+)?(?:\d+\s+)?(?:\(\w+\)\s+)?(?:posts?\s+of\s+)?(.+?)(?:\s+in\b|\s+on\b|\s+at\b|\s*$)/);
+  if(fill){
+    const p=fill[1].replace(/[^a-z\s]/g,'').trim();
+    if(p.length>3&&p.length<40)return p.split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(' ');
+  }
+  if(/detailed\s*advertisement/i.test(t))return 'Regulatory Position';
+  if(/deputation/i.test(t))return 'Deputation Post';
+  if(/vacancy\s*circular|recruitment|vacancy/i.test(t))return 'Legal Position';
+  return '';
+}
+
+// Source-aware position: when detectPosition returns generic, use source context
+function positionLabel(v){
+  const p=detectPosition(v.title);
+  if(p&&!/Legal Position|Deputation Post|Regulatory Position/.test(p))return p;
+  // Use source name to give a better label
+  const s=v.source||'',c=v.category||'';
+  const map={'NCDRC':'NCDRC — Member/Registrar','NHRC':'NHRC — Member/Staff','Armed Forces Tribunal':'AFT — Judicial/Admin Post','NCLT':'NCLT — Member/Registrar','NCLAT':'NCLAT — Member/Registrar','MCA Portal':'NCLT/NCLAT — Member Appointment','ITAT':'ITAT — Member/Registrar','GSTAT':'GSTAT — Member/Registrar','SAT':'SAT — Member/Registrar','TDSAT':'TDSAT — Member/Registrar','APTEL':'APTEL — Member/Registrar','CERC':'CERC — Member/Staff','CCI':'CCI — Member/Staff','IBBI':'IBBI — Member/Staff','SEBI':'SEBI — Member/Staff','NGT':'NGT — Judicial/Expert Member','CAT':'CAT — Member/Registrar','CESTAT':'CESTAT — Member/Registrar','CGIT':'CGIT — Presiding Officer','Lokpal':'Lokpal — Member','NALSA':'NALSA — Lok Adalat Presiding Officer','Law Commission':'Law Commission — Member','Supreme Court':'Supreme Court — Recruitment','Dept of Legal Affairs':'Legal Affairs — Tribunal Post','Dept of Justice':'DOJ — Judicial Appointment','Allahabad HC':'High Court — Judicial Vacancy','Delhi HC':'High Court — Judicial Vacancy','Telangana HC':'High Court — Judicial Vacancy','Jharkhand HC':'High Court — Judicial Vacancy'};
+  if(map[s])return map[s];
+  if(/HC$/.test(s)||c==='High Court')return 'High Court — Judicial Vacancy';
+  if(/Tribunal/i.test(c))return c+' — Post';
+  if(p)return p;
+  return c||'Judicial Vacancy';
+}
+
+function detectLevel(v){
+  const s=(v.source||''),c=(v.category||''),t=(v.title||'').toLowerCase();
+  if(s==='Supreme Court'||/supreme\s*court/i.test(t))return 'Supreme Court';
+  if(/\bHC\b/.test(s)||c==='High Court'||c==='High Court - Tribunal Vacancy'||/high\s*court/i.test(t))return 'High Court';
+  if(['Central Tribunal','Green Tribunal','Tax Tribunal','Electricity Tribunal','Telecom Tribunal','Securities Tribunal','Labour Tribunal','Debt Recovery Tribunal'].includes(c)||/tribunal/i.test(c))return 'Central Tribunal';
+  if(['Competition Commission','Insolvency Board','Securities Regulator','Law Commission','Legal Services'].includes(c)||/commission|regulator|board/i.test(c))return 'Regulator/Commission';
+  if(c==='Central Govt'||/dept of|ministry|upsc/i.test(s))return 'Central Govt';
+  if(/state|rera|erc|lokayukta/i.test(c)||/state/i.test(t))return 'State Level';
+  if(c==='Anti-Corruption')return 'Central Govt';
+  if(/aggregator|job update/i.test(c))return 'Aggregator';
+  return 'Other';
+}
+
+// FILTERING — only show legal/judicial vacancies for lawyers
+const JUNK_RE=/^(about\s*us|contact\s*us|latest\s*updates?|home|links?|©\d|past\s*members?|former\s*(chairperson|chaiperson|president|member)|previous\s*(chairperson|president|member)|profile\s*of|status\s*of|organization\s*structure|court\s*display\s*board|diary\s*status|court\s*master|click\s*here|jurisdiction|chairperson\s*and\s*members|chairpersons?\s*,?\s*members?\s*&\s*officers|sitting\s*members|members?\s*&\s*officers|judicial\s*information|notice\s*board|rti\s*orders|rti\s*regional|it\s*judicial|daily\s*(cause|orders?)|tentative\s*cause|reportable\s*judgement|large\s*bench|review\s*cases|larger\s*bench|matters\s*referred|aft\s*cases|circulars?\/?(\s*o\.?m\.?)?\/?(\s*orders?)?|all\s*high\s*courts?|consumer\s*advocacy|visit\s*reports|electricity\s*ombudsman|format\s*for\s*representation|final\s*orders\s*issued|daily\s*orders\s*issued|about\s*electricity|hearing\s*schedule|contact\s*list|constitution\s*of|former\s*chairperson|judgements?\s*(passed|in)|orders?\s*\/?\s*judgements?|public\s*notices\s*by|form\s*l|appellate\s*tribunal$|real\s*estate\s*appellate|mperc\s*vacancy$|vacancies$|notifications$|calendars$|photo\s*gallery|she-?box|national\s*portal\s*of\s*india|supreme\s*court\s*of\s*india|delhi\s*district\s*court|central\s*administrative\s*tribunal\s*\(cat\)|goi\s*directory|recruitment\s*news$|recruitment\s*rules$|recruitment\s*results?$|recruitments$|appointment\s*orders$|gstat\s*recruitment$|judgements\s*in\s*aft|letter\s*of\s*judicial\s*matter|judicial\s*academy|maharashtra\s*judicial\s*academy|electricity\s*act|other\s*electricity\s*acts|policies\s*under\s*the\s*act|individual\s*regulation|consolidated\s*regulation|draft\s*regulation|technical\s*validation|market\s*monitoring|advice\s*to\s*government)$/i;
+const JUNK_CONTAINS=/^(judicial\s*members?|technical\s*members?|राष्ट्रीय|उपभोक्ता|ministry\s*of\s*co[pr]+orate|national\s*company\s*law\s*(tribunal|appellate)|insolvency\s*and\s*bankruptcy)$/i;
+// Partial match — these patterns anywhere in title mean it's NOT a vacancy
+const JUNK_PARTIAL=/\bnomination\s+of\s+(former|newly)\b|\bpostings?\s+of\s+newly\b|\brelief\s+arrangements\b|\bgazette.?notification\b|\bengagement\s+of\s+staff\s+consultants\b|\bnational\s+judicial\s+academy\b|\binformation\s+under\s+section\b|\bnotice\s+board\s*\(judicial\s+info\)|\bfaculty\s+for\s+physical\b|\bresult\s+(for|of)\s+(engagement|combined|the)\b|\bmerit\s+list\b|\bpanel\s*\(wait|\bskill\s+test\b|\blist\s+of\s+(candidates|ineligible|eligible)\b|\bcancellation\s+of\b|\bcorrigendum\b|\bdeferred\b|\brescheduling\b|\bdepartmental\s+qualifying\b|\bvisit\s+reports?\b|\bformer\s+registrar\b|\border\s+regarding\s+empanelled\b|\bcircular\s+a-?\d+\b|\bmark\s+list\b|\bcentre\s*wise\s+list\b|\bselect\s+list\s+of\s+candidates\b|\bmodel\s+answer\b|\bnotification\s+(comprising|along\s*with)\s+list\b|\bfound\s+(in)?eligible\b|\bcancellation\s+of\s+candidature\b|\bprovisionally\s+eligible\b|\b^https?:\/\/|^previous\s+chairpersons|^chairperson\s+and\s+members\s+\w+$|^former\s+(chief\s+)?justices?|^public\s+notice\s+in\s+the\s+matter\s+of\s+draft\s+revision/i;
+const HC_NAME_ONLY=/^(allahabad|andhra|bombay|calcutta|chhattisgarh|delhi|gauhati|himachal|jammu|jharkhand|karnataka|kerala|madhya|madras|manipur|meghalaya|orissa|patna|punjab|rajasthan|sikkim|telangana|tripura|uttarakhand|gujarat)\s*(high\s*court|hc)?$/i;
+const COURT_NAV=/^(cause\s*list|judgement|chandigarh|chennai|guwahati|kochi|jabalpur|mumbai|kolkata|lucknow|jaipur|srinagar)\s*[-–]?\s*(cause\s*list|judgement|causelist)?$/i;
+
+// Non-legal roles to reject
+const NON_LEGAL=/\b(engineer|technician|apprentice|mining\s*sirdar|overman|driver|peon|ardali|teacher|jbt\b|manager|deputy\s*manager|assistant\s*manager|programmer|computer|accountant|accounts\s*officer|stenograph|ldc\b|udc\b|lower\s*division\s*clerk|upper\s*division\s*clerk|typist|excise\s*inspector|laboratory|data\s*entry|private\s*secretary|pps\b|hindi\s*translat|staff\s*car|group\s*[cd]\b|sweeper|chowkidar|daftary|court\s*assistant.*technical|npcil|nhpc\b|mcl\b|gsl\b|psssb|drdo\b|mpfsl|trainee\s*engineer)\b/i;
+// Legal/judicial keywords
+const LEGAL_KW=/\b(judicial|judge|district\s*judge|lawyer|advocate|legal|law\s*clerk|presiding\s*officer|member.*tribunal|member.*commission|judicial\s*service|judicial\s*member|technical\s*member|chairperson|registrar|joint\s*registrar|deputy\s*registrar|assistant\s*registrar|notary|lokayukta|ombudsman|arbitrat|mediator|presenting\s*officer|consumer.*commission|member.*ncdrc|member.*nclat|member.*nclt|vacancy\s*circular.*member|selection.*member|superior\s*judicial|higher\s*judicial|civil\s*judge|munsif|magistrate|tribunal.*recruit|tribunal.*vacanc|high\s*court.*recruit|high\s*court.*vacanc)\b/i;
+const LEGAL_SOURCES=new Set(['Dept of Legal Affairs','Dept of Justice','NCLT','NCLAT','MCA Portal','ITAT','GSTAT','CERC','DRT/DRAT','Ministry of Finance - DRT','Railway Claims Tribunal','APTEL','TDSAT','SAT','NCDRC','NHRC','Lokpal','Consumer Affairs Ministry','Allahabad HC','Delhi HC','Telangana HC','Jharkhand HC','Gauhati HC','Gujarat HC','Madras HC','Bombay HC','Calcutta HC','Karnataka HC','Kerala HC','MP HC','Punjab & Haryana HC','Rajasthan HC','AP HC','Patna HC','Orissa HC','Meghalaya HC','Tripura HC','Himachal Pradesh HC','Supreme Court','NGT','CAT','CESTAT','CCI','IBBI','CGIT','NALSA','Law Commission','SEBI','Verdictum','LiveLaw - Presiding Officer']);
+
+// ONLY show posts relevant for a senior advocate (20+ yrs) seeking high-level appointments
+// Judicial Member, Presiding Officer, Member (Tribunal/Commission), Chairperson, Ombudsman, Lokayukta
+// Positions for advocate (NOT judge): judicial member, presiding officer, member, standing counsel etc.
+// Excluded: chairperson, chairman, president — these mostly need HC/SC judges
+const SENIOR_POSTS=/\b(judicial\s*member|member\s*\(judicial|member\s*\(law|technical\s*member|presiding\s*officer|advocate\s*general|additional\s*advocate|standing\s*counsel|government\s*pleader|public\s*prosecutor|additional\s*pp|member\b.*(?:tribunal|commission|ncdrc|nclat|nclt|ngt|cat|aft|sat|tdsat|cestat|cci|ibbi|consumer|electricity|appellate)|information\s*commissioner|legal\s*advisor|legal\s*member|law\s*member|vacancy\s*circular.*(?:member|judicial|presiding)|selection.*(?:member|judicial|presiding)|filling.*(?:member|judicial|post\s*of)|appointment.*(?:member|judicial))\b/i;
+
+// ELIGIBILITY CHECK: Positions requiring HC Judge / SC Judge - father is NOT eligible
+// Father's profile: 20+ yrs advocate, 5 yrs Additional PP, NOT a HC/SC Judge
+const NOT_ELIGIBLE=/\b(gstat|gst\s*appellate\s*tribunal)\b.*\b(judicial\s*member|member\s*\(judicial)\b|\b(judicial\s*member|member\s*\(judicial)\b.*\b(gstat|gst\s*appellate)\b|\blokpal\b.*\bjudicial\s*member\b|\bchairperson\b.*\b(rera|real\s*estate\s*appellate|human\s*rights\s*commission|shrc|water\s*disputes)\b|\b(water\s*disputes\s*tribunal)\b/i;
+
+function isVacancy(v){
+  const t=(v.title||'').replace(/\s+/g,' ').trim();
+  if(t.length<5)return false;
+  if(JUNK_RE.test(t))return false;
+  if(JUNK_CONTAINS.test(t))return false;
+  if(JUNK_PARTIAL.test(t))return false;
+  if(HC_NAME_ONLY.test(t))return false;
+  if(COURT_NAV.test(t))return false;
+  // Reject non-legal roles always
+  if(NON_LEGAL.test(t))return false;
+  // ELIGIBILITY: Remove posts requiring HC/SC Judge (father is advocate, not judge)
+  if(NOT_ELIGIBLE.test(t))return false;
+  // ONLY keep entries that match senior appointment posts
+  if(SENIOR_POSTS.test(t))return true;
+  // Trusted tribunal/commission sources - keep their vacancy circulars
+  const trustedDirect=new Set(['Dept of Legal Affairs','NCLT','NCLAT','MCA Portal','ITAT','CERC','APTEL','TDSAT','SAT','NCDRC','NHRC','DRT/DRAT','Ministry of Finance - DRT','Consumer Affairs Ministry','LiveLaw - Presiding Officer']);
+  if(trustedDirect.has(v.source)&&/vacanc|circular|recruit|appointment|selection|filling|post\s*of/i.test(t))return true;
+  // Everything else - reject
+  return false;
+}
+
+function filtered(){
+  if(!D)return[];
+  const cat=$('fc').value,src=$('fs').value,q=$('q').value.toLowerCase();
+  const pos=$('fp').value,lvl=$('fl').value;
+  return D.vacancies.filter(v=>{
+    // Must have deadline to apply
+    if(!v.last_date)return false;
+    if(hideExp&&v.status==='expired')return false;
+    if(cat&&v.category!==cat)return false;
+    if(src&&v.source!==src)return false;
+    if(pos&&positionLabel(v)!==pos)return false;
+    if(lvl&&detectLevel(v)!==lvl)return false;
+    if(q&&!(v.title+' '+v.source+' '+v.category).toLowerCase().includes(q))return false;
+    return true;
+  }).sort((a,b)=>a.last_date<b.last_date?-1:a.last_date>b.last_date?1:0);
+}
+
+function renderRecent(){
+  if(!D)return;
+  const now=new Date();
+  const fifteenAgo=new Date(now.getTime()-15*24*60*60*1000).toISOString().split('T')[0];
+  const q=$('q').value.toLowerCase();
+
+  // All vacancies posted/scraped in last 15 days WITHOUT a deadline — judicial member posts only
+  // Only positions an advocate (not a judge) can apply to
+  const JM_KW=/\b(judicial\s*member|member\s*\(judicial|member\s*\(law|technical\s*member|presiding\s*officer|member\b.*(?:tribunal|commission|ncdrc|nclat|nclt|ngt|cat|aft|sat|tdsat|cestat|cci|ibbi|consumer|electricity|appellate)|advocate\s*general|additional\s*advocate|standing\s*counsel|government\s*pleader|public\s*prosecutor|additional\s*pp|information\s*commissioner|legal\s*advisor|appointment.*(?:judicial\s*member|member\s*\(judicial)|selection.*(?:judicial\s*member|presiding\s*officer|member\s*\(judicial)|vacancy.*(?:judicial\s*member|presiding\s*officer)|filling.*(?:judicial\s*member|member\s*\(judicial))\b/i;
+  let items=D.vacancies.filter(v=>{
+    if(v.last_date)return false;
+    if(!v.posted_date)return false; // must have a real posted date, not just scraped date
+    if(v.posted_date<fifteenAgo)return false;
+    const t=(v.title||'').replace(/\s+/g,' ').trim();
+    if(!JM_KW.test(t))return false;
+    if(q&&!(v.title+' '+v.source+' '+v.category).toLowerCase().includes(q))return false;
+    return true;
+  }).sort((a,b)=>b.posted_date>a.posted_date?1:b.posted_date<a.posted_date?-1:0);
+
+  $('rc').textContent=items.length;
+  const el=$('v-recent');
+
+  if(!items.length){
+    el.innerHTML='<div class="empty"><h3>No recent postings without deadline</h3><p>These are vacancies posted in the last 15 days where no apply deadline was found.<br>Check the source portal directly for deadline details.</p></div>';
+    return;
+  }
+
+  el.innerHTML=items.map(j=>{
+    const lnk=j.apply_url||j.url;
+    const pos=positionLabel(j);
+    const org=extractOrg(j);
+    const place=extractPlace(j.title);
+    const desc=cleanDesc(j.title);
+    const dateStr=j.posted_date;
+
+    let btn='';
+    if(j.apply_url){
+      const apdf=(j.apply_url||'').toLowerCase().endsWith('.pdf');
+      btn+=`<a class="abtn ${apdf?'pdf':'pri'}" href="${j.apply_url}" target="_blank">${apdf?'PDF':'Apply'}</a>`;
+    }
+    if(j.url){
+      btn+=`<a class="abtn sec" href="${j.url}" target="_blank">Source</a>`;
+    }
+    if(!btn&&lnk){
+      btn=`<a class="abtn pri" href="${lnk}" target="_blank">View</a>`;
+    }
+
+    return `<div class="card"><div>
+      <div style="font-size:17px;font-weight:800;color:#0f172a;margin-bottom:2px">${esc(pos)}</div>
+      <div style="font-size:13px;font-weight:600;color:#2563eb;margin-bottom:4px">${esc(org)}${place?' <span style="color:#ea580c;font-weight:700">'+esc(place)+'</span>':''}</div>
+      <div style="font-size:13px;color:#475569;margin-bottom:6px"><a href="${lnk||'#'}" target="_blank" style="color:#475569;text-decoration:none">${esc(desc)}</a></div>
+      <div class="meta">
+        <span class="tag src">${esc(j.source)}</span>
+        ${dateStr?'<span><i>Posted:</i> '+fd(dateStr)+'</span>':''}
+        <span style="color:var(--amber);font-weight:600;font-size:11px">No deadline found — check portal</span>
+      </div>
+    </div><div class="acts"><div class="bdg unk">Check Portal</div>${btn}</div></div>`;
+  }).join('');
+}
+
+function renderRefGuide(){
+  if(!P)return;
+  const q=$('q').value.toLowerCase();
+  // Build portal status map from last scrape
+  const sm={};
+  if(D)(D.sources||[]).forEach(s=>{sm[s.url]=s.status;});
+  let totalShown=0;
+  const html=P.categories.map((cat,ci)=>{
+    let ps=cat.positions;
+    // Filter by eligibility
+    if(eligFilter==='yes')ps=ps.filter(p=>p.eligible.startsWith('YES'));
+    else if(eligFilter==='check')ps=ps.filter(p=>p.eligible.startsWith('YES')||p.eligible.startsWith('CHECK'));
+    else ps=ps.filter(p=>!p.eligible.startsWith('NO'));
+    if(q)ps=ps.filter(p=>(p.tribunal+p.position+p.eligibility+(p.act||'')+p.eligible+p.appointing_authority).toLowerCase().includes(q));
+    if(!ps.length)return '';
+    totalShown+=ps.length;
+    return `<div class="ref-cat"><div class="ref-cat-h" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">${esc(cat.name)}<span class="ref-cat-desc">${esc(cat.description||'')}</span><span style="display:flex;align-items:center;gap:8px"><span class="ref-cnt">${ps.length}</span><span class="ref-chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></span></div><div class="ref-body"><div class="ref-row ref-hdr"><div>Tribunal / Body</div><div>Position</div><div style="text-align:center">Posts</div><div>Eligibility</div><div>Match</div><div>Appointing Authority</div><div></div></div>${ps.map(p=>{
+      const mc=p.eligible.startsWith('YES')?'yes':'check';
+      const ml=p.eligible.startsWith('YES')?'YES':'CHECK';
+      const st=sm[p.portal];
+      const dot=st?`<span class="pdot ${st==='ok'?'ok':'er'}" title="${st==='ok'?'Portal online':'Portal unreachable'}" style="display:inline-block;margin-right:4px"></span>`:'';
+      const portal=p.portal.startsWith('http')?`${dot}<a class="ref-visit" href="${esc(p.portal)}" target="_blank"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Visit Portal</a>`:`<span style="color:var(--text-3);font-size:11px">${esc(p.portal)}</span>`;
+      return `<div class="ref-row"><div class="ref-name" data-label="Tribunal">${esc(p.tribunal)}<small>${esc(p.act||'')}</small></div><div class="ref-pos" data-label="Position">${esc(p.position)}</div><div class="ref-posts" data-label="Posts">${p.total_sanctioned}</div><div class="ref-elig" data-label="Eligibility">${esc(p.eligibility)}</div><div data-label="Match"><span class="ref-match ${mc}">${ml}</span></div><div class="ref-auth" data-label="Authority">${esc(p.appointing_authority)}</div><div data-label="Portal">${portal}</div></div>`;
+    }).join('')}</div></div>`;
+  }).join('');
+  $('rgc').textContent=totalShown;
+  $('v-refguide').innerHTML=`<div class="ref-banner"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Reference guide — all tribunal/commission positions for advocates. <span style="margin-left:12px;font-size:12px">Eligibility:</span> <button class="elig-btn${eligFilter==='yes'?' on':''}" onclick="eligFilter='yes';renderRefGuide()">Eligible Only</button> <button class="elig-btn${eligFilter==='check'?' on':''}" onclick="eligFilter='check';renderRefGuide()">+ Check</button> <button class="elig-btn${eligFilter==='all'?' on':''}" onclick="eligFilter='all';renderRefGuide()">Show All</button></div>`+html;
+}
+
+function renderNews(){
+  if(!D)return;
+  const news=D.news||[];
+  const q=$('q').value.toLowerCase();
+
+  // Filter by search
+  let items=news;
+  if(q)items=items.filter(n=>(n.title+' '+n.source+' '+n.category).toLowerCase().includes(q));
+
+  $('nnc').textContent=items.length;
+  const el=$('v-news');
+
+  if(!items.length){
+    el.innerHTML='<div class="empty"><h3>No tribunal member news found</h3><p>News is scraped from LiveLaw, Bar & Bench, SC Observer, Verdictum & DOJ.<br>Run <code>./refresh.sh</code> to fetch latest.</p></div>';
+    return;
+  }
+
+  // Group by date
+  const groups={};
+  items.forEach(n=>{
+    const d=n.date||(n.scraped_at?n.scraped_at.split('T')[0]:'Unknown');
+    if(!groups[d])groups[d]=[];
+    groups[d].push(n);
+  });
+
+  const now=new Date();
+  el.innerHTML=Object.entries(groups).sort((a,b)=>b[0]>a[0]?1:-1).map(([date,list])=>{
+    const isToday=date===now.toISOString().split('T')[0];
+    const isYesterday=date===new Date(now.getTime()-86400000).toISOString().split('T')[0];
+    const label=isToday?'Today':isYesterday?'Yesterday':fd(date);
+
+    return `<div style="margin-bottom:20px">
+      <div style="font-size:12px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.5px;padding:8px 0;border-bottom:2px solid var(--border);margin-bottom:10px">${label} &middot; ${list.length} article${list.length>1?'s':''}</div>
+      ${list.map(n=>`<div class="ncard">
+        <div class="ndate"><span style="color:var(--blue);font-weight:700">${esc(n.source)}</span> &middot; <span style="color:var(--saffron)">${esc(n.category||'')}</span></div>
+        <div class="ntitle"><a href="${n.url||'#'}" target="_blank">${esc(n.title)}</a></div>
+        <div style="margin-top:8px"><a class="abtn pri" href="${n.url||'#'}" target="_blank" style="font-size:11px;padding:4px 12px">Read Article</a></div>
+      </div>`).join('')}
+    </div>`;
+  }).join('');
+}
+
+// VIEW SWITCH
+document.querySelector('.nav').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  view=b.dataset.v;
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('on',x===b));
+  $('v-jobs').style.display=view==='jobs'?'flex':'none';
+  $('v-recent').style.display=view==='recent'?'flex':'none';
+  $('v-refguide').style.display=view==='refguide'?'block':'none';
+  $('v-news').style.display=view==='news'?'block':'none';
+  if(view==='recent')renderRecent();
+  if(view==='refguide')renderRefGuide();
+  if(view==='news')renderNews();
+});
+
+// STATUS TOGGLE
+$('fst').addEventListener('click',function(){
+  hideExp=!hideExp;
+  this.textContent=hideExp?'Active Only':'Show All';
+  this.classList.toggle('on',hideExp);
+  render();
+});
+
+// LIVE SEARCH
+$('q').addEventListener('input',()=>{if(view==='jobs')render();else if(view==='recent')renderRecent();else if(view==='refguide')renderRefGuide();else if(view==='news')renderNews();});
+$('fc').addEventListener('change',render);
+$('fs').addEventListener('change',render);
+$('fp').addEventListener('change',render);
+$('fl').addEventListener('change',render);
+$('fcl').addEventListener('click',function(){
+  $('q').value='';$('fc').value='';$('fs').value='';$('fp').value='';$('fl').value='';
+  hideExp=true;$('fst').textContent='Active Only';$('fst').classList.add('on');
+  render();
+});
+
+// UTILS
+function $(id){return document.getElementById(id)}
+function dd(s){if(!s)return null;const d=new Date(s+'T00:00:00'),n=new Date;n.setHours(0,0,0,0);return Math.ceil((d-n)/864e5)}
+function fd(s){if(!s)return'-';return new Date(s+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})}
+function fdt(s){if(!s)return'-';const p=s.split(' ');if(p.length>=2){const d=new Date(p[0]+'T'+p[1]);return d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})+' '+d.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})}return s}
+function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
+
+boot();
+</script>
+</body>
+</html>
