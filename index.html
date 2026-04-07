@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://accounts.google.com; frame-src https://accounts.google.com; connect-src 'self'; img-src 'self' data: https:; font-src 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Judicial Vacancy Tracker</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -103,6 +107,9 @@ select.pill option{background:var(--navy)}
 .bdg.crit{background:var(--red-bg);color:var(--red)}
 .bdg.gone{background:var(--border-light);color:var(--text-3)}
 .bdg.unk{background:var(--bg);color:var(--text-3);font-weight:500;border:1px solid var(--border)}
+.qdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;flex-shrink:0}
+.qdot.hi{background:#16a34a}.qdot.mid{background:#d97706}.qdot.lo{background:#cbd5e1}
+.card.dim{opacity:.55;border-left:3px solid var(--border)}
 .abtn{display:inline-flex;align-items:center;gap:3px;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;color:#fff;text-decoration:none;transition:.1s}
 .abtn:hover{opacity:.85;text-decoration:none}
 .abtn.pri{background:var(--blue)}
@@ -235,6 +242,7 @@ select.pill option{background:var(--navy)}
   <select class="pill" id="fc"><option value="">All Categories</option></select>
   <select class="pill" id="fs"><option value="">All Sources</option></select>
   <button class="btn-pill on" id="fst">Active Only</button>
+  <select class="pill" id="fq"><option value="actionable">Actionable</option><option value="all">All Active</option></select>
   <button class="btn-pill" id="fcl">Clear Filters</button>
 </div></div>
 
@@ -243,7 +251,7 @@ select.pill option{background:var(--navy)}
     <div class="st"><b class="bl" id="s1">--</b><span>Total</span></div>
     <div class="st"><b class="g" id="s2">--</b><span>Active</span></div>
     <div class="st"><b class="r" id="s3">--</b><span>Closing Soon</span></div>
-    <div class="st"><b class="a" id="s4">--</b><span>With Deadline</span></div>
+    <div class="st"><b class="a" id="s4">--</b><span>Actionable</span></div>
     <div class="st"><b id="s5">--</b><span>Sources</span></div>
   </div>
 
@@ -364,7 +372,7 @@ if(sessionStorage.getItem('jv_auth')==='1'){
 </script>
 
 <script>
-let D=null,P=null,hideExp=true,view='jobs',eligFilter='yes';
+let D=null,P=null,hideExp=true,view='jobs',eligFilter='yes',qualityFilter='actionable';
 
 async function boot(){
   try{
@@ -390,10 +398,11 @@ function go(){
   const closing=active.filter(x=>x.last_date&&dd(x.last_date)>=0&&dd(x.last_date)<=7);
   const withDl=v.filter(x=>x.last_date);
 
+  const actionable=s.actionable_count||active.filter(x=>x.last_date&&x.apply_url).length;
   $('s1').textContent=v.length;
   $('s2').textContent=active.length;
   $('s3').textContent=closing.length;
-  $('s4').textContent=withDl.length;
+  $('s4').textContent=actionable;
   $('s5').textContent=src.length;
   $('h-act').textContent=active.length;
   $('h-upd').textContent='Updated: '+fdt(D.last_updated);
@@ -476,14 +485,19 @@ function render(){
     const d=j.last_date?dd(j.last_date):null;
     const lnk=j.apply_url||j.url;
     const pdf=(lnk||'').toLowerCase().endsWith('.pdf');
+    const qs=j.quality_score||0;
     let cls='card';
     if(j.status==='expired')cls+=' exp';
     else if(d!==null&&d<=3&&d>=0)cls+=' urg';
     else if(d!==null&&d<=14&&d>=0)cls+=' wrn';
+    else if(d===null)cls+=' dim';
+
+    // Quality dot
+    const qdot=qs>=70?'<span class="qdot hi" title="High quality ('+qs+')"></span>':qs>=40?'<span class="qdot mid" title="Medium quality ('+qs+')"></span>':'<span class="qdot lo" title="Low quality ('+qs+')"></span>';
 
     let bdg='';
     if(j.status==='expired')bdg='<div class="bdg gone">Expired</div>';
-    else if(d===null)bdg='<div class="bdg unk">Check Portal</div>';
+    else if(d===null)bdg='<div class="bdg unk" style="opacity:.5">No Deadline</div>';
     else if(d===0)bdg='<div class="bdg crit">TODAY</div>';
     else if(d<=3)bdg='<div class="bdg crit">'+d+'d left</div>';
     else if(d<=14)bdg='<div class="bdg soon">'+d+'d left</div>';
@@ -507,7 +521,7 @@ function render(){
     const desc=cleanDesc(j.title);
 
     return `<div class="${cls}"><div>
-      <div style="font-size:17px;font-weight:800;color:#0f172a;margin-bottom:2px">${esc(pos)}</div>
+      <div style="font-size:17px;font-weight:800;color:#0f172a;margin-bottom:2px">${qdot}${esc(pos)}</div>
       <div style="font-size:13px;font-weight:600;color:#2563eb;margin-bottom:4px">${esc(org)}${place?' <span style="color:#ea580c;font-weight:700">'+esc(place)+'</span>':''}</div>
       <div style="font-size:13px;color:#475569;margin-bottom:6px"><a href="${lnk||'#'}" target="_blank" style="color:#475569;text-decoration:none">${esc(desc)}</a></div>
       <div class="meta">
@@ -661,17 +675,25 @@ function filtered(){
   if(!D)return[];
   const cat=$('fc').value,src=$('fs').value,q=$('q').value.toLowerCase();
   const pos=$('fp').value,lvl=$('fl').value;
+  qualityFilter=$('fq').value;
   return D.vacancies.filter(v=>{
     // Must have deadline to apply
     if(!v.last_date)return false;
     if(hideExp&&v.status==='expired')return false;
+    // Quality filter: "actionable" shows only score >= 50
+    if(qualityFilter==='actionable'&&(v.quality_score||0)<50)return false;
     if(cat&&v.category!==cat)return false;
     if(src&&v.source!==src)return false;
     if(pos&&positionLabel(v)!==pos)return false;
     if(lvl&&detectLevel(v)!==lvl)return false;
     if(q&&!(v.title+' '+v.source+' '+v.category).toLowerCase().includes(q))return false;
     return true;
-  }).sort((a,b)=>a.last_date<b.last_date?-1:a.last_date>b.last_date?1:0);
+  }).sort((a,b)=>{
+    // Sort by quality_score desc, then by deadline asc
+    const qa=a.quality_score||0,qb=b.quality_score||0;
+    if(qa!==qb)return qb-qa;
+    return a.last_date<b.last_date?-1:a.last_date>b.last_date?1:0;
+  });
 }
 
 function renderRecent(){
@@ -835,9 +857,10 @@ $('fc').addEventListener('change',render);
 $('fs').addEventListener('change',render);
 $('fp').addEventListener('change',render);
 $('fl').addEventListener('change',render);
+$('fq').addEventListener('change',render);
 $('fcl').addEventListener('click',function(){
-  $('q').value='';$('fc').value='';$('fs').value='';$('fp').value='';$('fl').value='';
-  hideExp=true;$('fst').textContent='Active Only';$('fst').classList.add('on');
+  $('q').value='';$('fc').value='';$('fs').value='';$('fp').value='';$('fl').value='';$('fq').value='actionable';
+  hideExp=true;qualityFilter='actionable';$('fst').textContent='Active Only';$('fst').classList.add('on');
   render();
 });
 

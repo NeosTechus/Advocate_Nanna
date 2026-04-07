@@ -11,6 +11,7 @@ mkdir -p dist
 cp index.html dist/
 cp data.json dist/
 cp positions.json dist/ 2>/dev/null || true
+cp audit.json dist/ 2>/dev/null || true
 
 # Inject env vars into HTML
 if [ -n "$GOOGLE_CLIENT_ID" ]; then
