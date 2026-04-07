@@ -272,10 +272,7 @@ select.pill option{background:var(--navy)}
 <script>
 // ===== AUTH CONFIG =====
 // Allowed Google emails (add your family emails here)
-const ALLOWED_EMAILS=[
-  // Add emails like: 'yourname@gmail.com', 'father@gmail.com'
-  // Leave empty to allow ANY Google account
-];
+const ALLOWED_EMAILS='__ALLOWED_EMAILS__'.split(',').map(e=>e.trim()).filter(Boolean);
 
 // ===== GOOGLE SIGN IN =====
 function onGoogleSignIn(response){

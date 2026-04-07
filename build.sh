@@ -21,5 +21,13 @@ else
   echo "WARNING: GOOGLE_CLIENT_ID not set"
 fi
 
+if [ -n "$ALLOWED_EMAILS" ]; then
+  sed -i.bak "s|__ALLOWED_EMAILS__|${ALLOWED_EMAILS}|g" dist/index.html
+  rm -f dist/index.html.bak
+  echo "Injected ALLOWED_EMAILS"
+else
+  echo "WARNING: ALLOWED_EMAILS not set - anyone can login"
+fi
+
 echo "Build complete: dist/"
 ls -la dist/
