@@ -2835,6 +2835,50 @@ def main():
     log(f"Data saved to: {output_path}")
     log("=" * 60)
 
+    # ===== AUDIT LOG =====
+    audit_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "audit.json")
+    end_time = datetime.now()
+    duration = (end_time - datetime.strptime(data["last_updated"], "%Y-%m-%d %H:%M:%S")).total_seconds()
+
+    sources_ok = [s for s in data["sources"] if s["status"] == "ok"]
+    sources_err = [s for s in data["sources"] if s["status"] == "error"]
+    active = [v for v in data["vacancies"] if v.get("status") == "active"]
+    with_apply = [v for v in data["vacancies"] if v.get("apply_url")]
+    with_dates = [v for v in data["vacancies"] if v.get("last_date")]
+    new_today = [v for v in active if v.get("posted_date") == end_time.strftime("%Y-%m-%d")]
+
+    audit_entry = {
+        "timestamp": end_time.isoformat(),
+        "duration_seconds": round(duration),
+        "total_vacancies": len(data["vacancies"]),
+        "active_vacancies": len(active),
+        "expired_vacancies": len(data["vacancies"]) - len(active),
+        "with_apply_url": len(with_apply),
+        "with_deadline": len(with_dates),
+        "new_today": len(new_today),
+        "sources_total": len(data["sources"]),
+        "sources_ok": len(sources_ok),
+        "sources_failed": len(sources_err),
+        "failed_sources": [s["name"] for s in sources_err],
+        "upcoming_deadlines": len(data.get("summary", {}).get("upcoming_deadlines", [])),
+        "errors": data["errors"][:10],
+    }
+
+    # Load existing audit log, append, keep last 90 entries
+    try:
+        with open(audit_path, "r") as f:
+            audit_log = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        audit_log = []
+
+    audit_log.append(audit_entry)
+    audit_log = audit_log[-90:]  # Keep last 90 runs (~45 days)
+
+    with open(audit_path, "w", encoding="utf-8") as f:
+        json.dump(audit_log, f, ensure_ascii=False, indent=2)
+
+    log(f"Audit log updated: {audit_path}")
+
 
 if __name__ == "__main__":
     main()
