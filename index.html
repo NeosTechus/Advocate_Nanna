@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://accounts.google.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://accounts.google.com; frame-src https://accounts.google.com; connect-src 'self'; img-src 'self' data: https:; font-src 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23ea580c'/><text x='16' y='22' text-anchor='middle' font-size='16' font-weight='900' fill='white'>JV</text></svg>">
 <title>Judicial Vacancy Tracker</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -245,22 +244,8 @@ select.pill option{background:var(--navy)}
     <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:4px">Judicial Vacancy Tracker</h2>
     <p style="font-size:13px;color:#94a3b8;margin-bottom:24px">Sign in to access the dashboard</p>
 
-    <!-- Google Sign In Button -->
-    <div id="g_id_onload"
-      data-client_id="__GOOGLE_CLIENT_ID__"
-      data-context="signin"
-      data-callback="onGoogleSignIn"
-      data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin"
-      data-type="standard"
-      data-shape="rectangular"
-      data-theme="outline"
-      data-text="signin_with"
-      data-size="large"
-      data-logo_alignment="left"
-      data-width="320">
-    </div>
+    <!-- Google Sign In - rendered by JS after client ID is loaded -->
+    <div id="google-btn-container"></div>
 
 
     <p id="login-err" style="color:#dc2626;font-size:13px;margin-top:12px;display:none">Access denied. Check your code or use an authorized Google account.</p>
@@ -326,13 +311,59 @@ select.pill option{background:var(--navy)}
 <footer class="ft">Judicial Vacancy Tracker &middot; Scrapes 40+ official portals &middot; Run <code>./refresh.sh</code> to update</footer>
 </div><!-- end main-app -->
 
-<script src="https://accounts.google.com/gsi/client" async></script>
 <script>
 // ===== AUTH CONFIG =====
 // Allowed Google emails (add your family emails here)
-const ALLOWED_EMAILS='__ALLOWED_EMAILS__'.split(',').map(e=>e.trim()).filter(Boolean);
+// Env vars - injected by build.sh on Vercel, fallback for local dev
+let GOOGLE_CID='__GOOGLE_CLIENT_ID__';
+const _rawEmails='__ALLOWED_EMAILS__';
+const ALLOWED_EMAILS=_rawEmails.includes('__')?[]:_rawEmails.split(',').map(e=>e.trim()).filter(Boolean);
 
-// ===== GOOGLE SIGN IN =====
+// Step 1: Get client ID (from build injection or .env.local)
+// Step 2: Load Google GSI script
+// Step 3: Initialize Google Sign-In programmatically
+(async function(){
+  // If placeholder not replaced (local dev), load from .env.local
+  if(GOOGLE_CID.includes('__')){
+    try{
+      const r=await fetch('.env.local');
+      const t=await r.text();
+      const cid=t.match(/GOOGLE_CLIENT_ID=(.+)/);
+      const emails=t.match(/ALLOWED_EMAILS=(.+)/);
+      if(cid)GOOGLE_CID=cid[1].trim();
+      if(emails&&!ALLOWED_EMAILS.length)ALLOWED_EMAILS.push(...emails[1].trim().split(',').map(e=>e.trim()));
+    }catch(e){console.warn('No .env.local found')}
+  }
+
+  if(!GOOGLE_CID||GOOGLE_CID.includes('__')){
+    console.error('Google Client ID not configured');
+    return;
+  }
+
+  // Load Google GSI library
+  await new Promise((resolve,reject)=>{
+    const s=document.createElement('script');
+    s.src='https://accounts.google.com/gsi/client';
+    s.onload=resolve;
+    s.onerror=reject;
+    document.head.appendChild(s);
+  });
+
+  // Initialize Google Sign-In programmatically
+  google.accounts.id.initialize({
+    client_id:GOOGLE_CID,
+    callback:onGoogleSignIn,
+    auto_select:false,
+  });
+
+  // Render the button
+  google.accounts.id.renderButton(
+    document.getElementById('google-btn-container'),
+    {theme:'outline',size:'large',text:'signin_with',shape:'rectangular',logo_alignment:'left',width:320}
+  );
+})();
+
+// ===== GOOGLE SIGN IN CALLBACK =====
 function onGoogleSignIn(response){
   const payload=JSON.parse(atob(response.credential.split('.')[1]));
   const email=payload.email;
