@@ -183,9 +183,46 @@ select.pill option{background:var(--navy)}
 </head>
 <body>
 
+<!-- LOGIN SCREEN -->
+<div id="login-screen" style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);padding:20px">
+  <div style="background:#fff;border-radius:16px;padding:40px 36px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center">
+    <div style="width:56px;height:56px;background:#ea580c;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:22px;color:#fff;margin:0 auto 16px">JV</div>
+    <h2 style="font-size:20px;font-weight:700;color:#0f172a;margin-bottom:4px">Judicial Vacancy Tracker</h2>
+    <p style="font-size:13px;color:#94a3b8;margin-bottom:24px">Sign in to access the dashboard</p>
+
+    <!-- Google Sign In Button -->
+    <div id="g_id_onload"
+      data-client_id="731295350167-2tmtdtevgultjel1mlgj4igl1krh28eg.apps.googleusercontent.com"
+      data-context="signin"
+      data-callback="onGoogleSignIn"
+      data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+      data-type="standard"
+      data-shape="rectangular"
+      data-theme="outline"
+      data-text="signin_with"
+      data-size="large"
+      data-logo_alignment="left"
+      data-width="320">
+    </div>
+
+
+    <p id="login-err" style="color:#dc2626;font-size:13px;margin-top:12px;display:none">Access denied. Check your code or use an authorized Google account.</p>
+    <div id="login-user" style="display:none;margin-top:16px;padding:10px;background:#f0fdf4;border-radius:8px;font-size:13px;color:#16a34a"></div>
+    <p style="font-size:11px;color:#cbd5e1;margin-top:20px">Tribunals, Commissions & Government Posts - India</p>
+  </div>
+</div>
+
+<!-- MAIN APP (hidden until login) -->
+<div id="main-app" style="display:none">
 <header class="hdr"><div class="hdr-in">
   <div class="logo"><div class="logo-box">JV</div><div><h1>Judicial Vacancy Tracker</h1><small>Tribunals, Commissions & Govt Posts</small></div></div>
-  <div class="hdr-r"><div><span class="live"></span> <b id="h-act">--</b> Active Openings</div><div id="h-upd">Updated: --</div></div>
+  <div class="hdr-r">
+    <div><span class="live"></span> <b id="h-act">--</b> Active Openings</div>
+    <div id="h-upd">Updated: --</div>
+    <button onclick="logout()" style="margin-top:6px;padding:4px 12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;color:#94a3b8;font-size:11px;cursor:pointer">Sign Out</button>
+  </div>
 </div></header>
 
 <div class="srch"><div class="srch-in">
@@ -229,6 +266,52 @@ select.pill option{background:var(--navy)}
 </main>
 
 <footer class="ft">Judicial Vacancy Tracker &middot; Scrapes 40+ official portals &middot; Run <code>./refresh.sh</code> to update</footer>
+</div><!-- end main-app -->
+
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script>
+// ===== AUTH CONFIG =====
+// Allowed Google emails (add your family emails here)
+const ALLOWED_EMAILS=[
+  // Add emails like: 'yourname@gmail.com', 'father@gmail.com'
+  // Leave empty to allow ANY Google account
+];
+
+// ===== GOOGLE SIGN IN =====
+function onGoogleSignIn(response){
+  const payload=JSON.parse(atob(response.credential.split('.')[1]));
+  const email=payload.email;
+  const name=payload.name;
+
+  // Check if email is allowed (if list is empty, allow all)
+  if(ALLOWED_EMAILS.length>0 && !ALLOWED_EMAILS.includes(email)){
+    document.getElementById('login-err').style.display='block';
+    document.getElementById('login-err').textContent='Access denied for '+email+'. Contact admin.';
+    return;
+  }
+
+  // Success
+  sessionStorage.setItem('jv_auth','1');
+  sessionStorage.setItem('jv_user',name);
+  sessionStorage.setItem('jv_email',email);
+  showApp(name);
+}
+
+function showApp(name){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('main-app').style.display='block';
+}
+
+function logout(){
+  sessionStorage.clear();
+  location.reload();
+}
+
+// Auto-login if already authenticated this session
+if(sessionStorage.getItem('jv_auth')==='1'){
+  showApp(sessionStorage.getItem('jv_user')||'User');
+}
+</script>
 
 <script>
 let D=null,P=null,hideExp=true,view='jobs',eligFilter='yes';
