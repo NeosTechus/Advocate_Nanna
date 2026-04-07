@@ -176,16 +176,64 @@ select.pill option{background:var(--navy)}
 /* FOOTER */
 .ft{max-width:1200px;margin:32px auto 16px;padding:0 20px;text-align:center;font-size:11px;color:var(--text-3)}
 
-/* RESPONSIVE */
-@media(max-width:640px){
-  .hdr-in{padding:14px 16px}.mn{padding:14px 16px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .card{grid-template-columns:1fr;gap:10px}
-  .acts{flex-direction:row;align-items:center;flex-wrap:wrap}
-  .nav button{padding:8px 10px;font-size:13px}
-  .pgrid{grid-template-columns:1fr}
+/* RESPONSIVE - TABLET */
+@media(max-width:1024px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
 }
-@media print{.hdr,.srch,.nav,.acts,.ft{display:none!important}.card{border:1px solid #ccc;box-shadow:none;page-break-inside:avoid}.mn{padding:0}}
+
+/* RESPONSIVE - MOBILE */
+@media(max-width:640px){
+  .hdr-in{padding:14px 16px;flex-direction:column;align-items:flex-start}
+  .hdr-r{text-align:left;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .mn{padding:14px 12px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:6px}
+  .st{padding:10px 12px}
+  .st b{font-size:22px}
+  .srch-in{flex-direction:column;gap:6px}
+  .srch-box{min-width:100%}
+  select.pill{width:100%}
+  .btn-pill{width:100%;text-align:center}
+  .card{grid-template-columns:1fr;gap:8px;padding:12px 14px}
+  .acts{flex-direction:row;align-items:center;flex-wrap:wrap;gap:6px}
+  .bdg{font-size:10px;padding:3px 8px}
+  .abtn{padding:5px 10px;font-size:11px}
+  .nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .nav button{padding:8px 10px;font-size:12px;flex-shrink:0}
+  .nav .cnt{font-size:10px;padding:1px 5px}
+  .pgrid{grid-template-columns:1fr}
+  .pcard{padding:12px}
+  .alert-row{flex-direction:column;gap:4px;align-items:flex-start}
+  .urgent-item{flex-direction:column;gap:4px;align-items:flex-start}
+  /* Login screen mobile */
+  #login-screen>div{padding:28px 20px;margin:10px}
+  .g_id_signin{display:flex;justify-content:center}
+  .ref-cat{margin-bottom:8px}
+  .ref-cat-h{padding:8px 12px;font-size:12px}
+  .ncard{padding:12px 14px}
+}
+
+/* RESPONSIVE - SMALL MOBILE */
+@media(max-width:380px){
+  .logo h1{font-size:15px}
+  .logo small{font-size:10px}
+  .logo-box{width:34px;height:34px;font-size:14px}
+  .stats{grid-template-columns:1fr 1fr}
+  .st b{font-size:20px}
+  .st span{font-size:9px}
+  .nav button{padding:6px 8px;font-size:11px}
+}
+
+/* PRINT */
+@media print{
+  .hdr,.srch,.nav,.acts,.ft,#login-screen,button{display:none!important}
+  #main-app{display:block!important}
+  .card{border:1px solid #ccc;box-shadow:none;page-break-inside:avoid;break-inside:avoid}
+  .mn{padding:0;max-width:100%}
+  .stats{display:none}
+  .alert{display:none}
+  body{font-size:12px;background:#fff}
+}
 </style>
 </head>
 <body>

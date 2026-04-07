@@ -921,12 +921,116 @@ def generate_summary(vacancies):
     # Sort upcoming by days remaining
     upcoming_deadlines.sort(key=lambda x: x["days_remaining"])
 
+    # Quality-based counts
+    high_quality_count = sum(1 for v in vacancies if v.get("quality_score", 0) >= 50)
+    actionable_count = sum(
+        1 for v in vacancies
+        if v.get("apply_url") and v.get("last_date") and v.get("status") == "active"
+        and _is_future_date(v["last_date"])
+    )
+
     return {
         "active_count": active_count,
         "expired_count": expired_count,
         "total_count": len(vacancies),
         "upcoming_deadlines": upcoming_deadlines,
+        "high_quality_count": high_quality_count,
+        "actionable_count": actionable_count,
     }
+
+
+def _is_future_date(date_str):
+    """Return True if date_str (YYYY-MM-DD) is today or in the future."""
+    if not date_str:
+        return False
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d").date() >= TODAY
+    except (ValueError, TypeError):
+        return False
+
+
+# Trusted direct sources (not aggregators) for quality scoring
+TRUSTED_DIRECT_SOURCES = {
+    "Dept of Legal Affairs", "Dept of Justice", "NCLT", "NCLAT", "MCA Portal",
+    "ITAT", "GSTAT", "CERC", "DRT/DRAT", "Ministry of Finance - DRT",
+    "Railway Claims Tribunal", "APTEL", "TDSAT", "SAT", "NCDRC", "NHRC",
+    "Lokpal", "Consumer Affairs Ministry", "NGT", "CAT", "CESTAT", "CCI",
+    "IBBI", "CGIT", "NALSA", "Law Commission", "SEBI", "Supreme Court",
+    "Armed Forces Tribunal", "CIC", "IRDAI", "NFRA", "PFRDA", "Confonet",
+    "Allahabad HC", "Delhi HC", "Telangana HC", "Jharkhand HC",
+    "Gauhati HC", "Gujarat HC", "Madras HC", "Bombay HC", "Calcutta HC",
+    "Karnataka HC", "Kerala HC", "MP HC", "Punjab & Haryana HC",
+    "Rajasthan HC", "AP HC", "Patna HC", "Orissa HC", "Meghalaya HC",
+    "Tripura HC", "Himachal Pradesh HC",
+}
+
+# Position keywords that indicate a specific, actionable judicial/tribunal role
+QUALITY_POSITION_KEYWORDS = re.compile(
+    r"\b(judicial\s*member|presiding\s*officer|ombudsman|lokayukta|"
+    r"chairperson|member\s*\(judicial\)|member\s*\(law\)|"
+    r"technical\s*member|information\s*commissioner|"
+    r"district\s*judge|civil\s*judge|magistrate|"
+    r"advocate\s*general|public\s*prosecutor)\b",
+    re.I,
+)
+
+
+def score_vacancies(vacancies):
+    """
+    Assign a quality score (0-100) to each vacancy based on data completeness
+    and actionability. Higher scores = more useful to the user.
+
+    Scoring:
+      +30  has last_date that is in the future
+      +25  has apply_url
+      +10  has posted_date
+      +15  title contains specific position keywords
+      +10  source is a trusted direct source (not an aggregator)
+      +5   title length > 30 chars (not vague)
+      +5   has detail_url
+    """
+    for v in vacancies:
+        score = 0
+
+        # +30: has a future deadline
+        if v.get("last_date") and _is_future_date(v["last_date"]):
+            score += 30
+
+        # +25: has an apply URL
+        if v.get("apply_url"):
+            score += 25
+
+        # +10: has a posted date
+        if v.get("posted_date"):
+            score += 10
+
+        # +15: title contains specific position keywords
+        title = v.get("title", "")
+        if QUALITY_POSITION_KEYWORDS.search(title):
+            score += 15
+
+        # +10: source is a trusted direct source
+        if v.get("source") in TRUSTED_DIRECT_SOURCES:
+            score += 10
+
+        # +5: title is descriptive (> 30 chars)
+        if len(title.strip()) > 30:
+            score += 5
+
+        # +5: has a detail URL
+        if v.get("detail_url"):
+            score += 5
+
+        v["quality_score"] = score
+
+    # Sort by quality_score descending (highest quality first)
+    vacancies.sort(key=lambda v: v.get("quality_score", 0), reverse=True)
+
+    scored = len(vacancies)
+    high_q = sum(1 for v in vacancies if v.get("quality_score", 0) >= 50)
+    log(f"Quality scoring: {scored} vacancies scored, {high_q} high-quality (score >= 50)")
+
+    return vacancies
 
 
 # ============================================================
@@ -1156,6 +1260,7 @@ def scrape_ncdrc():
     if not ok:
         return
     count = 0
+    deep_count = 0
     for link in soup.find_all("a"):
         text = link.get_text(strip=True)
         href = link.get("href", "")
@@ -1163,7 +1268,7 @@ def scrape_ncdrc():
             full_url = href if href.startswith("http") else f"https://ncdrc.nic.in/{href}"
             posted_date, last_date = extract_dates_for_link(link, text)
             status = compute_status(last_date)
-            add_vacancy({
+            vacancy = {
                 "source": "NCDRC",
                 "title": text[:200],
                 "url": full_url,
@@ -1175,9 +1280,17 @@ def scrape_ncdrc():
                 "last_date": last_date,
                 "status": status,
                 "scraped_at": datetime.now().isoformat()
-            })
+            }
+
+            # Deep scrape NCDRC links (often PDF notifications)
+            if deep_count < DEEP_SCRAPE_MAX_PER_SOURCE:
+                deep_info = deep_scrape(full_url, f"NCDRC: {text[:50]}")
+                vacancy = enrich_vacancy(vacancy, deep_info)
+                deep_count += 1
+
+            add_vacancy(vacancy)
             count += 1
-    log(f"  Found {count} NCDRC items")
+    log(f"  Found {count} NCDRC items ({deep_count} deep-scraped)")
 
 
 # ============================================================
@@ -1393,6 +1506,7 @@ def scrape_cerc():
     if not ok:
         return
     count = 0
+    deep_count = 0
     for link in soup.find_all("a"):
         text = link.get_text(strip=True)
         href = link.get("href", "")
@@ -1400,7 +1514,7 @@ def scrape_cerc():
             full_url = href if href.startswith("http") else f"https://www.cercind.gov.in/{href}"
             posted_date, last_date = extract_dates_for_link(link, text)
             status = compute_status(last_date)
-            add_vacancy({
+            vacancy = {
                 "source": "CERC",
                 "title": text[:200],
                 "url": full_url,
@@ -1412,9 +1526,17 @@ def scrape_cerc():
                 "last_date": last_date,
                 "status": status,
                 "scraped_at": datetime.now().isoformat()
-            })
+            }
+
+            # Deep scrape CERC links (often PDF vacancy circulars)
+            if deep_count < DEEP_SCRAPE_MAX_PER_SOURCE:
+                deep_info = deep_scrape(full_url, f"CERC: {text[:50]}", verify_ssl=False)
+                vacancy = enrich_vacancy(vacancy, deep_info)
+                deep_count += 1
+
+            add_vacancy(vacancy)
             count += 1
-    log(f"  Found {count} CERC items")
+    log(f"  Found {count} CERC items ({deep_count} deep-scraped)")
 
 
 # ============================================================
@@ -1658,16 +1780,32 @@ def scrape_aft():
     if not ok:
         return
     count = 0
+    deep_count = 0
     for link in soup.find_all("a"):
         text = link.get_text(strip=True)
         href = link.get("href", "")
+        # Also check onclick attributes for PDF links
+        onclick = link.get("onclick", "")
+        if onclick and not href:
+            # Extract URL from onclick like window.open('url')
+            m = re.search(r"window\.open\(['\"]([^'\"]+)['\"]", onclick)
+            if m:
+                href = m.group(1)
         if text and len(text) > 8:
             full_url = href if href.startswith("http") else f"https://aftdelhi.nic.in/{href}"
             posted_date, last_date = extract_dates_for_link(link, text)
             status = compute_status(last_date)
-            add_vacancy({"source": "Armed Forces Tribunal", "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "Central Tribunal", "type": "aft", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()})
+            vacancy = {"source": "Armed Forces Tribunal", "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "Central Tribunal", "type": "aft", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()}
+
+            # Deep scrape to find PDFs and deadlines
+            if deep_count < DEEP_SCRAPE_MAX_PER_SOURCE:
+                deep_info = deep_scrape(full_url, f"AFT: {text[:50]}")
+                vacancy = enrich_vacancy(vacancy, deep_info)
+                deep_count += 1
+
+            add_vacancy(vacancy)
             count += 1
-    log(f"  Found {count} AFT items")
+    log(f"  Found {count} AFT items ({deep_count} deep-scraped)")
 
 
 # ============================================================
@@ -1764,6 +1902,8 @@ def scrape_lokpal():
 # 23. ADDITIONAL HIGH COURTS - TRIBUNAL VACANCIES
 # ============================================================
 def scrape_high_courts():
+    # Sources that should be deep-scraped for PDFs and deadlines
+    DEEP_SCRAPE_HC = {"Jharkhand HC"}
     hc_sites = [
         ("https://tshc.gov.in", "Telangana HC"),
         ("https://hcmadras.tn.gov.in/vacancy.php", "Madras HC"),
@@ -1776,6 +1916,8 @@ def scrape_high_courts():
         if not ok:
             continue
         count = 0
+        deep_count = 0
+        do_deep = name in DEEP_SCRAPE_HC
         for link in soup.find_all("a"):
             text = link.get_text(strip=True)
             href = link.get("href", "")
@@ -1786,9 +1928,17 @@ def scrape_high_courts():
                     full_url = href if href.startswith("http") else f"{url.rstrip('/')}/{href.lstrip('/')}"
                     posted_date, last_date = extract_dates_for_link(link, text)
                     status = compute_status(last_date)
-                    add_vacancy({"source": name, "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "High Court - Tribunal Vacancy", "type": "high_court", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()})
+                    vacancy = {"source": name, "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "High Court - Tribunal Vacancy", "type": "high_court", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()}
+
+                    # Deep scrape selected HC sources for PDFs/deadlines
+                    if do_deep and deep_count < DEEP_SCRAPE_MAX_PER_SOURCE:
+                        deep_info = deep_scrape(full_url, f"{name}: {text[:50]}")
+                        vacancy = enrich_vacancy(vacancy, deep_info)
+                        deep_count += 1
+
+                    add_vacancy(vacancy)
                     count += 1
-        log(f"  Found {count} items from {name}")
+        log(f"  Found {count} items from {name}" + (f" ({deep_count} deep-scraped)" if deep_count else ""))
 
 
 # ============================================================
@@ -2157,6 +2307,8 @@ def scrape_doj_dashboard():
 # 38. ADDITIONAL HIGH COURTS (EXPANDED)
 # ============================================================
 def scrape_high_courts_expanded():
+    # Sources that should be deep-scraped for PDFs and deadlines
+    DEEP_SCRAPE_HC_EXP = {"Bombay HC"}
     hc_sites = [
         ("https://bombayhighcourt.nic.in/recruitment.php", "Bombay HC"),
         ("https://calcuttahighcourt.gov.in/recruitment", "Calcutta HC"),
@@ -2178,6 +2330,8 @@ def scrape_high_courts_expanded():
         if not ok:
             continue
         count = 0
+        deep_count = 0
+        do_deep = name in DEEP_SCRAPE_HC_EXP
         for link in soup.find_all("a"):
             text = link.get_text(strip=True)
             href = link.get("href", "")
@@ -2189,9 +2343,17 @@ def scrape_high_courts_expanded():
                     full_url = href if href.startswith("http") else urljoin(url, href)
                     posted_date, last_date = extract_dates_for_link(link, text)
                     status = compute_status(last_date)
-                    add_vacancy({"source": name, "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "High Court", "type": "high_court", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()})
+                    vacancy = {"source": name, "title": text[:200], "url": full_url, "apply_url": None, "detail_url": None, "category": "High Court", "type": "high_court", "posted_date": posted_date, "last_date": last_date, "status": status, "scraped_at": datetime.now().isoformat()}
+
+                    # Deep scrape selected HC sources for PDFs/deadlines
+                    if do_deep and deep_count < DEEP_SCRAPE_MAX_PER_SOURCE:
+                        deep_info = deep_scrape(full_url, f"{name}: {text[:50]}")
+                        vacancy = enrich_vacancy(vacancy, deep_info)
+                        deep_count += 1
+
+                    add_vacancy(vacancy)
                     count += 1
-        log(f"  Found {count} items from {name}")
+        log(f"  Found {count} items from {name}" + (f" ({deep_count} deep-scraped)" if deep_count else ""))
 
 
 # ============================================================
@@ -2799,6 +2961,9 @@ def main():
     deduplicate_news()
     filter_non_judicial()
 
+    # Score vacancies by data quality/actionability
+    data["vacancies"] = score_vacancies(data["vacancies"])
+
     # Sort vacancies by relevance
     data["vacancies"] = sort_vacancies(data["vacancies"])
 
@@ -2810,6 +2975,8 @@ def main():
     log("")
     log(f"Active vacancies: {summary['active_count']}")
     log(f"Expired vacancies: {summary['expired_count']}")
+    log(f"High-quality entries (score >= 50): {summary['high_quality_count']}")
+    log(f"Actionable entries (deadline + apply link): {summary['actionable_count']}")
     log(f"Upcoming deadlines (next 30 days): {len(summary['upcoming_deadlines'])}")
     for item in summary["upcoming_deadlines"]:
         log(f"  - [{item['days_remaining']}d] {item['title'][:80]} ({item['source']})")
