@@ -1,53 +1,59 @@
 {
-  "last_updated": "2026-09-11 16:37:12",
+  "last_updated": "2026-09-12 07:14:39",
   "sources": [
     {
       "name": "Dept of Legal Affairs - Vacancy Circulars",
       "url": "https://legalaffairs.gov.in/vacancy-circulars",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:15.201264"
+      "fetched_at": "2026-09-12T07:14:41.651002"
     },
     {
       "name": "Dept of Justice - Vacancy Positions",
       "url": "https://doj.gov.in/vacancy-position/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:18.058729"
+      "fetched_at": "2026-09-12T07:14:43.877194"
     },
     {
       "name": "UPSC Vacancy Circulars",
       "url": "https://www.upsc.gov.in/recruitment/vacancy-circulars",
-      "status": "ok",
-      "fetched_at": "2026-09-11T16:37:19.870722"
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.upsc.gov.in', port=443): Read timed out. (read timeout=15)"
+    },
+    {
+      "name": "UPSC Vacancy Circulars (alt)",
+      "url": "https://upsc.gov.in/recruitment/vacancy-circulars",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /recruitment/vacancy-circulars (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7f6a179b6950>, 'Connection to upsc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "NCLT Job Openings",
       "url": "https://nclt.gov.in/job-openings",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:22.335768"
+      "fetched_at": "2026-09-12T07:15:17.483679"
     },
     {
       "name": "NCLAT Recruitment",
       "url": "https://nclat.nic.in/recruitment",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:23.316759"
+      "fetched_at": "2026-09-12T07:15:18.520299"
     },
     {
       "name": "MCA Tribunal Member Portal",
       "url": "https://apptrbmembermca.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:31.640196"
+      "fetched_at": "2026-09-12T07:15:26.466671"
     },
     {
       "name": "ITAT",
       "url": "https://itat.gov.in/",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='itat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='itat.gov.in', port=443) at 0x7fe487a95150>, 'Connection to itat.gov.in timed out. (connect timeout=15)'))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:15:28.579242"
     },
     {
       "name": "GSTAT Recruitment",
       "url": "https://dor.gov.in/gstat-recruitment",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:48.869281"
+      "fetched_at": "2026-09-12T07:15:29.860593"
     },
     {
       "name": "CERC Vacancies",
@@ -59,13 +65,13 @@
       "name": "CERC Vacancies (alt)",
       "url": "https://cercind.gov.in/vacancy.html",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:37:51.490326"
+      "fetched_at": "2026-09-12T07:15:32.243739"
     },
     {
       "name": "DRT Portal",
       "url": "https://drt.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:06.853737"
+      "fetched_at": "2026-09-12T07:15:43.332150"
     },
     {
       "name": "DRT/DRAT - Ministry of Finance",
@@ -83,55 +89,55 @@
       "name": "Armed Forces Tribunal - Vacancies",
       "url": "https://aftdelhi.nic.in/index.php/vacancies",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7fe487ad2810>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7f6a17753650>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "APTEL",
       "url": "https://www.aptel.gov.in/en",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:26.097545"
+      "fetched_at": "2026-09-12T07:16:03.638671"
     },
     {
       "name": "TDSAT",
       "url": "https://tdsat.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:27.763489"
+      "fetched_at": "2026-09-12T07:16:05.209610"
     },
     {
       "name": "SAT Vacancy Circulars",
       "url": "https://satweb.sat.gov.in/vacancy-circular",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:30.127375"
+      "fetched_at": "2026-09-12T07:16:06.658420"
     },
     {
       "name": "NCDRC Careers",
       "url": "https://ncdrc.nic.in/careers.html",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:31.536995"
+      "fetched_at": "2026-09-12T07:16:08.249744"
     },
     {
       "name": "NHRC Vacancies",
       "url": "https://nhrc.nic.in/activities/vacancies-results",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:38:33.727914"
+      "fetched_at": "2026-09-12T07:16:10.416994"
     },
     {
       "name": "Lokpal",
       "url": "https://lokpal.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7fe487a40610>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7f6a17897590>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Ministry of Consumer Affairs",
       "url": "https://consumeraffairs.nic.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7fe487c0a050>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7f6a17551810>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Central Information Commission",
       "url": "https://cic.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:39:05.918424"
+      "fetched_at": "2026-09-12T07:16:42.352804"
     },
     {
       "name": "Confonet - Consumer Commissions",
@@ -143,19 +149,19 @@
       "name": "NGT Job Openings",
       "url": "https://greentribunal.gov.in/public-notices/job-opening",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:39:09.465621"
+      "fetched_at": "2026-09-12T07:16:45.590299"
     },
     {
       "name": "NGT Homepage",
       "url": "https://greentribunal.gov.in",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:39:13.564178"
+      "fetched_at": "2026-09-12T07:16:49.221732"
     },
     {
       "name": "Central Administrative Tribunal",
       "url": "https://cgat.gov.in/",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='cgat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgat.gov.in', port=443) at 0x7fe48799f310>, 'Connection to cgat.gov.in timed out. (connect timeout=15)'))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:16:50.531908"
     },
     {
       "name": "CAT CIS Portal",
@@ -166,134 +172,128 @@
     {
       "name": "CESTAT",
       "url": "https://cestat.gov.in/",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='cestat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cestat.gov.in', port=443) at 0x7fe487974b50>, 'Connection to cestat.gov.in timed out. (connect timeout=15)'))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:16:54.451019"
     },
     {
       "name": "CCI Appointments",
       "url": "https://www.cci.gov.in/legal-framwork/notifications/list/appointment-of-chairperson-and-members",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:39:55.049524"
+      "fetched_at": "2026-09-12T07:16:55.812305"
     },
     {
       "name": "IBBI Careers",
       "url": "https://ibbi.gov.in/home/career",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:39:56.363334"
+      "fetched_at": "2026-09-12T07:16:57.164061"
     },
     {
       "name": "IRDAI Careers",
       "url": "https://www.irdai.gov.in/careers",
-      "status": "error",
-      "error": "502 Server Error: Bad Gateway for url: https://irdai.gov.in/what-we-do"
-    },
-    {
-      "name": "IRDAI Homepage",
-      "url": "https://www.irdai.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:04.470814"
+      "fetched_at": "2026-09-12T07:17:00.427388"
     },
     {
       "name": "NFRA",
       "url": "https://nfra.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:06.034770"
+      "fetched_at": "2026-09-12T07:17:02.041132"
     },
     {
       "name": "PFRDA",
       "url": "https://www.pfrda.org.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:08.203238"
+      "fetched_at": "2026-09-12T07:17:03.676096"
     },
     {
       "name": "NALSA",
       "url": "https://nalsa.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:09.816529"
+      "fetched_at": "2026-09-12T07:17:05.295365"
     },
     {
       "name": "Law Commission of India",
       "url": "https://lawcommissionofindia.nic.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:11.992076"
+      "fetched_at": "2026-09-12T07:17:08.771976"
     },
     {
       "name": "SEBI Opportunities",
       "url": "https://www.sebi.gov.in/department/human-resources-department-37/opportunity.html",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:13.586078"
+      "fetched_at": "2026-09-12T07:17:09.972716"
     },
     {
       "name": "CGIT Labour Courts",
       "url": "https://cgit.labour.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7fe4876d1990>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7f6a1754ef90>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "DOJ Vacancy Positions",
       "url": "https://doj.gov.in/vacancy-positions-2/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:31.738240"
+      "fetched_at": "2026-09-12T07:17:28.373953"
     },
     {
       "name": "Supreme Court Recruitments",
       "url": "https://www.sci.gov.in/recruitments/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:33.245035"
+      "fetched_at": "2026-09-12T07:17:29.795046"
     },
     {
       "name": "Ministry of Labour",
       "url": "https://labour.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:34.743904"
+      "fetched_at": "2026-09-12T07:17:31.881013"
     },
     {
       "name": "Allahabad HC - Tribunal Vacancies",
       "url": "https://www.allahabadhighcourt.in/misc/tribunal_vacancy.html",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:37.579886"
+      "fetched_at": "2026-09-12T07:17:33.518608"
     },
     {
       "name": "Telangana HC",
       "url": "https://tshc.gov.in",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:38.952334"
+      "fetched_at": "2026-09-12T07:17:34.938051"
     },
     {
       "name": "Madras HC",
       "url": "https://hcmadras.tn.gov.in/vacancy.php",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7fe487ba2390>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7f6a17510710>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Delhi HC",
       "url": "https://delhihighcourt.nic.in/web/job-openings",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:40:55.455968"
+      "fetched_at": "2026-09-12T07:17:52.599355"
     },
     {
       "name": "Gauhati HC",
       "url": "https://ghconline.gov.in",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7fe4877cd850>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7f6a17195510>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Jharkhand HC",
       "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='jharkhandhighcourt.nic.in', port=443): Max retries exceeded with url: /vacancies-other-govt-deppt.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='jharkhandhighcourt.nic.in', port=443) at 0x7fe4879ad150>, 'Connection to jharkhandhighcourt.nic.in timed out. (connect timeout=15)'))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:18:10.595640"
     },
     {
       "name": "Bombay HC Recruitment",
       "url": "https://bombayhighcourt.nic.in/recruitment.php",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7fe4879aec50>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7f6a17130e50>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Calcutta HC Recruitment",
       "url": "https://calcuttahighcourt.gov.in/recruitment",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by SSLError(SSLError(1, '[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)')))"
+      "error": "HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7f6a17132950>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Karnataka HC Recruitment",
@@ -311,13 +311,13 @@
       "name": "MP HC Recruitment",
       "url": "https://mphc.gov.in/recruitment-result",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7fe487ba3510>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7f6a17113a10>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Punjab & Haryana HC Recruitment",
       "url": "https://highcourtchd.gov.in/sub_pages/left_menu/recruitment/recruitment.html",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7fe48799bfd0>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7f6a17133450>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Rajasthan HC Recruitment",
@@ -329,7 +329,7 @@
       "name": "AP HC Recruitment",
       "url": "https://aphc.gov.in/recruitments.php",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:42:17.103004"
+      "fetched_at": "2026-09-12T07:19:36.222307"
     },
     {
       "name": "Gujarat HC Recruitment",
@@ -340,20 +340,20 @@
     {
       "name": "Orissa HC Recruitment",
       "url": "https://orissahighcourt.nic.in/Recruitment.asp",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='orissahighcourt.nic.in', port=443): Max retries exceeded with url: /Recruitment.asp (Caused by ConnectTimeoutError(<HTTPSConnection(host='orissahighcourt.nic.in', port=443) at 0x7fe4879c2c50>, 'Connection to orissahighcourt.nic.in timed out. (connect timeout=15)'))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:19:39.760101"
     },
     {
       "name": "Patna HC Recruitment",
       "url": "https://patnahighcourt.gov.in/recruitmentMain.aspx",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:42:36.472943"
+      "fetched_at": "2026-09-12T07:19:47.884274"
     },
     {
       "name": "Meghalaya HC Recruitment",
       "url": "https://meghalayahighcourt.nic.in/recruitment",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:42:37.640272"
+      "fetched_at": "2026-09-12T07:19:49.056012"
     },
     {
       "name": "Himachal Pradesh HC Recruitment",
@@ -377,37 +377,37 @@
       "name": "Telangana RERA",
       "url": "https://rera.telangana.gov.in",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:42:57.196676"
+      "fetched_at": "2026-09-12T07:20:13.131952"
     },
     {
       "name": "Maharashtra RERA Tribunal",
       "url": "https://mahareat.maharashtra.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:42:58.491319"
+      "fetched_at": "2026-09-12T07:20:14.329381"
     },
     {
       "name": "Haryana RERA",
       "url": "https://haryanarera.gov.in",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:43:00.218899"
+      "fetched_at": "2026-09-12T07:20:16.230218"
     },
     {
       "name": "Punjab RERA",
       "url": "https://rera.punjab.gov.in/appellate-tribunal.html",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7fe48784cc90>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7f6a16800750>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Karnataka RERA",
       "url": "https://rera.karnataka.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7fe48783b050>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7f6a16791cd0>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Rajasthan RERA",
       "url": "https://rera.rajasthan.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:43:32.512577"
+      "fetched_at": "2026-09-12T07:20:49.373408"
     },
     {
       "name": "UP RERA",
@@ -419,7 +419,7 @@
       "name": "Tamil Nadu RERA",
       "url": "https://rera.tn.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7fe48784d210>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7f6a1676f890>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Gujarat RERA",
@@ -431,13 +431,13 @@
       "name": "Maharashtra RERA",
       "url": "https://maharera.maharashtra.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7fe48787fc50>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7f6a16780cd0>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Delhi ERC",
       "url": "https://www.derc.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:44:08.745738"
+      "fetched_at": "2026-09-12T07:21:27.397813"
     },
     {
       "name": "MP ERC",
@@ -455,31 +455,31 @@
       "name": "Chhattisgarh ERC",
       "url": "https://www.cserc.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:44:11.716028"
+      "fetched_at": "2026-09-12T07:21:29.712946"
     },
     {
       "name": "Rajasthan ERC",
       "url": "https://rerc.rajasthan.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:44:12.953064"
+      "fetched_at": "2026-09-12T07:21:31.005130"
     },
     {
       "name": "Haryana ERC",
       "url": "https://herc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7fe4875aa290>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7f6a1673ad90>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Tamil Nadu ERC",
       "url": "https://www.tnerc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7fe487514910>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7f6a16e40590>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "AP ERC",
       "url": "https://www.aperc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7fe4875148d0>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7f6a16e42050>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Kerala ERC",
@@ -515,13 +515,13 @@
       "name": "Karnataka Appellate Tribunal",
       "url": "https://kapt.karnataka.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7fe48750dad0>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7f6a1736df90>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "LiveLaw Job Updates",
       "url": "https://www.livelaw.in/job-updates",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:32.466130"
+      "fetched_at": "2026-09-12T07:22:50.786150"
     },
     {
       "name": "LiveLaw - Tribunal Vacancy",
@@ -533,96 +533,82 @@
       "name": "LiveLaw - Consumer Commission",
       "url": "https://www.livelaw.in/tags/consumer-commission",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:37.926594"
+      "fetched_at": "2026-09-12T07:22:58.228618"
     },
     {
       "name": "LiveLaw - Presiding Officer",
       "url": "https://www.livelaw.in/tags/presiding-officer",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:38.298153"
+      "fetched_at": "2026-09-12T07:22:59.306889"
     },
     {
       "name": "GovtJobGuru Judicial Jobs",
       "url": "https://govtjobguru.in/govt-jobs-by-department/judicial-jobs/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:39.780316"
+      "fetched_at": "2026-09-12T07:23:00.948477"
     },
     {
       "name": "Verdictum Job Updates",
       "url": "https://www.verdictum.in/job-updates",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:44.616051"
+      "fetched_at": "2026-09-12T07:23:06.617542"
     },
     {
       "name": "LiveLaw - Tribunal",
       "url": "https://www.livelaw.in/tags/tribunal",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:44.700717"
+      "fetched_at": "2026-09-12T07:23:07.081813"
     },
     {
       "name": "LiveLaw - Judicial Appointments",
       "url": "https://www.livelaw.in/tags/judicial-appointments",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:44.774326"
+      "fetched_at": "2026-09-12T07:23:07.502337"
     },
     {
       "name": "LiveLaw - Collegium",
       "url": "https://www.livelaw.in/tags/collegium",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:45.125401"
+      "fetched_at": "2026-09-12T07:23:07.934873"
     },
     {
       "name": "LiveLaw - NCLT",
       "url": "https://www.livelaw.in/tags/nclt",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:45.211746"
+      "fetched_at": "2026-09-12T07:23:08.386124"
     },
     {
       "name": "LiveLaw - NGT",
       "url": "https://www.livelaw.in/tags/ngt",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:45.270619"
+      "fetched_at": "2026-09-12T07:23:08.824937"
     },
     {
       "name": "Bar and Bench News",
       "url": "https://www.barandbench.com/news",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:45.482420"
+      "fetched_at": "2026-09-12T07:23:09.543228"
     },
     {
       "name": "SC Observer",
       "url": "https://www.scobserver.in/",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:47.521463"
+      "fetched_at": "2026-09-12T07:23:11.130428"
     },
     {
       "name": "Verdictum Court Updates",
       "url": "https://www.verdictum.in/court-updates",
       "status": "ok",
-      "fetched_at": "2026-09-11T16:45:48.275219"
+      "fetched_at": "2026-09-12T07:23:12.333555"
     },
     {
       "name": "DOJ Homepage News",
       "url": "https://doj.gov.in/",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='www.doj.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.doj.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
+      "status": "ok",
+      "fetched_at": "2026-09-12T07:23:14.482657"
     }
   ],
   "vacancies": [
-    {
-      "source": "NALSA",
-      "title": "Vacancy Circular for 12 post in National Legal Services Authority, New Delhi on deputation basis -reg.",
-      "url": "https://nalsa.gov.in/document/vacancy-circular-for-12-post-in-national-legal-services-authority-new-delhi-on-deputation-basis-reg/",
-      "apply_url": null,
-      "detail_url": null,
-      "category": "Legal Services",
-      "type": "nalsa",
-      "posted_date": null,
-      "last_date": "2026-09-11",
-      "status": "active",
-      "scraped_at": "2026-09-11T16:40:09.820483",
-      "quality_score": 45
-    },
     {
       "source": "CERC",
       "title": "à¤ªà¤°à¤¾à¤®à¤°à¥à¤¶ à¤à¥ à¤²à¤¿à¤ à¤®à¤¸à¥à¤¦à¤¾ à¤µà¤¿à¤¨à¤¿à¤¯à¤®à¤¨ / à¤à¤°à¥à¤à¤¾ à¤ªà¤¤à¥à¤°",
@@ -634,7 +620,7 @@
       "posted_date": "2022-03-24",
       "last_date": "2026-09-18",
       "status": "active",
-      "scraped_at": "2026-09-11T16:37:55.795516",
+      "scraped_at": "2026-09-12T07:15:36.326602",
       "quality_score": 85
     },
     {
@@ -648,7 +634,7 @@
       "posted_date": null,
       "last_date": "2026-09-30",
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:33.248199",
+      "scraped_at": "2026-09-12T07:17:29.797699",
       "quality_score": 45
     },
     {
@@ -662,7 +648,7 @@
       "posted_date": null,
       "last_date": "2026-10-08",
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:02.650501",
+      "scraped_at": "2026-09-12T07:15:41.963901",
       "quality_score": 45
     },
     {
@@ -676,7 +662,7 @@
       "posted_date": null,
       "last_date": "2026-10-18",
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:02.649052",
+      "scraped_at": "2026-09-12T07:15:41.962770",
       "quality_score": 45
     },
     {
@@ -690,7 +676,7 @@
       "posted_date": "2026-09-01",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:37:54.367317",
+      "scraped_at": "2026-09-12T07:15:35.040381",
       "quality_score": 55
     },
     {
@@ -704,7 +690,7 @@
       "posted_date": "2025-12-18",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.538340",
+      "scraped_at": "2026-09-12T07:16:08.250877",
       "quality_score": 55
     },
     {
@@ -718,7 +704,7 @@
       "posted_date": "2025-09-23",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.538615",
+      "scraped_at": "2026-09-12T07:16:08.251125",
       "quality_score": 55
     },
     {
@@ -732,7 +718,7 @@
       "posted_date": "2025-05-22",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.538921",
+      "scraped_at": "2026-09-12T07:16:08.251338",
       "quality_score": 55
     },
     {
@@ -746,7 +732,7 @@
       "posted_date": "2025-04-21",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.539134",
+      "scraped_at": "2026-09-12T07:16:08.251491",
       "quality_score": 55
     },
     {
@@ -760,7 +746,7 @@
       "posted_date": "2025-03-24",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.539392",
+      "scraped_at": "2026-09-12T07:16:08.251681",
       "quality_score": 55
     },
     {
@@ -774,7 +760,7 @@
       "posted_date": "2025-01-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.539590",
+      "scraped_at": "2026-09-12T07:16:08.251825",
       "quality_score": 55
     },
     {
@@ -788,7 +774,7 @@
       "posted_date": "2024-10-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.539893",
+      "scraped_at": "2026-09-12T07:16:08.252039",
       "quality_score": 55
     },
     {
@@ -802,7 +788,7 @@
       "posted_date": "2024-09-18",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.540460",
+      "scraped_at": "2026-09-12T07:16:08.252459",
       "quality_score": 55
     },
     {
@@ -816,7 +802,7 @@
       "posted_date": "2024-09-13",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.540726",
+      "scraped_at": "2026-09-12T07:16:08.252644",
       "quality_score": 55
     },
     {
@@ -830,7 +816,7 @@
       "posted_date": "2026-02-17",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:42:37.649156",
+      "scraped_at": "2026-09-12T07:19:49.062465",
       "quality_score": 40
     },
     {
@@ -844,7 +830,7 @@
       "posted_date": "2023-03-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:30.128635",
+      "scraped_at": "2026-09-12T07:16:06.659518",
       "quality_score": 25
     },
     {
@@ -858,7 +844,7 @@
       "posted_date": "2024-05-31",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.541028",
+      "scraped_at": "2026-09-12T07:16:08.252869",
       "quality_score": 25
     },
     {
@@ -872,7 +858,7 @@
       "posted_date": "2024-02-13",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.541715",
+      "scraped_at": "2026-09-12T07:16:08.253403",
       "quality_score": 25
     },
     {
@@ -886,7 +872,7 @@
       "posted_date": "2023-11-22",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.542358",
+      "scraped_at": "2026-09-12T07:16:08.253897",
       "quality_score": 25
     },
     {
@@ -900,7 +886,7 @@
       "posted_date": "2023-10-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.542597",
+      "scraped_at": "2026-09-12T07:16:08.254091",
       "quality_score": 25
     },
     {
@@ -914,7 +900,7 @@
       "posted_date": "2023-07-07",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.543560",
+      "scraped_at": "2026-09-12T07:16:08.254808",
       "quality_score": 25
     },
     {
@@ -928,7 +914,7 @@
       "posted_date": "2023-02-08",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.544944",
+      "scraped_at": "2026-09-12T07:16:08.255866",
       "quality_score": 25
     },
     {
@@ -942,7 +928,7 @@
       "posted_date": "2022-10-31",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.545115",
+      "scraped_at": "2026-09-12T07:16:08.256003",
       "quality_score": 25
     },
     {
@@ -956,7 +942,7 @@
       "posted_date": "2022-10-20",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.545376",
+      "scraped_at": "2026-09-12T07:16:08.256207",
       "quality_score": 25
     },
     {
@@ -970,7 +956,7 @@
       "posted_date": "2022-09-01",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.545607",
+      "scraped_at": "2026-09-12T07:16:08.256386",
       "quality_score": 25
     },
     {
@@ -984,7 +970,7 @@
       "posted_date": "2022-05-11",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.546107",
+      "scraped_at": "2026-09-12T07:16:08.256741",
       "quality_score": 25
     },
     {
@@ -998,7 +984,7 @@
       "posted_date": "2021-10-28",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.546374",
+      "scraped_at": "2026-09-12T07:16:08.256943",
       "quality_score": 25
     },
     {
@@ -1012,7 +998,7 @@
       "posted_date": "2021-08-05",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.546662",
+      "scraped_at": "2026-09-12T07:16:08.257155",
       "quality_score": 25
     },
     {
@@ -1026,7 +1012,7 @@
       "posted_date": "2021-07-30",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.546852",
+      "scraped_at": "2026-09-12T07:16:08.257293",
       "quality_score": 25
     },
     {
@@ -1040,7 +1026,7 @@
       "posted_date": "2020-07-17",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.548947",
+      "scraped_at": "2026-09-12T07:16:08.258908",
       "quality_score": 25
     },
     {
@@ -1054,7 +1040,7 @@
       "posted_date": "2020-03-27",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.549151",
+      "scraped_at": "2026-09-12T07:16:08.259082",
       "quality_score": 25
     },
     {
@@ -1068,7 +1054,7 @@
       "posted_date": "2019-08-30",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.551369",
+      "scraped_at": "2026-09-12T07:16:08.260837",
       "quality_score": 25
     },
     {
@@ -1082,7 +1068,7 @@
       "posted_date": "2019-07-20",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.551564",
+      "scraped_at": "2026-09-12T07:16:08.261002",
       "quality_score": 25
     },
     {
@@ -1096,7 +1082,7 @@
       "posted_date": "2019-04-09",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.551947",
+      "scraped_at": "2026-09-12T07:16:08.261287",
       "quality_score": 25
     },
     {
@@ -1110,7 +1096,7 @@
       "posted_date": "2018-09-14",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.552351",
+      "scraped_at": "2026-09-12T07:16:08.261604",
       "quality_score": 25
     },
     {
@@ -1124,7 +1110,7 @@
       "posted_date": "2018-08-17",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.552739",
+      "scraped_at": "2026-09-12T07:16:08.261877",
       "quality_score": 25
     },
     {
@@ -1138,7 +1124,7 @@
       "posted_date": "2017-08-21",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.553746",
+      "scraped_at": "2026-09-12T07:16:08.262624",
       "quality_score": 25
     },
     {
@@ -1152,7 +1138,7 @@
       "posted_date": "2016-12-22",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.554227",
+      "scraped_at": "2026-09-12T07:16:08.262991",
       "quality_score": 25
     },
     {
@@ -1166,7 +1152,7 @@
       "posted_date": "2016-07-29",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.555116",
+      "scraped_at": "2026-09-12T07:16:08.263647",
       "quality_score": 25
     },
     {
@@ -1180,7 +1166,7 @@
       "posted_date": "2015-02-18",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:38:31.556601",
+      "scraped_at": "2026-09-12T07:16:08.264752",
       "quality_score": 25
     },
     {
@@ -1194,13 +1180,13 @@
       "posted_date": "2026-09-11",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:39:13.569235",
+      "scraped_at": "2026-09-12T07:16:49.225491",
       "quality_score": 25
     },
     {
       "source": "PFRDA",
       "title": "Circular - Standardised framework for classification and presentation of Schemes under the NPS28-08-2026",
-      "url": "https://www.pfrda.org.in/w/circular-standardised-framework-for-classification-and-presentation-of-schemes-under-the-nps",
+      "url": "https://pfrda.org.in/w/circular-standardised-framework-for-classification-and-presentation-of-schemes-under-the-nps",
       "apply_url": null,
       "detail_url": null,
       "category": "Pension Fund Regulator",
@@ -1208,13 +1194,13 @@
       "posted_date": "2026-08-28",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:08.211738",
+      "scraped_at": "2026-09-12T07:17:03.683907",
       "quality_score": 25
     },
     {
       "source": "PFRDA",
       "title": "Circular - Extension of Incentive Framework under National Pension System (NPS) – “NPS e-shramik (Platform Service Partner) Model” for FY 2026-2718-08-2026",
-      "url": "https://www.pfrda.org.in/w/circular-extension-of-incentive-framework-under-national-pension-system-nps-nps-e-shramik-platform-service-partner-model-for-fy-2026-27",
+      "url": "https://pfrda.org.in/w/circular-extension-of-incentive-framework-under-national-pension-system-nps-nps-e-shramik-platform-service-partner-model-for-fy-2026-27",
       "apply_url": null,
       "detail_url": null,
       "category": "Pension Fund Regulator",
@@ -1222,7 +1208,7 @@
       "posted_date": "2026-08-18",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:08.212510",
+      "scraped_at": "2026-09-12T07:17:03.684879",
       "quality_score": 25
     },
     {
@@ -1236,7 +1222,7 @@
       "posted_date": "2025-11-01",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:33.252735",
+      "scraped_at": "2026-09-12T07:17:29.800996",
       "quality_score": 25
     },
     {
@@ -1250,7 +1236,7 @@
       "posted_date": "2026-08-27",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:38.957003",
+      "scraped_at": "2026-09-12T07:17:34.941980",
       "quality_score": 25
     },
     {
@@ -1264,7 +1250,7 @@
       "posted_date": "2026-08-13",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:40:38.959175",
+      "scraped_at": "2026-09-12T07:17:34.943534",
       "quality_score": 25
     },
     {
@@ -1278,7 +1264,7 @@
       "posted_date": "2025-10-27",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:42:37.650087",
+      "scraped_at": "2026-09-12T07:19:49.063157",
       "quality_score": 25
     },
     {
@@ -1292,7 +1278,7 @@
       "posted_date": "2025-09-10",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:42:37.651509",
+      "scraped_at": "2026-09-12T07:19:49.064219",
       "quality_score": 25
     },
     {
@@ -1306,7 +1292,21 @@
       "posted_date": "2024-07-05",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-09-11T16:42:57.198754",
+      "scraped_at": "2026-09-12T07:20:13.133749",
+      "quality_score": 15
+    },
+    {
+      "source": "NALSA",
+      "title": "Vacancy Circular for 12 post in National Legal Services Authority, New Delhi on deputation basis -reg.",
+      "url": "https://nalsa.gov.in/document/vacancy-circular-for-12-post-in-national-legal-services-authority-new-delhi-on-deputation-basis-reg/",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "Legal Services",
+      "type": "nalsa",
+      "posted_date": null,
+      "last_date": "2026-09-11",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:17:05.298461",
       "quality_score": 15
     },
     {
@@ -1320,7 +1320,7 @@
       "posted_date": "2026-09-01",
       "last_date": "2026-09-10",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:45:34.039401",
+      "scraped_at": "2026-09-12T07:22:54.409427",
       "quality_score": 20
     },
     {
@@ -1334,7 +1334,7 @@
       "posted_date": "2026-08-01",
       "last_date": "2026-08-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:39:56.366080",
+      "scraped_at": "2026-09-12T07:16:57.166499",
       "quality_score": 25
     },
     {
@@ -1348,7 +1348,7 @@
       "posted_date": "2026-07-01",
       "last_date": "2026-07-15",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:39:56.366911",
+      "scraped_at": "2026-09-12T07:16:57.167175",
       "quality_score": 25
     },
     {
@@ -1362,7 +1362,7 @@
       "posted_date": null,
       "last_date": "2026-06-22",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.651839",
+      "scraped_at": "2026-09-12T07:15:41.964877",
       "quality_score": 15
     },
     {
@@ -1376,7 +1376,7 @@
       "posted_date": null,
       "last_date": "2026-06-02",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:42:37.644935",
+      "scraped_at": "2026-09-12T07:19:49.059420",
       "quality_score": 30
     },
     {
@@ -1390,7 +1390,7 @@
       "posted_date": null,
       "last_date": "2026-05-18",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.652799",
+      "scraped_at": "2026-09-12T07:15:41.965576",
       "quality_score": 15
     },
     {
@@ -1404,7 +1404,7 @@
       "posted_date": null,
       "last_date": "2026-05-12",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.652262",
+      "scraped_at": "2026-09-12T07:15:41.965197",
       "quality_score": 15
     },
     {
@@ -1418,7 +1418,7 @@
       "posted_date": null,
       "last_date": "2026-04-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:42:37.647166",
+      "scraped_at": "2026-09-12T07:19:49.061037",
       "quality_score": 30
     },
     {
@@ -1432,7 +1432,7 @@
       "posted_date": null,
       "last_date": "2026-04-08",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.653186",
+      "scraped_at": "2026-09-12T07:15:41.965855",
       "quality_score": 15
     },
     {
@@ -1446,7 +1446,7 @@
       "posted_date": null,
       "last_date": "2026-04-08",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.653461",
+      "scraped_at": "2026-09-12T07:15:41.966069",
       "quality_score": 10
     },
     {
@@ -1460,7 +1460,7 @@
       "posted_date": null,
       "last_date": "2026-02-27",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.653811",
+      "scraped_at": "2026-09-12T07:15:41.966311",
       "quality_score": 15
     },
     {
@@ -1474,7 +1474,7 @@
       "posted_date": null,
       "last_date": "2026-02-23",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.654738",
+      "scraped_at": "2026-09-12T07:15:41.967006",
       "quality_score": 15
     },
     {
@@ -1488,7 +1488,7 @@
       "posted_date": null,
       "last_date": "2026-02-19",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.654171",
+      "scraped_at": "2026-09-12T07:15:41.966574",
       "quality_score": 15
     },
     {
@@ -1502,7 +1502,7 @@
       "posted_date": "2025-12-01",
       "last_date": "2025-12-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:45:38.300048",
+      "scraped_at": "2026-09-12T07:22:59.308515",
       "quality_score": 60
     },
     {
@@ -1516,7 +1516,7 @@
       "posted_date": "2025-12-01",
       "last_date": "2025-12-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:45:38.603709",
+      "scraped_at": "2026-09-12T07:22:59.468151",
       "quality_score": 35
     },
     {
@@ -1530,7 +1530,7 @@
       "posted_date": null,
       "last_date": "2025-08-27",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.656467",
+      "scraped_at": "2026-09-12T07:15:41.968324",
       "quality_score": 15
     },
     {
@@ -1544,7 +1544,7 @@
       "posted_date": null,
       "last_date": "2025-08-25",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.657101",
+      "scraped_at": "2026-09-12T07:15:41.968823",
       "quality_score": 15
     },
     {
@@ -1558,7 +1558,7 @@
       "posted_date": "2025-08-01",
       "last_date": "2025-08-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:45:39.177793",
+      "scraped_at": "2026-09-12T07:23:00.209191",
       "quality_score": 60
     },
     {
@@ -1572,7 +1572,7 @@
       "posted_date": null,
       "last_date": "2025-07-03",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.658873",
+      "scraped_at": "2026-09-12T07:15:41.970158",
       "quality_score": 15
     },
     {
@@ -1586,7 +1586,7 @@
       "posted_date": null,
       "last_date": "2025-06-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.657693",
+      "scraped_at": "2026-09-12T07:15:41.969281",
       "quality_score": 15
     },
     {
@@ -1600,7 +1600,7 @@
       "posted_date": "2025-06-01",
       "last_date": "2025-06-23",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:39:56.368700",
+      "scraped_at": "2026-09-12T07:16:57.168520",
       "quality_score": 25
     },
     {
@@ -1614,7 +1614,7 @@
       "posted_date": null,
       "last_date": "2025-03-19",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.659363",
+      "scraped_at": "2026-09-12T07:15:41.970555",
       "quality_score": 15
     },
     {
@@ -1628,7 +1628,7 @@
       "posted_date": null,
       "last_date": "2025-03-07",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.660283",
+      "scraped_at": "2026-09-12T07:15:41.971286",
       "quality_score": 15
     },
     {
@@ -1642,7 +1642,7 @@
       "posted_date": null,
       "last_date": "2025-02-10",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.661208",
+      "scraped_at": "2026-09-12T07:15:41.971891",
       "quality_score": 15
     },
     {
@@ -1656,7 +1656,7 @@
       "posted_date": null,
       "last_date": "2024-12-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.662508",
+      "scraped_at": "2026-09-12T07:15:41.972662",
       "quality_score": 15
     },
     {
@@ -1670,7 +1670,7 @@
       "posted_date": null,
       "last_date": "2024-12-12",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.661894",
+      "scraped_at": "2026-09-12T07:15:41.972220",
       "quality_score": 15
     },
     {
@@ -1684,7 +1684,7 @@
       "posted_date": "2024-09-01",
       "last_date": "2024-09-24",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:39:56.370514",
+      "scraped_at": "2026-09-12T07:16:57.169934",
       "quality_score": 25
     },
     {
@@ -1698,7 +1698,7 @@
       "posted_date": null,
       "last_date": "2024-09-20",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.663285",
+      "scraped_at": "2026-09-12T07:15:41.973210",
       "quality_score": 15
     },
     {
@@ -1712,7 +1712,7 @@
       "posted_date": null,
       "last_date": "2024-09-20",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.663857",
+      "scraped_at": "2026-09-12T07:15:41.973614",
       "quality_score": 15
     },
     {
@@ -1726,7 +1726,7 @@
       "posted_date": null,
       "last_date": "2024-09-16",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.664598",
+      "scraped_at": "2026-09-12T07:15:41.974191",
       "quality_score": 15
     },
     {
@@ -1740,7 +1740,7 @@
       "posted_date": null,
       "last_date": "2024-08-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:40:11.996711",
+      "scraped_at": "2026-09-12T07:17:08.775393",
       "quality_score": 15
     },
     {
@@ -1754,7 +1754,7 @@
       "posted_date": null,
       "last_date": "2024-08-10",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.665311",
+      "scraped_at": "2026-09-12T07:15:41.974745",
       "quality_score": 15
     },
     {
@@ -1768,7 +1768,7 @@
       "posted_date": "1998-08-01",
       "last_date": "2024-08-01",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:37:52.755361",
+      "scraped_at": "2026-09-12T07:15:33.512355",
       "quality_score": 55
     },
     {
@@ -1782,7 +1782,7 @@
       "posted_date": null,
       "last_date": "2024-07-03",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.666371",
+      "scraped_at": "2026-09-12T07:15:41.975555",
       "quality_score": 15
     },
     {
@@ -1796,7 +1796,7 @@
       "posted_date": null,
       "last_date": "2024-07-03",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.666740",
+      "scraped_at": "2026-09-12T07:15:41.975846",
       "quality_score": 15
     },
     {
@@ -1810,7 +1810,7 @@
       "posted_date": null,
       "last_date": "2024-06-26",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.665776",
+      "scraped_at": "2026-09-12T07:15:41.975100",
       "quality_score": 15
     },
     {
@@ -1824,7 +1824,7 @@
       "posted_date": null,
       "last_date": "2024-06-24",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.667339",
+      "scraped_at": "2026-09-12T07:15:41.976325",
       "quality_score": 15
     },
     {
@@ -1838,7 +1838,7 @@
       "posted_date": null,
       "last_date": "2024-06-24",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.667725",
+      "scraped_at": "2026-09-12T07:15:41.976597",
       "quality_score": 15
     },
     {
@@ -1852,7 +1852,7 @@
       "posted_date": "2024-06-01",
       "last_date": "2024-06-06",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:39:56.371549",
+      "scraped_at": "2026-09-12T07:16:57.170723",
       "quality_score": 25
     },
     {
@@ -1866,7 +1866,7 @@
       "posted_date": null,
       "last_date": "2024-05-14",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:31.541392",
+      "scraped_at": "2026-09-12T07:16:08.253166",
       "quality_score": 15
     },
     {
@@ -1880,7 +1880,7 @@
       "posted_date": null,
       "last_date": "2024-04-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:40:33.264878",
+      "scraped_at": "2026-09-12T07:17:29.810341",
       "quality_score": 15
     },
     {
@@ -1894,7 +1894,7 @@
       "posted_date": null,
       "last_date": "2024-03-28",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.668215",
+      "scraped_at": "2026-09-12T07:15:41.976967",
       "quality_score": 15
     },
     {
@@ -1908,7 +1908,7 @@
       "posted_date": null,
       "last_date": "2024-03-18",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:31.542141",
+      "scraped_at": "2026-09-12T07:16:08.253728",
       "quality_score": 15
     },
     {
@@ -1922,7 +1922,7 @@
       "posted_date": null,
       "last_date": "2024-03-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:40:33.266153",
+      "scraped_at": "2026-09-12T07:17:29.811268",
       "quality_score": 15
     },
     {
@@ -1936,7 +1936,7 @@
       "posted_date": null,
       "last_date": "2024-02-27",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.668688",
+      "scraped_at": "2026-09-12T07:15:41.977304",
       "quality_score": 15
     },
     {
@@ -1950,7 +1950,7 @@
       "posted_date": null,
       "last_date": "2023-10-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.669150",
+      "scraped_at": "2026-09-12T07:15:41.977639",
       "quality_score": 15
     },
     {
@@ -1964,7 +1964,7 @@
       "posted_date": null,
       "last_date": "2023-09-19",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:31.543244",
+      "scraped_at": "2026-09-12T07:16:08.254562",
       "quality_score": 15
     },
     {
@@ -1978,7 +1978,7 @@
       "posted_date": null,
       "last_date": "2023-08-25",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.670724",
+      "scraped_at": "2026-09-12T07:15:41.978808",
       "quality_score": 15
     },
     {
@@ -1992,7 +1992,7 @@
       "posted_date": null,
       "last_date": "2023-07-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.671521",
+      "scraped_at": "2026-09-12T07:15:41.979423",
       "quality_score": 15
     },
     {
@@ -2006,7 +2006,7 @@
       "posted_date": null,
       "last_date": "2023-07-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.672425",
+      "scraped_at": "2026-09-12T07:15:41.980131",
       "quality_score": 15
     },
     {
@@ -2020,7 +2020,7 @@
       "posted_date": null,
       "last_date": "2023-05-22",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:31.544730",
+      "scraped_at": "2026-09-12T07:16:08.255704",
       "quality_score": 15
     },
     {
@@ -2034,7 +2034,7 @@
       "posted_date": null,
       "last_date": "2022-12-14",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.674292",
+      "scraped_at": "2026-09-12T07:15:41.981570",
       "quality_score": 15
     },
     {
@@ -2048,7 +2048,7 @@
       "posted_date": null,
       "last_date": "2022-11-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.675389",
+      "scraped_at": "2026-09-12T07:15:41.982409",
       "quality_score": 15
     },
     {
@@ -2062,7 +2062,7 @@
       "posted_date": null,
       "last_date": "2022-07-15",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.676699",
+      "scraped_at": "2026-09-12T07:15:41.983329",
       "quality_score": 15
     },
     {
@@ -2076,7 +2076,7 @@
       "posted_date": null,
       "last_date": "2022-04-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.677907",
+      "scraped_at": "2026-09-12T07:15:41.984172",
       "quality_score": 15
     },
     {
@@ -2090,7 +2090,7 @@
       "posted_date": null,
       "last_date": "2022-03-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.678345",
+      "scraped_at": "2026-09-12T07:15:41.984483",
       "quality_score": 15
     },
     {
@@ -2104,7 +2104,7 @@
       "posted_date": null,
       "last_date": "2022-02-14",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.678992",
+      "scraped_at": "2026-09-12T07:15:41.984943",
       "quality_score": 15
     },
     {
@@ -2118,7 +2118,7 @@
       "posted_date": null,
       "last_date": "2021-10-20",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.681108",
+      "scraped_at": "2026-09-12T07:15:41.986443",
       "quality_score": 15
     },
     {
@@ -2132,8 +2132,1800 @@
       "posted_date": null,
       "last_date": "2021-09-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.683485",
+      "scraped_at": "2026-09-12T07:15:41.988233",
       "quality_score": 15
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection to the post of Chairperson and two Members of Delhi Electricity Regulatory Commission (DERC).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_derc_e4243_20062026",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_derc_e4243_20062026",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:14.967532",
+      "quality_score": 70
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the Post of  Presiding Officer in Central Government Industrial Tribunal-cum-Labour Court.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_presiding_officer_12112025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_presiding_officer_12112025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:17.147643",
+      "quality_score": 70
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Online applications are invited for filling up 27 vacancies in Delhi Higher Judicial Service of High Court of Delhi",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:12.797186",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the Post of  Member in National Consumer Disputes Redressal Commission (NCDRC)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/ncdrc_10102025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/ncdrc_10102025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:19.067154",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the Post of Judicial and Expert Member in National Green Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/NGT_24092025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/NGT_24092025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:20.998115",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the Post of Joint Registrar in National Company Law Appellate Tribunal (NCLAT), Chennai Bench on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/jr_nclat_3763_22092025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/jr_nclat_3763_22092025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:23.175818",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement for recruitment of  District Judges in the High Court of Gujarat.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/adv_recruitment_dist_judge_28072025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/adv_recruitment_dist_judge_28072025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:25.922766",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "DIRECT RECRUITMENT TO PUNJAB SUPERIOR JUDICIAL SERVICE-2025",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/punjab_superior_judicial_service_2025_19062025",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/punjab_superior_judicial_service_2025_19062025",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:27.848692",
+      "quality_score": 55
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "High Court of Jharkhand, India",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/recruitment.php",
+      "apply_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/dhjse_2026_03062026",
+      "detail_url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/recruitment.php",
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:10.596507",
+      "quality_score": 50
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Presiding Officer in central Government Industrial Tribunal-cum-Labour Court",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/presiding_officer_2249_1162025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.108071",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Technical Member (State) in the State Bench of Goods and Services Tax Appellate Tribunal for the State of Jharkhand.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_technical_member_29042025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.131487",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up of the  post of Judicial Member in Railway Claims Tribunal (RCT).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_circular_jm_10032025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.172388",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Presiding Officer in Central Government Industrial Tribunal-cum-Labour Court",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/presiding_officer_1065_28022025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.181029",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of (one) post of Chairperson & 2(two) post of Members in the Manipur.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/notification_imphal_07022025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.189720",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Presiding Officer  in Central Government Industrial-cum-Labour Court.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/presiding_officer_m5731_03122024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.249823",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Online Applications are invited for filling up of 03 (Three ) posts of Judicial Member and 03 (Three) posts of Technical Members in the National Company Law Tribunal (NCLT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_NCLT_M5735_03122024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.258337",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the posts of Chairperson-cum-Member(Legal ) for the Consumer Grievance Redressal Forum of SAIL at Bokaro, TSUISL at Jamshedpur and JBVNL at Ranchi, Medininagar and Chaibas",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_chairperson_cum_member_3204_24062024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.310548",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Presiding Officer in Central Government Induatrial Tribunal-cum-Labour Court.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/presiding_officer_memo_943_28022024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.389022",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Judicial Member in Securities Appellate Tribunal (SAT), Mumbai",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_sat_mumbai_22022024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.397494",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Kerala Judicial Service Examination- 2024 for direct recruitment of Civil Judge (Junior Division).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/hckl_589_2024_17022024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.414388",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Presiding Officer in National Industrial Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=presiding_officer_16082023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.551036",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Presiding Officer in National Industrial Tribunals -reg..",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=presiding-officer-NIT_07032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.699183",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Presiding Officer in Central Government Industrial Tribunal-cum-Labour Court -reg.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=presiding_officer_CGI_07032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.707601",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR FILLING UP OF 09 (NINE) POSTS OF JUDICIAL MEMBER AND 06 (SIX) POSTS OF TECHNICAL MEMBERS IN THE NATIONAL COMPANY LAW TRIBUNAL (NCLT).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLT_16112021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.808063",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Direct Recruitment for the Post of District Judge (Entry Level) in the Tamil Nadu State Judicial Service.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=dj_taminadu_04012020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.038716",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of 14 (Fourteen) posts of Judicial Member in the National Company Law Tribunal (NCLT).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_circular_PUC2",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.235000",
+      "quality_score": 40
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "DIRECT RECRUITMENT TO HARYANA SUPERIOR JUDICIAL SERVICE-2025",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/superior_judicial_service_2025_haryana_19062025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.100063",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement Notilication for appointment ot Member in the State Consumer Disputes Redressal Commission regarding.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/adv_no_022025_rr_06052025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.116009",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement Notification for appointment of President in\nthe District Consumer Disputes Redressal Commissionregarding.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/adv_no_032025_06052025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.123790",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Application for the posts of Member and Member (Law), Chhattisgarh State Regulatory Commission (CSERC)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/cserc_23042025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.139796",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "For selection to the post of Executive Director (Law), Delhi Electricity Regulatory commission",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/post_exicutive_director_29032025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.147472",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Member in National Consumer Dispites Redressal Commission (NCDRC).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_NCDRC_29032025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.155285",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up of the  post of Vice-Chairman (Judicial) in Railway Claims Tribunal (RCT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vc_vice_chairman_judicial_10032025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.163722",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Recruitment to the Cadre of Civil Judges in Gujrat",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/cadre_civil_judge_04022025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.198334",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up of various posts in the National Company Law Appellate Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/office_memorendum_31012025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.207013",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for various posts in the National Consumer Disputes Redressal Commission, on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/vacancy_circular_31012025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.215609",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement for Delhi Judicial Service Examination, 2024",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/delhi_higher_judicial_service_exam_04012025",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.232668",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Judicial Members in Central Administrative Tribunal (CAT).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/judicial_member_cat_19122024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.241210",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Member in National Consumer Disputes Redressal Commission (NCDRC)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/NCDRC_memo_4719_28092024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.275595",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement No 02/2024 for recruitment in Grade-I of Tripura Judicial Service.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/tripura_judicial_service_adv_02_2024_05092024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.284150",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement No 01/2024 for recruitment in Grade-III of Tripura Judicial Service.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/judicial_service_tripura_14082024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.292657",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of  Judicial Members in the National Company Law Appellate Tribunal (NCLAT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/POST__NCLAT_MEMO3786_30072024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.301200",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Direct Recruitment to the Uttar Pradesh Higher Judicial Service",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/higher_judicial_service_08052024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.328929",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for filling up the posts of Deputy Registrar in various benches of National Company Law Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/notification_deputy_registrar_27042024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.337892",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for filling up the posts of Joint  Registrar in  National Company Law Tribunal Bencheson on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/notification_joint_regis_27042024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.346661",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Application for appointment of member of the Uttar Pradesh Electricity Regulatory Commission.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/ERC_UP_MEMO_1402_10042024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.355178",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of 1 (one) post of Registrar in the National Company Law Appellate Tribunal on deputation basis",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/NCLAT_memo_1400_10042024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.363693",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Direct Recruitment to the U.P Higher Judicial Service-2023",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/HJS_memo_1398_10042024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.372099",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Member(s) in Good and Services Tax Appellate Tribunal (Principal/ State Benches)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/gstat_memo_1169_apptt_13032024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.380591",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Circular to the posts of Registrar in the Armed Forces Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/circular_registrar_638_08022024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.422541",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the post of Presenting Officer in the National Human Rights Commission",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment/NHRC_Advt_No_01_2024_05022024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.431560",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the post of Uttar Pradesh Higher Judicial Service-2023",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=judicial service 2023_12012024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.440705",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Judicial Members in Central Administrative Tribunal (CAT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=judicial_member_memo_40_03012024",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.450014",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Judicial Members in the National Company Law Appellate Tribunal (NCLAT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLAT_3727_05122023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.459112",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Direct Recruitment to Punjab Superior judicial Service 2023-24",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NOTIFICATION_No_185_02122023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.468407",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATION FOR SELECTION OF MEMBER (LEGAL) PETROLEUM AND NATURAL GAS REGULATORY BOARD",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=PNGRB_memo_4279_28112023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.477248",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "DIRECT RECRUITMENT TO HARYANA SUPERIOR JUDICIAL SERVICE 2023-24",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=HARYANA_SUPERIOR_28112023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.486562",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the posts of Member (Judicial) and Member (Technical) in Customs, Excise and Tax Appellate Tribunal (CESTAT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=CESTAT_28112023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.495679",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Member in National Consumer Disputes Redressal Commission..",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=post_ncdrc_09112023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.513876",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement for delhi Judicial service Examination 2023.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=advert_djse_09112023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.523174",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Regarding selection for the posts of Presiding Officers of Central Government Industrial Tribunal-cum-Labour Court",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=presiding_officer_tribunal_cum_11092023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.532339",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Regarding selection for the posts of Presiding Officers of Central Government Industrial Tribunal-cum-Labour Court/National Industrial Tribunal, Mumbai-I",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=presiding_officer_file_no_A11016_04_2023_08092023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.541828",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Engagement of retired Government Servants as Stenographers in the Central Administrative Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=CAT_NO_PB_1_6_2010_10012023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.569470",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of various posts in the National Commission for Protection of child Rights, New Delhi through deputation on Foreign Service Terms.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCPCR_A_11014_01_2019_ADMIN_10012023",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.578975",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Regarding appointment to the post of Deputy Registrar in the National Green Tribunal Southern Zone Bench, Chennai.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=DRegistrar_chennai_31082022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.588285",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Presinding Officer in Debts Recovery Tribunals.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_presiding_officer_30082022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.597700",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Regarding appointment to the post of Deputy Registrar in the National Tribunal, New Delhi.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=dr_post_mn_3207_30082022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.606947",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for the post of Deputy Registrar in theNational Tribunal, Eastern Zone Bench, Kolkata.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NTG_DEPUTY_REG_26072022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.616382",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement dated 13.07.2022 for filling up of vacancies in Grade-III of Tripura Judicial Service by direct recruitment.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=agartala_grade3_21072022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.625863",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for filling up the various posts in the National Consumer Disputes Redressal Commission.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCDRC_A2_17062022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.635116",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up the posts of Assistant Registrar on deputation basis in different National Company Law Tribunal (NCLT) Benches.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLT_10_15-2022_08042022_11052022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.653850",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up the posts of Senior Legal Assistant (SLA) on deputation basis, in different benches of National Company Law Tribunal (NCLT)",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLT_04_03_2021_11042022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.663075",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the National Commission for Protection of Child Rights, New Delhi on deputation on Foreign Service Terms.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCPCR_OFFICE_MEMORANDUM_12042022_11052022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.672317",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the Competition Commission of India on deputation babis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=FNO_A_12011_02_2020_HR_23032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.681725",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of the posts in the National Company Law Appellate Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLAT_23032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.690918",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the National Commission for Protection of Child Rights, New Delhi on deputation on Foreign Sevice Terms -regarding.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCP_child_right_07032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.716143",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of the post of Registrar, National Company Law Tribunal (NCLT), New Delhi on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=registrar_NCLT_07032022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.724562",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "DELHI JUDICIAL SERVICE EXAMINATION -2022",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=djse_2022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.733769",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of the vacant posts in the Central Administrative Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=CA_TRIBUNAL_18022022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.742965",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "FILING UP OF ONE POST OF DEPUTY REGISTRAR IN THE NATIONAL GREEN TRIBUNAL, EASTERN ZONE BRANCH, KOLKATA.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NGT_PB_16_admn_2014_55_31012022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.752333",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "FILING UP OF ONE POST OF ASSISTANT IN NATIONAL HUMAN RIGHTS COMMISSION ON DEPUTATION BASIS.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NHRC_25012022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.761514",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "FILING UP THE POSTS SENIOR LEGAL ASSISTANT (SLA) ON DEPUTATION BASIS IN BENCHES OF NATIONAL COMPANY LAW TRIBUNAL (NCLT).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLT_25012022",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.770866",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Selection for the post of Member in Telecom Disputes Settlement and Appellate Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=TDSAT_01122021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.780013",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "FILLING UP OF THE POSTS IN THE NATIONAL COMPANY LAW APPELLATE TRIBUNAL, PRINCIPAL BENCH, NEW DELHI ON DEPUTATION BASIS.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCLA_16112021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.789360",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR FILLING UP THE VARIOUS VACANCIES ON DEPUTATION (INCLUDING SHORT-TERM CONTRACT) BASIS IN NATIONAL HUMAN RIGHTS COMMISSION.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=nhrc_16112021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.798609",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR FILLING UP THE VARIOUS POST ON DEPUTATION BASIS IN THE Appellate Tribunal for Electricity.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=recruitment_APTEL_2626_2021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.817230",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "FILLING UP OF THE POST OF REGISTRAR IN RAILWAY CLAIMS TRIBUNAL (RCT), DELHI BENCH.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=RCT_27092021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.826632",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR FILLING UP THE VARIOUS POST ON DEPUTATION BASIS IN THE NATIONAL CONSUMER DISPUTES REDRESSAL COMMISSION.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=application_ncdrc_2017_18_18082021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.835667",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "RECRUITMENT TO THE POST OF DEPUTY REGISTRAR AND ASSISTANT REGISTRAR IS EXTENDED TILL 15th JULY, 2021 (Advt. No. NGT/PB/16/Admn./2014/87).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NGT_PB_16_ADMIN_2016_202_28062021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.845038",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Inviting applications for appointment of Central Notary Public by Government of India(OFFICE MEMORANDUM).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=office_memorandum_11062021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.863757",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Recruitment to the post of English Stenographer Grade-II on the establishment of the High Court of Gujarat. (Adv No. RC/B/1304/2020 (EST-II))",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=Adv_RC_B_1304_2020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.872828",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR APPOINTMENT TO THE POST OF DEPUTY REGISTRAR IN THE NATIONAL GREEN TRIBUNAL, PRINCIPAL BENCH, NEW DELHI.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=National_Green_Tribunal_06March2021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.882087",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS ARE INVITED FOR APPOINTMENT TO ASSISTANT REGISTRAR IN NGT, PRINCIPAL BENCH, NEW DELHI",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NGT_PB_admi_2014_54_11022021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.891052",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "APPLICATIONS FOR SELECTION OF MEMBER (LEGAL), PETROLEUM AND NATURAL GAS REGULATORY BOARD.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=pngrb_10022021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.900151",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications for filling up of 06 (six) vacancies in Grade-III of Tripura Judicial service.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=grage_3_tripura_10022021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.909375",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up various posts in the office of Director General, Competition Commission of India on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=office_memorandum_A-12011_3_2020_HR_13012021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.918845",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited only by online for Direct Recruitment to the various posts in the Madras High Court Service.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=madras_hc_notificationNo_159_2020_11012021",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.928124",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up various posts in the Armed Forces Tribunal.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_AFT_10122020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.937538",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up various posts in the National Commission for Protection of Child Rights, New Delhi through deputation on Foreign Service Terms - regarding.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancies_NCPCR",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.946585",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing up the post of Registrar in the Appellate Tribunal for Electricity on Deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=ATEMP_04092020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.955884",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filing the post of Member (Legal) in Petroleum and Natural Gas Regulatory Board (PNGRB).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=PNGRB_02062020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.974097",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "EXTENSION OF LAST DATE FOR RECEIPT OF APPLICATION FOR VARIOUS POSTS ON DEPUTATION IN ARMED FORCES TRIBUNAL.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=extension_AFT_02062020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.983363",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for appointment on deputation basis from High Courts to the ex-cadre post of Additional Registrar (Library).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_add_registrary_24022020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:30.992805",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of post of Appellate Tribunal for Electricity.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_ate_24022020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.001809",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Additional Vacancies in ARMED FORCES TRIBUNAL, PRINCIPAL BENCH AND REGIONAL BENCHES.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=circular_aftpb_24022020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.010986",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of various posts in the National Commission for Protection of Child Rights, New Delhi on deputation on Foreign Service Terms.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCPCR_admn116571_12022020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.020095",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Applications are invited for filing up of the various Posts in Armed Force Tribunal, Principal Bench, Ministry of Defence, Government of India",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=AFTPB_FNo2_92_2019_AFT_PBADM_II__04022020",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.029422",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of the post of Adviser (Financial Analysis) in Competition Commission of India on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=post_adviser_26072019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.048193",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of the post in respect of Deputy Registrar and Assistant Registrar in the NGT,WZB, Pune on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=national_green_tribunal_08112019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.057478",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Invitation of applications for the Post of Member, Odisha Electricity Regulatory Commission (OERC).",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=OERC_24072019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.076255",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for appointment of members in the National Consumer Disputes Redressal Commission (NCDRC), New Delhi.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NCDRC_24072019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.085666",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of posts in the office of Director General, CCI on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=director_general_06072019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.094908",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up of various post in Competition Commission of India, New Delhi.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_comp_comm_01052019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.104358",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for filling up the post of Assistant and Personal Assistant in the National Consumer disputes Redressal Commission on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=assist_person_assist_26042019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.113737",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for the post ofDeputy Registrarin the Armed Forces Tribunal, Regional Bench at Kolkata on deputation in Level-11.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_deputy_reg_03042019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.123016",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for the post ofAssistantin the Armed Forces Tribunal, Principal Bench at New Delhi on deputation.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_circular_20022019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.132287",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for the post of Deputy Registrar and Assistant Registrar in the National Green Tribunal, Principal Bench at New Delhi.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=VACANCY_NGT_PB_08022019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.141725",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for the various post in the Appellate Tribunal for Electricity, New Delhi.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=app_trib_electricity_07022018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.150814",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Vacancy for the post of Joint Registrar, Private Secretary, Tribunal Master/ Stenographer Grade-'I', Junior Hindi Translator in Armed Force tribunal, Principal Bench, west Block-VIII, Sector-1, R.K. P",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=armed_forces_tribunal_07022019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.160137",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "VACANCY CIRCULAR FOR THE POSTS OF DEPUTY REGISTRAR AND ASSISTANT REGISTRAR IN THE NGT.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=NTG_17012019",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.178969",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling-up of the vacant posts in the Central Administrative Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=CAT_30102018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.197675",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the office of Director General, Competition Commission of India on deputation basis",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=Director_cci_A12011_032017HR_09102018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.206941",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the office of Director General, Competition Commission of India on deputation basis-Extension of last date from 24th to 10th October, 2018.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=FNOA_12011_03_2017_HR_08102018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.216328",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Advertisement and application Form for recruitment to the post of Stenographer and Stenographer(Bilingual), in the High Court of Chhattisgarh, Bilaspur.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=adv_chhattisgarh_bilaspur_25092018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.225852",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in the National Consumer Disputes Redressal Commission, on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_circular_PUC3",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.243406",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of 1 (One) post of Registrar in the National Company Law Appellate Tribunal on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=national_company_law_appellate_trinunal_25082018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.252094",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "Filling up of posts in Competition Commission of India on deputation basis.",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=office_memorandum_02052018",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.261216",
+      "quality_score": 25
+    },
+    {
+      "source": "Jharkhand HC",
+      "title": "VACANCY CIRCULAR",
+      "url": "https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php/pdfview.php?pdfnm=vacancy_circular_09022018_0",
+      "apply_url": null,
+      "detail_url": null,
+      "category": "High Court - Tribunal Vacancy",
+      "type": "high_court",
+      "posted_date": "2022-07-13",
+      "last_date": "2021-07-15",
+      "status": "expired",
+      "scraped_at": "2026-09-12T07:18:31.270198",
+      "quality_score": 20
     },
     {
       "source": "CERC",
@@ -2146,7 +3938,7 @@
       "posted_date": null,
       "last_date": "2021-02-01",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.686438",
+      "scraped_at": "2026-09-12T07:15:41.990450",
       "quality_score": 15
     },
     {
@@ -2160,7 +3952,7 @@
       "posted_date": null,
       "last_date": "2020-10-19",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.687260",
+      "scraped_at": "2026-09-12T07:15:41.991058",
       "quality_score": 15
     },
     {
@@ -2174,7 +3966,7 @@
       "posted_date": null,
       "last_date": "2020-09-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.688032",
+      "scraped_at": "2026-09-12T07:15:41.991616",
       "quality_score": 15
     },
     {
@@ -2188,7 +3980,7 @@
       "posted_date": null,
       "last_date": "2020-07-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.688789",
+      "scraped_at": "2026-09-12T07:15:41.992169",
       "quality_score": 15
     },
     {
@@ -2202,7 +3994,7 @@
       "posted_date": null,
       "last_date": "2020-02-20",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.689592",
+      "scraped_at": "2026-09-12T07:15:41.992758",
       "quality_score": 15
     },
     {
@@ -2216,7 +4008,7 @@
       "posted_date": null,
       "last_date": "2019-12-27",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.690576",
+      "scraped_at": "2026-09-12T07:15:41.993468",
       "quality_score": 15
     },
     {
@@ -2230,7 +4022,7 @@
       "posted_date": null,
       "last_date": "2019-10-07",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.691071",
+      "scraped_at": "2026-09-12T07:15:41.993810",
       "quality_score": 15
     },
     {
@@ -2244,7 +4036,7 @@
       "posted_date": null,
       "last_date": "2019-07-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.691535",
+      "scraped_at": "2026-09-12T07:15:41.994162",
       "quality_score": 15
     },
     {
@@ -2258,7 +4050,7 @@
       "posted_date": null,
       "last_date": "2019-06-11",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.692106",
+      "scraped_at": "2026-09-12T07:15:41.994571",
       "quality_score": 15
     },
     {
@@ -2272,7 +4064,7 @@
       "posted_date": null,
       "last_date": "2019-01-18",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.694462",
+      "scraped_at": "2026-09-12T07:15:41.996259",
       "quality_score": 15
     },
     {
@@ -2286,7 +4078,7 @@
       "posted_date": null,
       "last_date": "2018-01-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.698181",
+      "scraped_at": "2026-09-12T07:15:41.998926",
       "quality_score": 15
     },
     {
@@ -2300,7 +4092,7 @@
       "posted_date": null,
       "last_date": "2017-12-15",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.699371",
+      "scraped_at": "2026-09-12T07:15:41.999811",
       "quality_score": 15
     },
     {
@@ -2314,7 +4106,7 @@
       "posted_date": null,
       "last_date": "2017-12-01",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.700039",
+      "scraped_at": "2026-09-12T07:15:42.000299",
       "quality_score": 15
     },
     {
@@ -2328,7 +4120,7 @@
       "posted_date": null,
       "last_date": "2017-05-01",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.700892",
+      "scraped_at": "2026-09-12T07:15:42.000900",
       "quality_score": 15
     },
     {
@@ -2342,7 +4134,7 @@
       "posted_date": null,
       "last_date": "2017-03-31",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.702307",
+      "scraped_at": "2026-09-12T07:15:42.001927",
       "quality_score": 15
     },
     {
@@ -2356,7 +4148,7 @@
       "posted_date": null,
       "last_date": "2016-12-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.703559",
+      "scraped_at": "2026-09-12T07:15:42.002851",
       "quality_score": 15
     },
     {
@@ -2370,7 +4162,7 @@
       "posted_date": null,
       "last_date": "2016-06-24",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.705385",
+      "scraped_at": "2026-09-12T07:15:42.004196",
       "quality_score": 15
     },
     {
@@ -2384,7 +4176,7 @@
       "posted_date": null,
       "last_date": "2016-05-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.706038",
+      "scraped_at": "2026-09-12T07:15:42.004671",
       "quality_score": 15
     },
     {
@@ -2398,7 +4190,7 @@
       "posted_date": null,
       "last_date": "2016-05-30",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.707018",
+      "scraped_at": "2026-09-12T07:15:42.005394",
       "quality_score": 15
     },
     {
@@ -2412,7 +4204,7 @@
       "posted_date": null,
       "last_date": "2016-04-01",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.708012",
+      "scraped_at": "2026-09-12T07:15:42.006117",
       "quality_score": 15
     },
     {
@@ -2426,7 +4218,7 @@
       "posted_date": null,
       "last_date": "2016-03-14",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.708612",
+      "scraped_at": "2026-09-12T07:15:42.006557",
       "quality_score": 15
     },
     {
@@ -2440,7 +4232,7 @@
       "posted_date": null,
       "last_date": "2016-02-26",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.709701",
+      "scraped_at": "2026-09-12T07:15:42.007314",
       "quality_score": 15
     },
     {
@@ -2454,7 +4246,7 @@
       "posted_date": null,
       "last_date": "2015-10-09",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.711166",
+      "scraped_at": "2026-09-12T07:15:42.008365",
       "quality_score": 15
     },
     {
@@ -2468,7 +4260,7 @@
       "posted_date": null,
       "last_date": "2015-06-05",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.712427",
+      "scraped_at": "2026-09-12T07:15:42.009243",
       "quality_score": 15
     },
     {
@@ -2482,7 +4274,7 @@
       "posted_date": null,
       "last_date": "2015-03-23",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.714819",
+      "scraped_at": "2026-09-12T07:15:42.010943",
       "quality_score": 15
     },
     {
@@ -2496,7 +4288,7 @@
       "posted_date": null,
       "last_date": "2015-01-16",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.716537",
+      "scraped_at": "2026-09-12T07:15:42.012214",
       "quality_score": 15
     },
     {
@@ -2510,7 +4302,7 @@
       "posted_date": null,
       "last_date": "2014-12-26",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.717323",
+      "scraped_at": "2026-09-12T07:15:42.012784",
       "quality_score": 15
     },
     {
@@ -2524,7 +4316,7 @@
       "posted_date": null,
       "last_date": "2014-11-18",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.718290",
+      "scraped_at": "2026-09-12T07:15:42.013525",
       "quality_score": 15
     },
     {
@@ -2538,120 +4330,100 @@
       "posted_date": null,
       "last_date": "2014-09-26",
       "status": "expired",
-      "scraped_at": "2026-09-11T16:38:02.719502",
+      "scraped_at": "2026-09-12T07:15:42.014429",
       "quality_score": 15
     }
   ],
   "news": [
     {
+      "source": "Bar & Bench",
+      "title": "Regulating arbitrators like Supreme Court, High Court judges is impossible: Retired Justice AK Sikri",
+      "url": "https://www.barandbench.com/news/regulating-arbitrators-like-supreme-court-high-court-judges-is-impossible-retired-justice-ak-sikri",
+      "date": "2026-09-12",
+      "category": "Judicial News",
+      "scraped_at": "2026-09-12T07:23:09.544543"
+    },
+    {
       "source": "SC Observer",
       "title": "Collegium recommends a new Rajasthan High Court CJ",
       "url": "https://www.scobserver.in/journal/acj-sharma-controversy-collegium-recommends-a-new-rajasthan-high-court-cj/",
-      "date": "2026-09-11",
+      "date": "2026-09-12",
       "category": "Supreme Court",
-      "scraped_at": "2026-09-11T16:45:47.523160"
-    },
-    {
-      "source": "Bar & Bench",
-      "title": "Collegium recommends elevation of judicial officer Yash Paul Bourney as Jammu & Kashmir High Court judge",
-      "url": "https://www.barandbench.com/news/collegium-recommends-elevation-of-judicial-officer-yash-paul-bourney-as-jammu-kashmir-high-court-judge",
-      "date": "2026-09-01",
-      "category": "Judicial News",
-      "scraped_at": "2026-09-11T16:45:45.485483"
-    },
-    {
-      "source": "Verdictum",
-      "title": "Supreme Court Collegium Recommends Elevation Of Fifteen Judicial Officers As Judges Of Four High...",
-      "url": "https://www.verdictum.in/supreme-court/supreme-court-collegium-recomendation-judicial-officers-high-courts-1621723",
-      "date": "2026-09-01",
-      "category": "Court Updates",
-      "scraped_at": "2026-09-11T16:45:48.277893"
+      "scraped_at": "2026-09-12T07:23:11.131876"
     }
   ],
   "errors": [
-    "Failed to fetch ITAT: HTTPSConnectionPool(host='itat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='itat.gov.in', port=443) at 0x7fe487a95150>, 'Connection to itat.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch UPSC Vacancy Circulars: HTTPSConnectionPool(host='www.upsc.gov.in', port=443): Read timed out. (read timeout=15)",
+    "Failed to fetch UPSC Vacancy Circulars (alt): HTTPSConnectionPool(host='upsc.gov.in', port=443): Max retries exceeded with url: /recruitment/vacancy-circulars (Caused by ConnectTimeoutError(<HTTPSConnection(host='upsc.gov.in', port=443) at 0x7f6a179b6950>, 'Connection to upsc.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch CERC Vacancies: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
     "Failed to fetch DRT/DRAT - Ministry of Finance: 404 Client Error: Not Found for url: https://financialservices.gov.in/beta/en/page/debts-recovery-tribunals-debts-recovery-appellate-tribunals",
     "Failed to fetch Railway Claims Tribunal: HTTPSConnectionPool(host='rct.indianrail.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='rct.indianrail.gov.in', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
-    "Failed to fetch Armed Forces Tribunal - Vacancies: HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7fe487ad2810>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Lokpal: HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7fe487a40610>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Ministry of Consumer Affairs: HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7fe487c0a050>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Armed Forces Tribunal - Vacancies: HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7f6a17753650>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Lokpal: HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7f6a17897590>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Ministry of Consumer Affairs: HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7f6a17551810>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))",
     "Failed to fetch Confonet - Consumer Commissions: HTTPSConnectionPool(host='confonet.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='confonet.nic.in', port=443): Failed to resolve 'confonet.nic.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch Central Administrative Tribunal: HTTPSConnectionPool(host='cgat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgat.gov.in', port=443) at 0x7fe48799f310>, 'Connection to cgat.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch CAT CIS Portal: 403 Client Error: Forbidden for url: https://cis.cgat.gov.in/",
-    "Failed to fetch CESTAT: HTTPSConnectionPool(host='cestat.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cestat.gov.in', port=443) at 0x7fe487974b50>, 'Connection to cestat.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch IRDAI Careers: 502 Server Error: Bad Gateway for url: https://irdai.gov.in/what-we-do",
-    "Failed to fetch CGIT Labour Courts: HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7fe4876d1990>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Madras HC: HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7fe487ba2390>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Gauhati HC: HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7fe4877cd850>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Jharkhand HC: HTTPSConnectionPool(host='jharkhandhighcourt.nic.in', port=443): Max retries exceeded with url: /vacancies-other-govt-deppt.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='jharkhandhighcourt.nic.in', port=443) at 0x7fe4879ad150>, 'Connection to jharkhandhighcourt.nic.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Bombay HC Recruitment: HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7fe4879aec50>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Calcutta HC Recruitment: HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by SSLError(SSLError(1, '[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)')))",
+    "Failed to fetch CGIT Labour Courts: HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7f6a1754ef90>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Madras HC: HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7f6a17510710>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Gauhati HC: HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7f6a17195510>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Bombay HC Recruitment: HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7f6a17130e50>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Calcutta HC Recruitment: HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7f6a17132950>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Karnataka HC Recruitment: HTTPSConnectionPool(host='highcourtofkarnatakaatbangalore.kar.nic.in', port=443): Max retries exceeded with url: /recruitment.asp (Caused by NameResolutionError(\"HTTPSConnection(host='highcourtofkarnatakaatbangalore.kar.nic.in', port=443): Failed to resolve 'highcourtofkarnatakaatbangalore.kar.nic.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Kerala HC Recruitment: HTTPSConnectionPool(host='highcourtofkerala.nic.in', port=443): Max retries exceeded with url: /index.php/vacancy (Caused by NameResolutionError(\"HTTPSConnection(host='highcourtofkerala.nic.in', port=443): Failed to resolve 'highcourtofkerala.nic.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch MP HC Recruitment: HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7fe487ba3510>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Punjab & Haryana HC Recruitment: HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7fe48799bfd0>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch MP HC Recruitment: HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7f6a17113a10>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Punjab & Haryana HC Recruitment: HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7f6a17133450>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Rajasthan HC Recruitment: 404 Client Error: Not Found for url: https://hcraj.nic.in/hcraj/recruitments.php",
     "Failed to fetch Gujarat HC Recruitment: 404 Client Error: Not Found for url: https://gujarathighcourt.nic.in/recruitment",
-    "Failed to fetch Orissa HC Recruitment: HTTPSConnectionPool(host='orissahighcourt.nic.in', port=443): Max retries exceeded with url: /Recruitment.asp (Caused by ConnectTimeoutError(<HTTPSConnection(host='orissahighcourt.nic.in', port=443) at 0x7fe4879c2c50>, 'Connection to orissahighcourt.nic.in timed out. (connect timeout=15)'))",
     "Failed to fetch Himachal Pradesh HC Recruitment: HTTPSConnectionPool(host='hptribunalhp.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='hptribunalhp.nic.in', port=443): Failed to resolve 'hptribunalhp.nic.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Tripura HC Recruitment: 404 Client Error: Not Found for url: https://thc.nic.in/central/vacancy.aspx",
     "Failed to fetch AP RERA: HTTPSConnectionPool(host='rera.ap.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='rera.ap.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
-    "Failed to fetch Punjab RERA: HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7fe48784cc90>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Karnataka RERA: HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7fe48783b050>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Punjab RERA: HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7f6a16800750>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Karnataka RERA: HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7f6a16791cd0>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch UP RERA: HTTPSConnectionPool(host='rera.up.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rera.up.gov.in', port=443): Failed to resolve 'rera.up.gov.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch Tamil Nadu RERA: HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7fe48784d210>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Tamil Nadu RERA: HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7f6a1676f890>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Gujarat RERA: HTTPSConnectionPool(host='gujrera.gujarat.gov.in', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)')))",
-    "Failed to fetch Maharashtra RERA: HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7fe48787fc50>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Maharashtra RERA: HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7f6a16780cd0>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch MP ERC: 403 Client Error: Forbidden for url: https://www.mperc.in/",
     "Failed to fetch UP ERC: 403 Client Error: Forbidden for url: https://www.uperc.org/",
-    "Failed to fetch Haryana ERC: HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7fe4875aa290>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Tamil Nadu ERC: HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7fe487514910>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch AP ERC: HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7fe4875148d0>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Haryana ERC: HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7f6a1673ad90>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Tamil Nadu ERC: HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7f6a16e40590>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch AP ERC: HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7f6a16e42050>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Kerala ERC: HTTPSConnectionPool(host='www.kserc.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.kserc.org', port=443): Failed to resolve 'www.kserc.org' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch AP SIC: HTTPSConnectionPool(host='sic.ap.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='sic.ap.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
     "Failed to fetch Telangana SIC: HTTPSConnectionPool(host='sic.telangana.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sic.telangana.gov.in', port=443): Failed to resolve 'sic.telangana.gov.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Maharashtra SIC: HTTPSConnectionPool(host='mahasic.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mahasic.gov.in', port=443): Failed to resolve 'mahasic.gov.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Maharashtra Administrative Tribunal: HTTPSConnectionPool(host='sat.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sat.maharashtra.gov.in', port=443): Failed to resolve 'sat.maharashtra.gov.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch Karnataka Appellate Tribunal: HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7fe48750dad0>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch LiveLaw - Tribunal Vacancy: 410 Client Error: Gone for url: https://www.livelaw.in/tags/tribunal-vacancy",
-    "Failed to fetch DOJ Homepage News: HTTPSConnectionPool(host='www.doj.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.doj.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))"
+    "Failed to fetch Karnataka Appellate Tribunal: HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7f6a1736df90>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch LiveLaw - Tribunal Vacancy: 410 Client Error: Gone for url: https://www.livelaw.in/tags/tribunal-vacancy"
   ],
   "summary": {
-    "active_count": 50,
-    "expired_count": 88,
-    "total_count": 138,
+    "active_count": 49,
+    "expired_count": 217,
+    "total_count": 266,
     "upcoming_deadlines": [
-      {
-        "title": "Vacancy Circular for 12 post in National Legal Services Authority, New Delhi on deputation basis -reg.",
-        "source": "NALSA",
-        "last_date": "2026-09-11",
-        "days_remaining": 0,
-        "url": "https://nalsa.gov.in/document/vacancy-circular-for-12-post-in-national-legal-services-authority-new-delhi-on-deputation-basis-reg/"
-      },
       {
         "title": "à¤ªà¤°à¤¾à¤®à¤°à¥à¤¶ à¤à¥ à¤²à¤¿à¤ à¤®à¤¸à¥à¤¦à¤¾ à¤µà¤¿à¤¨à¤¿à¤¯à¤®à¤¨ / à¤à¤°à¥à¤à¤¾ à¤ªà¤¤à¥à¤°",
         "source": "CERC",
         "last_date": "2026-09-18",
-        "days_remaining": 7,
+        "days_remaining": 6,
         "url": "https://www.cercind.gov.in/#"
       },
       {
         "title": "Vacancy Circular inviting applications for participating in the selection process for filling up the post of Assistant Registrar (Computer) on deputation basis – Last Date – 30.09.2026",
         "source": "Supreme Court",
         "last_date": "2026-09-30",
-        "days_remaining": 19,
+        "days_remaining": 18,
         "url": "https://cdnbbsr.s3waas.gov.in/s3ec0490f1f4972d133619a60c30f3559e/uploads/2026/08/2026082427.pdf"
       },
       {
         "title": "♦ Detailed Advertisement [Last date:- 08 October, 2026]",
         "source": "CERC",
         "last_date": "2026-10-08",
-        "days_remaining": 27,
+        "days_remaining": 26,
         "url": "https://www.cercind.gov.in/2026/vacancy/VacancyNotice-240826.pdf"
       }
     ],
-    "high_quality_count": 14,
+    "high_quality_count": 23,
     "actionable_count": 1
   }
 }
