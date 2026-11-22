@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-11-22 09:59:01",
+  "last_updated": "2026-11-22 19:52:14",
   "sources": [
     {
       "name": "Dept of Legal Affairs - Vacancy Circulars",
       "url": "https://legalaffairs.gov.in/vacancy-circulars",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:03.790030"
+      "fetched_at": "2026-11-22T19:52:17.160944"
     },
     {
       "name": "Dept of Justice - Vacancy Positions",
       "url": "https://doj.gov.in/vacancy-position/",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:06.193261"
+      "fetched_at": "2026-11-22T19:52:19.833643"
     },
     {
       "name": "UPSC Vacancy Circulars",
@@ -35,25 +35,25 @@
       "name": "NCLAT Recruitment",
       "url": "https://nclat.nic.in/recruitment",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:11.382573"
+      "fetched_at": "2026-11-22T19:52:26.172494"
     },
     {
       "name": "MCA Tribunal Member Portal",
       "url": "https://apptrbmembermca.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:19.022247"
+      "fetched_at": "2026-11-22T19:52:33.416199"
     },
     {
       "name": "ITAT",
       "url": "https://itat.gov.in/",
       "status": "error",
-      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+      "error": "HTTPSConnectionPool(host='itat.gov.in', port=443): Read timed out. (read timeout=15)"
     },
     {
       "name": "GSTAT Recruitment",
       "url": "https://dor.gov.in/gstat-recruitment",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:24.775950"
+      "fetched_at": "2026-11-22T19:52:51.263034"
     },
     {
       "name": "CERC Vacancies",
@@ -65,13 +65,13 @@
       "name": "CERC Vacancies (alt)",
       "url": "https://cercind.gov.in/vacancy.html",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:27.388917"
+      "fetched_at": "2026-11-22T19:52:53.790666"
     },
     {
       "name": "DRT Portal",
       "url": "https://drt.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T09:59:40.132026"
+      "fetched_at": "2026-11-22T19:53:06.019705"
     },
     {
       "name": "DRT/DRAT - Ministry of Finance",
@@ -83,31 +83,31 @@
       "name": "Railway Claims Tribunal",
       "url": "https://rct.indianrail.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rct.indianrail.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rct.indianrail.gov.in', port=443) at 0x79679102d5d0>, 'Connection to rct.indianrail.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rct.indianrail.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rct.indianrail.gov.in', port=443) at 0x7130d1b48c10>, 'Connection to rct.indianrail.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Armed Forces Tribunal - Vacancies",
       "url": "https://aftdelhi.nic.in/index.php/vacancies",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7967915ef450>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7130d2602dd0>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "APTEL",
       "url": "https://www.aptel.gov.in/en",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:14.170092"
+      "fetched_at": "2026-11-22T19:53:40.312551"
     },
     {
       "name": "TDSAT",
       "url": "https://tdsat.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:15.730829"
+      "fetched_at": "2026-11-22T19:53:42.049086"
     },
     {
       "name": "SAT Vacancy Circulars",
       "url": "https://satweb.sat.gov.in/vacancy-circular",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:17.143392"
+      "fetched_at": "2026-11-22T19:53:43.452100"
     },
     {
       "name": "NCDRC Careers",
@@ -119,25 +119,25 @@
       "name": "NHRC Vacancies",
       "url": "https://nhrc.nic.in/activities/vacancies-results",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:20.642422"
+      "fetched_at": "2026-11-22T19:53:46.594750"
     },
     {
       "name": "Lokpal",
       "url": "https://lokpal.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x796791293550>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7130d1c39b90>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Ministry of Consumer Affairs",
       "url": "https://consumeraffairs.nic.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7967914a4d10>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7130d1bc8f90>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Central Information Commission",
       "url": "https://cic.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:52.614076"
+      "fetched_at": "2026-11-22T19:54:18.418626"
     },
     {
       "name": "Confonet - Consumer Commissions",
@@ -149,19 +149,19 @@
       "name": "NGT Job Openings",
       "url": "https://greentribunal.gov.in/public-notices/job-opening",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:55.721687"
+      "fetched_at": "2026-11-22T19:54:20.850818"
     },
     {
       "name": "NGT Homepage",
       "url": "https://greentribunal.gov.in",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:00:58.808822"
+      "fetched_at": "2026-11-22T19:54:23.584456"
     },
     {
       "name": "Central Administrative Tribunal",
       "url": "https://cgat.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:00.150097"
+      "fetched_at": "2026-11-22T19:54:24.830509"
     },
     {
       "name": "CAT CIS Portal",
@@ -173,109 +173,109 @@
       "name": "CESTAT",
       "url": "https://cestat.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:02.932523"
+      "fetched_at": "2026-11-22T19:54:27.478599"
     },
     {
       "name": "CCI Appointments",
       "url": "https://www.cci.gov.in/legal-framwork/notifications/list/appointment-of-chairperson-and-members",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:04.175625"
+      "fetched_at": "2026-11-22T19:54:28.814058"
     },
     {
       "name": "IBBI Careers",
       "url": "https://ibbi.gov.in/home/career",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:05.559955"
+      "fetched_at": "2026-11-22T19:54:29.998622"
     },
     {
       "name": "IRDAI Careers",
       "url": "https://www.irdai.gov.in/careers",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:08.576375"
+      "fetched_at": "2026-11-22T19:54:32.982044"
     },
     {
       "name": "NFRA",
       "url": "https://nfra.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:10.353470"
+      "fetched_at": "2026-11-22T19:54:34.506872"
     },
     {
       "name": "PFRDA",
       "url": "https://www.pfrda.org.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:12.538147"
+      "fetched_at": "2026-11-22T19:54:36.131286"
     },
     {
       "name": "NALSA",
       "url": "https://nalsa.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:14.273183"
+      "fetched_at": "2026-11-22T19:54:37.717281"
     },
     {
       "name": "Law Commission of India",
       "url": "https://lawcommissionofindia.nic.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:16.519066"
+      "fetched_at": "2026-11-22T19:54:39.708238"
     },
     {
       "name": "SEBI Opportunities",
       "url": "https://www.sebi.gov.in/department/human-resources-department-37/opportunity.html",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:18.507761"
+      "fetched_at": "2026-11-22T19:54:40.837356"
     },
     {
       "name": "CGIT Labour Courts",
       "url": "https://cgit.labour.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x79679109fd50>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7130d176b550>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "DOJ Vacancy Positions",
       "url": "https://doj.gov.in/vacancy-positions-2/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:36.317531"
+      "fetched_at": "2026-11-22T19:54:58.203908"
     },
     {
       "name": "Supreme Court Recruitments",
       "url": "https://www.sci.gov.in/recruitments/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:37.257517"
+      "fetched_at": "2026-11-22T19:54:59.646980"
     },
     {
       "name": "Ministry of Labour",
       "url": "https://labour.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:39.015941"
+      "fetched_at": "2026-11-22T19:55:01.526014"
     },
     {
       "name": "Allahabad HC - Tribunal Vacancies",
       "url": "https://www.allahabadhighcourt.in/misc/tribunal_vacancy.html",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:01:40.626075"
+      "fetched_at": "2026-11-22T19:55:02.965933"
     },
     {
       "name": "Telangana HC",
       "url": "https://tshc.gov.in",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='tshc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='tshc.gov.in', port=443) at 0x79679102a390>, 'Connection to tshc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='tshc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='tshc.gov.in', port=443) at 0x7130d1d389d0>, 'Connection to tshc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Madras HC",
       "url": "https://hcmadras.tn.gov.in/vacancy.php",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7967910dc410>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7130d1d5bf50>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Delhi HC",
       "url": "https://delhihighcourt.nic.in/web/job-openings",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:02:12.614150"
+      "fetched_at": "2026-11-22T19:55:34.879946"
     },
     {
       "name": "Gauhati HC",
       "url": "https://ghconline.gov.in",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7967910de290>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7130d1d35c10>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Jharkhand HC",
@@ -287,13 +287,13 @@
       "name": "Bombay HC Recruitment",
       "url": "https://bombayhighcourt.nic.in/recruitment.php",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7967911ebd90>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7130d1cef950>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Calcutta HC Recruitment",
       "url": "https://calcuttahighcourt.gov.in/recruitment",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7967911e1e50>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7130d1cf9450>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Karnataka HC Recruitment",
@@ -311,13 +311,13 @@
       "name": "MP HC Recruitment",
       "url": "https://mphc.gov.in/recruitment-result",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x79679146a790>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7130d1d34ed0>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Punjab & Haryana HC Recruitment",
       "url": "https://highcourtchd.gov.in/sub_pages/left_menu/recruitment/recruitment.html",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7967911e9550>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7130d1cef6d0>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Rajasthan HC Recruitment",
@@ -329,7 +329,7 @@
       "name": "AP HC Recruitment",
       "url": "https://aphc.gov.in/recruitments.php",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:36.826633"
+      "fetched_at": "2026-11-22T19:56:56.732873"
     },
     {
       "name": "Gujarat HC Recruitment",
@@ -341,19 +341,19 @@
       "name": "Orissa HC Recruitment",
       "url": "https://orissahighcourt.nic.in/Recruitment.asp",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:40.706476"
+      "fetched_at": "2026-11-22T19:57:00.354577"
     },
     {
       "name": "Patna HC Recruitment",
       "url": "https://patnahighcourt.gov.in/recruitmentMain.aspx",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:44.550301"
+      "fetched_at": "2026-11-22T19:57:03.995019"
     },
     {
       "name": "Meghalaya HC Recruitment",
       "url": "https://meghalayahighcourt.nic.in/recruitment",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:45.843815"
+      "fetched_at": "2026-11-22T19:57:05.183623"
     },
     {
       "name": "Himachal Pradesh HC Recruitment",
@@ -377,37 +377,37 @@
       "name": "Telangana RERA",
       "url": "https://rera.telangana.gov.in",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:55.919579"
+      "fetched_at": "2026-11-22T19:57:20.390849"
     },
     {
       "name": "Maharashtra RERA Tribunal",
       "url": "https://mahareat.maharashtra.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:57.157165"
+      "fetched_at": "2026-11-22T19:57:22.037977"
     },
     {
       "name": "Haryana RERA",
       "url": "https://haryanarera.gov.in",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:03:59.251020"
+      "fetched_at": "2026-11-22T19:57:24.229167"
     },
     {
       "name": "Punjab RERA",
       "url": "https://rera.punjab.gov.in/appellate-tribunal.html",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x796791484a50>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7130d1fca0d0>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Karnataka RERA",
       "url": "https://rera.karnataka.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x796791123410>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7130d1c23150>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Rajasthan RERA",
       "url": "https://rera.rajasthan.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.rajasthan.gov.in', port=443) at 0x7967911eb190>, 'Connection to rera.rajasthan.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.rajasthan.gov.in', port=443) at 0x7130d1cef550>, 'Connection to rera.rajasthan.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "UP RERA",
@@ -419,7 +419,7 @@
       "name": "Tamil Nadu RERA",
       "url": "https://rera.tn.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7967901a3d90>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7130d0c97990>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Gujarat RERA",
@@ -431,31 +431,31 @@
       "name": "Maharashtra RERA",
       "url": "https://maharera.maharashtra.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7967901a2890>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7130d0c964d0>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Delhi ERC",
       "url": "https://www.derc.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:05:34.859900"
+      "fetched_at": "2026-11-22T19:59:00.581454"
     },
     {
       "name": "MP ERC",
       "url": "https://www.mperc.in",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:05:35.500738"
+      "fetched_at": "2026-11-22T19:59:01.260390"
     },
     {
       "name": "UP ERC",
       "url": "https://www.uperc.org/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:05:36.058395"
+      "fetched_at": "2026-11-22T19:59:02.017306"
     },
     {
       "name": "Chhattisgarh ERC",
       "url": "https://www.cserc.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:05:38.877142"
+      "fetched_at": "2026-11-22T19:59:05.636958"
     },
     {
       "name": "Rajasthan ERC",
@@ -467,19 +467,19 @@
       "name": "Haryana ERC",
       "url": "https://herc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x796790757650>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7130d124e410>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Tamil Nadu ERC",
       "url": "https://www.tnerc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x796790755e50>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7130d124fe50>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "AP ERC",
       "url": "https://www.aperc.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7967907541d0>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7130d125da10>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "Kerala ERC",
@@ -515,13 +515,13 @@
       "name": "Karnataka Appellate Tribunal",
       "url": "https://kapt.karnataka.gov.in/",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x796790733ad0>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))"
+      "error": "HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7130d0c39d50>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))"
     },
     {
       "name": "LiveLaw Job Updates",
       "url": "https://www.livelaw.in/job-updates",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:02.385506"
+      "fetched_at": "2026-11-22T20:00:31.059063"
     },
     {
       "name": "LiveLaw - Tribunal Vacancy",
@@ -533,79 +533,79 @@
       "name": "LiveLaw - Consumer Commission",
       "url": "https://www.livelaw.in/tags/consumer-commission",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:08.505702"
+      "fetched_at": "2026-11-22T20:00:36.300403"
     },
     {
       "name": "LiveLaw - Presiding Officer",
       "url": "https://www.livelaw.in/tags/presiding-officer",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:09.160579"
+      "fetched_at": "2026-11-22T20:00:36.686950"
     },
     {
       "name": "GovtJobGuru Judicial Jobs",
       "url": "https://govtjobguru.in/govt-jobs-by-department/judicial-jobs/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:10.907782"
+      "fetched_at": "2026-11-22T20:00:37.919745"
     },
     {
       "name": "Verdictum Job Updates",
       "url": "https://www.verdictum.in/job-updates",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:11.642612"
+      "fetched_at": "2026-11-22T20:00:38.802206"
     },
     {
       "name": "LiveLaw - Tribunal",
       "url": "https://www.livelaw.in/tags/tribunal",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:12.133595"
+      "fetched_at": "2026-11-22T20:00:38.931744"
     },
     {
       "name": "LiveLaw - Judicial Appointments",
       "url": "https://www.livelaw.in/tags/judicial-appointments",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:12.617718"
+      "fetched_at": "2026-11-22T20:00:39.337567"
     },
     {
       "name": "LiveLaw - Collegium",
       "url": "https://www.livelaw.in/tags/collegium",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:13.070281"
+      "fetched_at": "2026-11-22T20:00:39.393537"
     },
     {
       "name": "LiveLaw - NCLT",
       "url": "https://www.livelaw.in/tags/nclt",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:13.501454"
+      "fetched_at": "2026-11-22T20:00:39.723751"
     },
     {
       "name": "LiveLaw - NGT",
       "url": "https://www.livelaw.in/tags/ngt",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:15.110909"
+      "fetched_at": "2026-11-22T20:00:40.112661"
     },
     {
       "name": "Bar and Bench News",
       "url": "https://www.barandbench.com/news",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:15.432504"
+      "fetched_at": "2026-11-22T20:00:40.321440"
     },
     {
       "name": "SC Observer",
       "url": "https://www.scobserver.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:17.083170"
+      "fetched_at": "2026-11-22T20:00:41.723859"
     },
     {
       "name": "Verdictum Court Updates",
       "url": "https://www.verdictum.in/court-updates",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:17.643648"
+      "fetched_at": "2026-11-22T20:00:42.436084"
     },
     {
       "name": "DOJ Homepage News",
       "url": "https://doj.gov.in/",
       "status": "ok",
-      "fetched_at": "2026-11-22T10:07:19.937805"
+      "fetched_at": "2026-11-22T20:00:44.204354"
     }
   ],
   "vacancies": [
@@ -620,7 +620,7 @@
       "posted_date": null,
       "last_date": "2026-11-24",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:05.476840",
+      "scraped_at": "2026-11-22T20:00:34.135797",
       "quality_score": 65
     },
     {
@@ -634,7 +634,7 @@
       "posted_date": null,
       "last_date": "2026-11-24",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:06.530547",
+      "scraped_at": "2026-11-22T20:00:35.223919",
       "quality_score": 65
     },
     {
@@ -648,7 +648,7 @@
       "posted_date": "2026-11-01",
       "last_date": "2026-11-25",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:03.981911",
+      "scraped_at": "2026-11-22T20:00:32.631429",
       "quality_score": 75
     },
     {
@@ -662,7 +662,7 @@
       "posted_date": null,
       "last_date": "2026-11-25",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:04.495643",
+      "scraped_at": "2026-11-22T20:00:33.118763",
       "quality_score": 65
     },
     {
@@ -676,7 +676,7 @@
       "posted_date": null,
       "last_date": "2026-11-25",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:02.962711",
+      "scraped_at": "2026-11-22T20:00:31.633992",
       "quality_score": 55
     },
     {
@@ -690,7 +690,7 @@
       "posted_date": "2026-11-01",
       "last_date": "2026-11-26",
       "status": "active",
-      "scraped_at": "2026-11-22T10:07:02.388049",
+      "scraped_at": "2026-11-22T20:00:31.061481",
       "quality_score": 75
     },
     {
@@ -704,7 +704,7 @@
       "posted_date": "2026-11-01",
       "last_date": "2026-11-27",
       "status": "active",
-      "scraped_at": "2026-11-22T10:03:45.852691",
+      "scraped_at": "2026-11-22T19:57:05.197784",
       "quality_score": 55
     },
     {
@@ -718,7 +718,7 @@
       "posted_date": "2022-03-24",
       "last_date": "2026-12-08",
       "status": "active",
-      "scraped_at": "2026-11-22T09:59:31.592560",
+      "scraped_at": "2026-11-22T19:52:58.160657",
       "quality_score": 85
     },
     {
@@ -732,7 +732,7 @@
       "posted_date": null,
       "last_date": "2026-12-08",
       "status": "active",
-      "scraped_at": "2026-11-22T09:59:38.410547",
+      "scraped_at": "2026-11-22T19:53:04.639943",
       "quality_score": 45
     },
     {
@@ -746,7 +746,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.515718",
+      "scraped_at": "2026-11-22T19:59:01.277922",
       "quality_score": 60
     },
     {
@@ -760,7 +760,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.506829",
+      "scraped_at": "2026-11-22T19:59:01.267359",
       "quality_score": 45
     },
     {
@@ -774,7 +774,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.510402",
+      "scraped_at": "2026-11-22T19:59:01.271594",
       "quality_score": 45
     },
     {
@@ -788,7 +788,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.517510",
+      "scraped_at": "2026-11-22T19:59:01.280076",
       "quality_score": 45
     },
     {
@@ -802,7 +802,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.519259",
+      "scraped_at": "2026-11-22T19:59:01.282160",
       "quality_score": 45
     },
     {
@@ -816,7 +816,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.508557",
+      "scraped_at": "2026-11-22T19:59:01.269392",
       "quality_score": 40
     },
     {
@@ -830,7 +830,7 @@
       "posted_date": "2025-08-18",
       "last_date": "2026-12-31",
       "status": "active",
-      "scraped_at": "2026-11-22T10:05:35.512168",
+      "scraped_at": "2026-11-22T19:59:01.273696",
       "quality_score": 40
     },
     {
@@ -844,7 +844,7 @@
       "posted_date": "2026-11-06",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T09:59:30.009083",
+      "scraped_at": "2026-11-22T19:52:56.551915",
       "quality_score": 55
     },
     {
@@ -858,7 +858,7 @@
       "posted_date": "2026-02-17",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:03:45.851448",
+      "scraped_at": "2026-11-22T19:57:05.195787",
       "quality_score": 40
     },
     {
@@ -872,7 +872,7 @@
       "posted_date": "2023-03-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:00:17.144659",
+      "scraped_at": "2026-11-22T19:53:43.453256",
       "quality_score": 25
     },
     {
@@ -886,7 +886,7 @@
       "posted_date": "2026-11-06",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:00:55.726300",
+      "scraped_at": "2026-11-22T19:54:20.856142",
       "quality_score": 25
     },
     {
@@ -900,7 +900,7 @@
       "posted_date": "2026-10-16",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:00:55.727411",
+      "scraped_at": "2026-11-22T19:54:20.857577",
       "quality_score": 25
     },
     {
@@ -914,7 +914,7 @@
       "posted_date": "2026-09-11",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:00:58.814507",
+      "scraped_at": "2026-11-22T19:54:23.591035",
       "quality_score": 25
     },
     {
@@ -928,7 +928,7 @@
       "posted_date": "2025-12-02",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.540142",
+      "scraped_at": "2026-11-22T19:54:36.133142",
       "quality_score": 25
     },
     {
@@ -942,13 +942,13 @@
       "posted_date": "2026-11-13",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.543399",
+      "scraped_at": "2026-11-22T19:54:36.136925",
       "quality_score": 25
     },
     {
       "source": "PFRDA",
       "title": "Amendment to Circular dated 02.12.2025 regarding KYC requirements for NRI and OCI subscribers to NPS13-11-2026",
-      "url": "https://pfrda.org.in/w/amendment-to-circular-dated-02.12.2025-regarding-kyc-requirements-for-nri-and-oci-subscribers-to-nps",
+      "url": "https://www.pfrda.org.in/w/amendment-to-circular-dated-02.12.2025-regarding-kyc-requirements-for-nri-and-oci-subscribers-to-nps",
       "apply_url": null,
       "detail_url": null,
       "category": "Pension Fund Regulator",
@@ -956,7 +956,7 @@
       "posted_date": "2026-11-13",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.544581",
+      "scraped_at": "2026-11-22T19:54:36.138239",
       "quality_score": 25
     },
     {
@@ -970,7 +970,7 @@
       "posted_date": "2026-11-02",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.545076",
+      "scraped_at": "2026-11-22T19:54:36.138783",
       "quality_score": 25
     },
     {
@@ -984,7 +984,7 @@
       "posted_date": "2026-10-08",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.545744",
+      "scraped_at": "2026-11-22T19:54:36.139586",
       "quality_score": 25
     },
     {
@@ -998,7 +998,7 @@
       "posted_date": "2026-10-30",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:12.546514",
+      "scraped_at": "2026-11-22T19:54:36.140476",
       "quality_score": 25
     },
     {
@@ -1012,7 +1012,7 @@
       "posted_date": "2026-10-15",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:37.260788",
+      "scraped_at": "2026-11-22T19:54:59.650392",
       "quality_score": 25
     },
     {
@@ -1026,7 +1026,7 @@
       "posted_date": "2026-10-15",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:37.261377",
+      "scraped_at": "2026-11-22T19:54:59.651125",
       "quality_score": 25
     },
     {
@@ -1040,7 +1040,7 @@
       "posted_date": "2026-10-12",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:37.261946",
+      "scraped_at": "2026-11-22T19:54:59.651809",
       "quality_score": 25
     },
     {
@@ -1054,7 +1054,7 @@
       "posted_date": "2025-11-01",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T10:01:37.267798",
+      "scraped_at": "2026-11-22T19:54:59.659077",
       "quality_score": 25
     },
     {
@@ -1068,7 +1068,7 @@
       "posted_date": "2026-11-17",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T09:59:24.779402",
+      "scraped_at": "2026-11-22T19:52:51.266535",
       "quality_score": 20
     },
     {
@@ -1082,7 +1082,7 @@
       "posted_date": "2026-11-06",
       "last_date": null,
       "status": "active",
-      "scraped_at": "2026-11-22T09:59:24.779865",
+      "scraped_at": "2026-11-22T19:52:51.267063",
       "quality_score": 20
     },
     {
@@ -1096,7 +1096,7 @@
       "posted_date": "2026-11-01",
       "last_date": "2026-11-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:07:06.006401",
+      "scraped_at": "2026-11-22T20:00:34.618740",
       "quality_score": 45
     },
     {
@@ -1110,7 +1110,7 @@
       "posted_date": null,
       "last_date": "2026-11-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.411378",
+      "scraped_at": "2026-11-22T19:53:04.640923",
       "quality_score": 15
     },
     {
@@ -1124,7 +1124,7 @@
       "posted_date": "2026-11-01",
       "last_date": "2026-11-18",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:07:11.644300",
+      "scraped_at": "2026-11-22T20:00:38.804008",
       "quality_score": 15
     },
     {
@@ -1138,7 +1138,7 @@
       "posted_date": null,
       "last_date": "2026-10-27",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.412018",
+      "scraped_at": "2026-11-22T19:53:04.641684",
       "quality_score": 15
     },
     {
@@ -1152,7 +1152,7 @@
       "posted_date": null,
       "last_date": "2026-10-18",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.412426",
+      "scraped_at": "2026-11-22T19:53:04.642167",
       "quality_score": 15
     },
     {
@@ -1166,7 +1166,7 @@
       "posted_date": null,
       "last_date": "2026-10-08",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.412818",
+      "scraped_at": "2026-11-22T19:53:04.642659",
       "quality_score": 15
     },
     {
@@ -1180,7 +1180,7 @@
       "posted_date": "2026-09-01",
       "last_date": "2026-09-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:37.263318",
+      "scraped_at": "2026-11-22T19:54:59.653395",
       "quality_score": 25
     },
     {
@@ -1194,7 +1194,7 @@
       "posted_date": null,
       "last_date": "2026-09-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:37.264029",
+      "scraped_at": "2026-11-22T19:54:59.654250",
       "quality_score": 15
     },
     {
@@ -1208,7 +1208,7 @@
       "posted_date": null,
       "last_date": "2026-09-21",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:05.562609",
+      "scraped_at": "2026-11-22T19:54:30.001351",
       "quality_score": 15
     },
     {
@@ -1222,7 +1222,7 @@
       "posted_date": null,
       "last_date": "2026-09-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:14.276913",
+      "scraped_at": "2026-11-22T19:54:37.721421",
       "quality_score": 15
     },
     {
@@ -1236,7 +1236,7 @@
       "posted_date": "2026-08-01",
       "last_date": "2026-08-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:05.563075",
+      "scraped_at": "2026-11-22T19:54:30.001877",
       "quality_score": 25
     },
     {
@@ -1250,7 +1250,7 @@
       "posted_date": "2026-07-01",
       "last_date": "2026-07-15",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:05.563792",
+      "scraped_at": "2026-11-22T19:54:30.002800",
       "quality_score": 25
     },
     {
@@ -1264,7 +1264,7 @@
       "posted_date": null,
       "last_date": "2026-06-22",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.413124",
+      "scraped_at": "2026-11-22T19:53:04.643009",
       "quality_score": 15
     },
     {
@@ -1278,7 +1278,7 @@
       "posted_date": null,
       "last_date": "2026-06-02",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:03:45.847841",
+      "scraped_at": "2026-11-22T19:57:05.190337",
       "quality_score": 30
     },
     {
@@ -1292,7 +1292,7 @@
       "posted_date": null,
       "last_date": "2026-05-18",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.413846",
+      "scraped_at": "2026-11-22T19:53:04.643897",
       "quality_score": 15
     },
     {
@@ -1306,7 +1306,7 @@
       "posted_date": null,
       "last_date": "2026-05-12",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.413453",
+      "scraped_at": "2026-11-22T19:53:04.643413",
       "quality_score": 15
     },
     {
@@ -1320,7 +1320,7 @@
       "posted_date": null,
       "last_date": "2026-04-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:03:45.849766",
+      "scraped_at": "2026-11-22T19:57:05.193445",
       "quality_score": 30
     },
     {
@@ -1334,7 +1334,7 @@
       "posted_date": null,
       "last_date": "2026-04-08",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.414152",
+      "scraped_at": "2026-11-22T19:53:04.644248",
       "quality_score": 15
     },
     {
@@ -1348,7 +1348,7 @@
       "posted_date": null,
       "last_date": "2026-04-08",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.414369",
+      "scraped_at": "2026-11-22T19:53:04.644523",
       "quality_score": 10
     },
     {
@@ -1362,7 +1362,7 @@
       "posted_date": null,
       "last_date": "2026-02-27",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.414626",
+      "scraped_at": "2026-11-22T19:53:04.644828",
       "quality_score": 15
     },
     {
@@ -1376,7 +1376,7 @@
       "posted_date": null,
       "last_date": "2026-02-23",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.415348",
+      "scraped_at": "2026-11-22T19:53:04.645698",
       "quality_score": 15
     },
     {
@@ -1390,7 +1390,7 @@
       "posted_date": null,
       "last_date": "2026-02-19",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.414904",
+      "scraped_at": "2026-11-22T19:53:04.645159",
       "quality_score": 15
     },
     {
@@ -1404,7 +1404,7 @@
       "posted_date": "2025-12-01",
       "last_date": "2025-12-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:07:09.162535",
+      "scraped_at": "2026-11-22T20:00:36.688768",
       "quality_score": 60
     },
     {
@@ -1418,7 +1418,7 @@
       "posted_date": "2025-12-01",
       "last_date": "2025-12-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:07:09.741706",
+      "scraped_at": "2026-11-22T20:00:36.754678",
       "quality_score": 35
     },
     {
@@ -1432,7 +1432,7 @@
       "posted_date": null,
       "last_date": "2025-08-27",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.416796",
+      "scraped_at": "2026-11-22T19:53:04.647508",
       "quality_score": 15
     },
     {
@@ -1446,7 +1446,7 @@
       "posted_date": null,
       "last_date": "2025-08-25",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.417370",
+      "scraped_at": "2026-11-22T19:53:04.648204",
       "quality_score": 15
     },
     {
@@ -1460,7 +1460,7 @@
       "posted_date": "2025-08-01",
       "last_date": "2025-08-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:07:10.128317",
+      "scraped_at": "2026-11-22T20:00:37.681636",
       "quality_score": 60
     },
     {
@@ -1474,7 +1474,7 @@
       "posted_date": null,
       "last_date": "2025-07-03",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.418829",
+      "scraped_at": "2026-11-22T19:53:04.650001",
       "quality_score": 15
     },
     {
@@ -1488,7 +1488,7 @@
       "posted_date": null,
       "last_date": "2025-06-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.417871",
+      "scraped_at": "2026-11-22T19:53:04.648840",
       "quality_score": 15
     },
     {
@@ -1502,7 +1502,7 @@
       "posted_date": "2025-06-01",
       "last_date": "2025-06-23",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:05.565324",
+      "scraped_at": "2026-11-22T19:54:30.004711",
       "quality_score": 25
     },
     {
@@ -1516,7 +1516,7 @@
       "posted_date": null,
       "last_date": "2025-03-19",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.419280",
+      "scraped_at": "2026-11-22T19:53:04.650566",
       "quality_score": 15
     },
     {
@@ -1530,7 +1530,7 @@
       "posted_date": null,
       "last_date": "2025-03-07",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.420113",
+      "scraped_at": "2026-11-22T19:53:04.651600",
       "quality_score": 15
     },
     {
@@ -1544,7 +1544,7 @@
       "posted_date": null,
       "last_date": "2025-02-10",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.420815",
+      "scraped_at": "2026-11-22T19:53:04.652476",
       "quality_score": 15
     },
     {
@@ -1558,7 +1558,7 @@
       "posted_date": null,
       "last_date": "2024-12-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.421662",
+      "scraped_at": "2026-11-22T19:53:04.653511",
       "quality_score": 15
     },
     {
@@ -1572,7 +1572,7 @@
       "posted_date": null,
       "last_date": "2024-12-12",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.421197",
+      "scraped_at": "2026-11-22T19:53:04.652936",
       "quality_score": 15
     },
     {
@@ -1586,7 +1586,7 @@
       "posted_date": "2024-09-01",
       "last_date": "2024-09-24",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:05.567605",
+      "scraped_at": "2026-11-22T19:54:30.006817",
       "quality_score": 25
     },
     {
@@ -1600,7 +1600,7 @@
       "posted_date": null,
       "last_date": "2024-09-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.422289",
+      "scraped_at": "2026-11-22T19:53:04.654282",
       "quality_score": 15
     },
     {
@@ -1614,7 +1614,7 @@
       "posted_date": null,
       "last_date": "2024-09-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.422761",
+      "scraped_at": "2026-11-22T19:53:04.654889",
       "quality_score": 15
     },
     {
@@ -1628,7 +1628,7 @@
       "posted_date": null,
       "last_date": "2024-09-16",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.423438",
+      "scraped_at": "2026-11-22T19:53:04.655736",
       "quality_score": 15
     },
     {
@@ -1642,7 +1642,7 @@
       "posted_date": null,
       "last_date": "2024-08-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T10:01:16.522833",
+      "scraped_at": "2026-11-22T19:54:39.712473",
       "quality_score": 15
     },
     {
@@ -1656,7 +1656,7 @@
       "posted_date": null,
       "last_date": "2024-08-10",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.424074",
+      "scraped_at": "2026-11-22T19:53:04.656522",
       "quality_score": 15
     },
     {
@@ -1670,7 +1670,7 @@
       "posted_date": "1998-08-01",
       "last_date": "2024-08-01",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:28.953386",
+      "scraped_at": "2026-11-22T19:52:55.035038",
       "quality_score": 55
     },
     {
@@ -1684,7 +1684,7 @@
       "posted_date": null,
       "last_date": "2024-07-03",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.424949",
+      "scraped_at": "2026-11-22T19:53:04.657608",
       "quality_score": 15
     },
     {
@@ -1698,7 +1698,7 @@
       "posted_date": null,
       "last_date": "2024-07-03",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.425245",
+      "scraped_at": "2026-11-22T19:53:04.657960",
       "quality_score": 15
     },
     {
@@ -1712,7 +1712,7 @@
       "posted_date": null,
       "last_date": "2024-06-26",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.424473",
+      "scraped_at": "2026-11-22T19:53:04.657018",
       "quality_score": 15
     },
     {
@@ -1726,7 +1726,7 @@
       "posted_date": null,
       "last_date": "2024-06-24",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.425700",
+      "scraped_at": "2026-11-22T19:53:04.658540",
       "quality_score": 15
     },
     {
@@ -1740,7 +1740,7 @@
       "posted_date": null,
       "last_date": "2024-06-24",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.425990",
+      "scraped_at": "2026-11-22T19:53:04.658898",
       "quality_score": 15
     },
     {
@@ -1754,7 +1754,7 @@
       "posted_date": null,
       "last_date": "2024-03-28",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.426416",
+      "scraped_at": "2026-11-22T19:53:04.659430",
       "quality_score": 15
     },
     {
@@ -1768,7 +1768,7 @@
       "posted_date": null,
       "last_date": "2024-02-27",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.426812",
+      "scraped_at": "2026-11-22T19:53:04.659926",
       "quality_score": 15
     },
     {
@@ -1782,7 +1782,7 @@
       "posted_date": null,
       "last_date": "2023-10-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.427219",
+      "scraped_at": "2026-11-22T19:53:04.660433",
       "quality_score": 15
     },
     {
@@ -1796,7 +1796,7 @@
       "posted_date": null,
       "last_date": "2023-08-25",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.428488",
+      "scraped_at": "2026-11-22T19:53:04.662028",
       "quality_score": 15
     },
     {
@@ -1810,7 +1810,7 @@
       "posted_date": null,
       "last_date": "2023-07-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.429216",
+      "scraped_at": "2026-11-22T19:53:04.662937",
       "quality_score": 15
     },
     {
@@ -1824,7 +1824,7 @@
       "posted_date": null,
       "last_date": "2023-07-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.430057",
+      "scraped_at": "2026-11-22T19:53:04.663952",
       "quality_score": 15
     },
     {
@@ -1838,7 +1838,7 @@
       "posted_date": null,
       "last_date": "2022-12-14",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.431742",
+      "scraped_at": "2026-11-22T19:53:04.666073",
       "quality_score": 15
     },
     {
@@ -1852,7 +1852,7 @@
       "posted_date": null,
       "last_date": "2022-11-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.432735",
+      "scraped_at": "2026-11-22T19:53:04.667322",
       "quality_score": 15
     },
     {
@@ -1866,7 +1866,7 @@
       "posted_date": null,
       "last_date": "2022-07-15",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.433791",
+      "scraped_at": "2026-11-22T19:53:04.668614",
       "quality_score": 15
     },
     {
@@ -1880,7 +1880,7 @@
       "posted_date": null,
       "last_date": "2022-04-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.434806",
+      "scraped_at": "2026-11-22T19:53:04.669872",
       "quality_score": 15
     },
     {
@@ -1894,7 +1894,7 @@
       "posted_date": null,
       "last_date": "2022-03-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.435183",
+      "scraped_at": "2026-11-22T19:53:04.670338",
       "quality_score": 15
     },
     {
@@ -1908,7 +1908,7 @@
       "posted_date": null,
       "last_date": "2022-02-14",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.435720",
+      "scraped_at": "2026-11-22T19:53:04.671004",
       "quality_score": 15
     },
     {
@@ -1922,7 +1922,7 @@
       "posted_date": null,
       "last_date": "2021-10-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.437486",
+      "scraped_at": "2026-11-22T19:53:04.673165",
       "quality_score": 15
     },
     {
@@ -1936,7 +1936,7 @@
       "posted_date": null,
       "last_date": "2021-09-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.439378",
+      "scraped_at": "2026-11-22T19:53:04.675480",
       "quality_score": 15
     },
     {
@@ -1950,7 +1950,7 @@
       "posted_date": null,
       "last_date": "2021-02-01",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.441686",
+      "scraped_at": "2026-11-22T19:53:04.678360",
       "quality_score": 15
     },
     {
@@ -1964,7 +1964,7 @@
       "posted_date": null,
       "last_date": "2020-10-19",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.442388",
+      "scraped_at": "2026-11-22T19:53:04.679215",
       "quality_score": 15
     },
     {
@@ -1978,7 +1978,7 @@
       "posted_date": null,
       "last_date": "2020-09-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.443045",
+      "scraped_at": "2026-11-22T19:53:04.680040",
       "quality_score": 15
     },
     {
@@ -1992,7 +1992,7 @@
       "posted_date": null,
       "last_date": "2020-07-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.443681",
+      "scraped_at": "2026-11-22T19:53:04.680850",
       "quality_score": 15
     },
     {
@@ -2006,7 +2006,7 @@
       "posted_date": null,
       "last_date": "2020-02-20",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.444380",
+      "scraped_at": "2026-11-22T19:53:04.681733",
       "quality_score": 15
     },
     {
@@ -2020,7 +2020,7 @@
       "posted_date": null,
       "last_date": "2019-12-27",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.445218",
+      "scraped_at": "2026-11-22T19:53:04.682780",
       "quality_score": 15
     },
     {
@@ -2034,7 +2034,7 @@
       "posted_date": null,
       "last_date": "2019-10-07",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.445626",
+      "scraped_at": "2026-11-22T19:53:04.683348",
       "quality_score": 15
     },
     {
@@ -2048,7 +2048,7 @@
       "posted_date": null,
       "last_date": "2019-07-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.446032",
+      "scraped_at": "2026-11-22T19:53:04.683867",
       "quality_score": 15
     },
     {
@@ -2062,7 +2062,7 @@
       "posted_date": null,
       "last_date": "2019-06-11",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.446514",
+      "scraped_at": "2026-11-22T19:53:04.684530",
       "quality_score": 15
     },
     {
@@ -2076,7 +2076,7 @@
       "posted_date": null,
       "last_date": "2019-01-18",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.448520",
+      "scraped_at": "2026-11-22T19:53:04.687009",
       "quality_score": 15
     },
     {
@@ -2090,7 +2090,7 @@
       "posted_date": null,
       "last_date": "2018-01-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.451679",
+      "scraped_at": "2026-11-22T19:53:04.690984",
       "quality_score": 15
     },
     {
@@ -2104,7 +2104,7 @@
       "posted_date": null,
       "last_date": "2017-12-15",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.452698",
+      "scraped_at": "2026-11-22T19:53:04.692255",
       "quality_score": 15
     },
     {
@@ -2118,7 +2118,7 @@
       "posted_date": null,
       "last_date": "2017-12-01",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.453261",
+      "scraped_at": "2026-11-22T19:53:04.692946",
       "quality_score": 15
     },
     {
@@ -2132,7 +2132,7 @@
       "posted_date": null,
       "last_date": "2017-05-01",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.453960",
+      "scraped_at": "2026-11-22T19:53:04.693834",
       "quality_score": 15
     },
     {
@@ -2146,7 +2146,7 @@
       "posted_date": null,
       "last_date": "2017-03-31",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.455144",
+      "scraped_at": "2026-11-22T19:53:04.695310",
       "quality_score": 15
     },
     {
@@ -2160,7 +2160,7 @@
       "posted_date": null,
       "last_date": "2016-12-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.456195",
+      "scraped_at": "2026-11-22T19:53:04.696624",
       "quality_score": 15
     },
     {
@@ -2174,7 +2174,7 @@
       "posted_date": null,
       "last_date": "2016-06-24",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.457722",
+      "scraped_at": "2026-11-22T19:53:04.698521",
       "quality_score": 15
     },
     {
@@ -2188,7 +2188,7 @@
       "posted_date": null,
       "last_date": "2016-05-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.458271",
+      "scraped_at": "2026-11-22T19:53:04.699186",
       "quality_score": 15
     },
     {
@@ -2202,7 +2202,7 @@
       "posted_date": null,
       "last_date": "2016-05-30",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.459090",
+      "scraped_at": "2026-11-22T19:53:04.700207",
       "quality_score": 15
     },
     {
@@ -2216,7 +2216,7 @@
       "posted_date": null,
       "last_date": "2016-04-01",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.459913",
+      "scraped_at": "2026-11-22T19:53:04.701243",
       "quality_score": 15
     },
     {
@@ -2230,7 +2230,7 @@
       "posted_date": null,
       "last_date": "2016-03-14",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.460431",
+      "scraped_at": "2026-11-22T19:53:04.701890",
       "quality_score": 15
     },
     {
@@ -2244,7 +2244,7 @@
       "posted_date": null,
       "last_date": "2016-02-26",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.461300",
+      "scraped_at": "2026-11-22T19:53:04.702981",
       "quality_score": 15
     },
     {
@@ -2258,7 +2258,7 @@
       "posted_date": null,
       "last_date": "2015-10-09",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.462514",
+      "scraped_at": "2026-11-22T19:53:04.704512",
       "quality_score": 15
     },
     {
@@ -2272,7 +2272,7 @@
       "posted_date": null,
       "last_date": "2015-06-05",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.463558",
+      "scraped_at": "2026-11-22T19:53:04.705786",
       "quality_score": 15
     },
     {
@@ -2286,7 +2286,7 @@
       "posted_date": null,
       "last_date": "2015-03-23",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.465535",
+      "scraped_at": "2026-11-22T19:53:04.708242",
       "quality_score": 15
     },
     {
@@ -2300,7 +2300,7 @@
       "posted_date": null,
       "last_date": "2015-01-16",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.466953",
+      "scraped_at": "2026-11-22T19:53:04.710008",
       "quality_score": 15
     },
     {
@@ -2314,7 +2314,7 @@
       "posted_date": null,
       "last_date": "2014-12-26",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.467608",
+      "scraped_at": "2026-11-22T19:53:04.710815",
       "quality_score": 15
     },
     {
@@ -2328,7 +2328,7 @@
       "posted_date": null,
       "last_date": "2014-11-18",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.468443",
+      "scraped_at": "2026-11-22T19:53:04.711853",
       "quality_score": 15
     },
     {
@@ -2342,7 +2342,7 @@
       "posted_date": null,
       "last_date": "2014-09-26",
       "status": "expired",
-      "scraped_at": "2026-11-22T09:59:38.469458",
+      "scraped_at": "2026-11-22T19:53:04.713128",
       "quality_score": 15
     }
   ],
@@ -2351,49 +2351,49 @@
     "Failed to fetch UPSC Vacancy Circulars: 404 Client Error: Not Found for url: https://www.upsc.gov.in/recruitment/vacancy-circulars/",
     "Failed to fetch UPSC Vacancy Circulars (alt): 404 Client Error: Not Found for url: https://www.upsc.gov.in/recruitment/vacancy-circulars/",
     "Failed to fetch NCLT Job Openings: 404 Client Error: Not Found for url: https://nclt.gov.in/job-openings",
-    "Failed to fetch ITAT: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "Failed to fetch ITAT: HTTPSConnectionPool(host='itat.gov.in', port=443): Read timed out. (read timeout=15)",
     "Failed to fetch CERC Vacancies: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
     "Failed to fetch DRT/DRAT - Ministry of Finance: 404 Client Error: Not Found for url: https://financialservices.gov.in/beta/en/page/debts-recovery-tribunals-debts-recovery-appellate-tribunals",
-    "Failed to fetch Railway Claims Tribunal: HTTPSConnectionPool(host='rct.indianrail.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rct.indianrail.gov.in', port=443) at 0x79679102d5d0>, 'Connection to rct.indianrail.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Armed Forces Tribunal - Vacancies: HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7967915ef450>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Railway Claims Tribunal: HTTPSConnectionPool(host='rct.indianrail.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rct.indianrail.gov.in', port=443) at 0x7130d1b48c10>, 'Connection to rct.indianrail.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Armed Forces Tribunal - Vacancies: HTTPSConnectionPool(host='aftdelhi.nic.in', port=443): Max retries exceeded with url: /index.php/vacancies (Caused by ConnectTimeoutError(<HTTPSConnection(host='aftdelhi.nic.in', port=443) at 0x7130d2602dd0>, 'Connection to aftdelhi.nic.in timed out. (connect timeout=15)'))",
     "Failed to fetch NCDRC Careers: 404 Client Error: Not Found for url: https://ncdrc.nic.in/careers.html",
-    "Failed to fetch Lokpal: HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x796791293550>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Ministry of Consumer Affairs: HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7967914a4d10>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Lokpal: HTTPSConnectionPool(host='lokpal.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='lokpal.gov.in', port=443) at 0x7130d1c39b90>, 'Connection to lokpal.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Ministry of Consumer Affairs: HTTPSConnectionPool(host='consumeraffairs.nic.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='consumeraffairs.nic.in', port=443) at 0x7130d1bc8f90>, 'Connection to consumeraffairs.nic.in timed out. (connect timeout=15)'))",
     "Failed to fetch Confonet - Consumer Commissions: HTTPSConnectionPool(host='confonet.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='confonet.nic.in', port=443): Failed to resolve 'confonet.nic.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch CAT CIS Portal: 403 Client Error: Forbidden for url: https://cis.cgat.gov.in/",
-    "Failed to fetch CGIT Labour Courts: HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x79679109fd50>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Telangana HC: HTTPSConnectionPool(host='tshc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='tshc.gov.in', port=443) at 0x79679102a390>, 'Connection to tshc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Madras HC: HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7967910dc410>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Gauhati HC: HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7967910de290>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch CGIT Labour Courts: HTTPSConnectionPool(host='cgit.labour.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='cgit.labour.gov.in', port=443) at 0x7130d176b550>, 'Connection to cgit.labour.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Telangana HC: HTTPSConnectionPool(host='tshc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='tshc.gov.in', port=443) at 0x7130d1d389d0>, 'Connection to tshc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Madras HC: HTTPSConnectionPool(host='hcmadras.tn.gov.in', port=443): Max retries exceeded with url: /vacancy.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='hcmadras.tn.gov.in', port=443) at 0x7130d1d5bf50>, 'Connection to hcmadras.tn.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Gauhati HC: HTTPSConnectionPool(host='ghconline.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='ghconline.gov.in', port=443) at 0x7130d1d35c10>, 'Connection to ghconline.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Jharkhand HC: 404 Client Error: Not Found for url: https://jharkhandhighcourt.nic.in/vacancies-other-govt-deppt.php",
-    "Failed to fetch Bombay HC Recruitment: HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7967911ebd90>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Calcutta HC Recruitment: HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7967911e1e50>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Bombay HC Recruitment: HTTPSConnectionPool(host='bombayhighcourt.nic.in', port=443): Max retries exceeded with url: /recruitment.php (Caused by ConnectTimeoutError(<HTTPSConnection(host='bombayhighcourt.nic.in', port=443) at 0x7130d1cef950>, 'Connection to bombayhighcourt.nic.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Calcutta HC Recruitment: HTTPSConnectionPool(host='calcuttahighcourt.gov.in', port=443): Max retries exceeded with url: /recruitment (Caused by ConnectTimeoutError(<HTTPSConnection(host='calcuttahighcourt.gov.in', port=443) at 0x7130d1cf9450>, 'Connection to calcuttahighcourt.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Karnataka HC Recruitment: HTTPSConnectionPool(host='highcourtofkarnatakaatbangalore.kar.nic.in', port=443): Max retries exceeded with url: /recruitment.asp (Caused by NameResolutionError(\"HTTPSConnection(host='highcourtofkarnatakaatbangalore.kar.nic.in', port=443): Failed to resolve 'highcourtofkarnatakaatbangalore.kar.nic.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Kerala HC Recruitment: HTTPSConnectionPool(host='highcourtofkerala.nic.in', port=443): Max retries exceeded with url: /index.php/vacancy (Caused by NameResolutionError(\"HTTPSConnection(host='highcourtofkerala.nic.in', port=443): Failed to resolve 'highcourtofkerala.nic.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch MP HC Recruitment: HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x79679146a790>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Punjab & Haryana HC Recruitment: HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7967911e9550>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch MP HC Recruitment: HTTPSConnectionPool(host='mphc.gov.in', port=443): Max retries exceeded with url: /recruitment-result (Caused by ConnectTimeoutError(<HTTPSConnection(host='mphc.gov.in', port=443) at 0x7130d1d34ed0>, 'Connection to mphc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Punjab & Haryana HC Recruitment: HTTPSConnectionPool(host='highcourtchd.gov.in', port=443): Max retries exceeded with url: /sub_pages/left_menu/recruitment/recruitment.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='highcourtchd.gov.in', port=443) at 0x7130d1cef6d0>, 'Connection to highcourtchd.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Rajasthan HC Recruitment: 404 Client Error: Not Found for url: https://hcraj.nic.in/hcraj/recruitments.php",
     "Failed to fetch Gujarat HC Recruitment: 404 Client Error: Not Found for url: https://gujarathighcourt.nic.in/recruitment",
     "Failed to fetch Himachal Pradesh HC Recruitment: HTTPSConnectionPool(host='hptribunalhp.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='hptribunalhp.nic.in', port=443): Failed to resolve 'hptribunalhp.nic.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Tripura HC Recruitment: 404 Client Error: Not Found for url: https://thc.nic.in/central/vacancy.aspx",
     "Failed to fetch AP RERA: HTTPSConnectionPool(host='rera.ap.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rera.ap.gov.in', port=443): Failed to resolve 'rera.ap.gov.in' ([Errno -3] Temporary failure in name resolution)\"))",
-    "Failed to fetch Punjab RERA: HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x796791484a50>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Karnataka RERA: HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x796791123410>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Rajasthan RERA: HTTPSConnectionPool(host='rera.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.rajasthan.gov.in', port=443) at 0x7967911eb190>, 'Connection to rera.rajasthan.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Punjab RERA: HTTPSConnectionPool(host='rera.punjab.gov.in', port=443): Max retries exceeded with url: /appellate-tribunal.html (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.punjab.gov.in', port=443) at 0x7130d1fca0d0>, 'Connection to rera.punjab.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Karnataka RERA: HTTPSConnectionPool(host='rera.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.karnataka.gov.in', port=443) at 0x7130d1c23150>, 'Connection to rera.karnataka.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Rajasthan RERA: HTTPSConnectionPool(host='rera.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.rajasthan.gov.in', port=443) at 0x7130d1cef550>, 'Connection to rera.rajasthan.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch UP RERA: HTTPSConnectionPool(host='rera.up.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rera.up.gov.in', port=443): Failed to resolve 'rera.up.gov.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch Tamil Nadu RERA: HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7967901a3d90>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Tamil Nadu RERA: HTTPSConnectionPool(host='rera.tn.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='rera.tn.gov.in', port=443) at 0x7130d0c97990>, 'Connection to rera.tn.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Gujarat RERA: HTTPSConnectionPool(host='gujrera.gujarat.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='gujrera.gujarat.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
-    "Failed to fetch Maharashtra RERA: HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7967901a2890>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Maharashtra RERA: HTTPSConnectionPool(host='maharera.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='maharera.maharashtra.gov.in', port=443) at 0x7130d0c964d0>, 'Connection to maharera.maharashtra.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Rajasthan ERC: HTTPSConnectionPool(host='rerc.rajasthan.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='rerc.rajasthan.gov.in', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
-    "Failed to fetch Haryana ERC: HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x796790757650>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch Tamil Nadu ERC: HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x796790755e50>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))",
-    "Failed to fetch AP ERC: HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7967907541d0>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Haryana ERC: HTTPSConnectionPool(host='herc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='herc.gov.in', port=443) at 0x7130d124e410>, 'Connection to herc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Tamil Nadu ERC: HTTPSConnectionPool(host='www.tnerc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.tnerc.gov.in', port=443) at 0x7130d124fe50>, 'Connection to www.tnerc.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch AP ERC: HTTPSConnectionPool(host='www.aperc.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.aperc.gov.in', port=443) at 0x7130d125da10>, 'Connection to www.aperc.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch Kerala ERC: HTTPSConnectionPool(host='www.kserc.org', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.kserc.org', port=443): Failed to resolve 'www.kserc.org' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch AP SIC: HTTPSConnectionPool(host='sic.ap.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sic.ap.gov.in', port=443): Failed to resolve 'sic.ap.gov.in' ([Errno -3] Temporary failure in name resolution)\"))",
     "Failed to fetch Telangana SIC: HTTPSConnectionPool(host='sic.telangana.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sic.telangana.gov.in', port=443): Failed to resolve 'sic.telangana.gov.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Maharashtra SIC: HTTPSConnectionPool(host='mahasic.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='mahasic.gov.in', port=443): Failed to resolve 'mahasic.gov.in' ([Errno -2] Name or service not known)\"))",
     "Failed to fetch Maharashtra Administrative Tribunal: HTTPSConnectionPool(host='sat.maharashtra.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='sat.maharashtra.gov.in', port=443): Failed to resolve 'sat.maharashtra.gov.in' ([Errno -2] Name or service not known)\"))",
-    "Failed to fetch Karnataka Appellate Tribunal: HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x796790733ad0>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))",
+    "Failed to fetch Karnataka Appellate Tribunal: HTTPSConnectionPool(host='kapt.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kapt.karnataka.gov.in', port=443) at 0x7130d0c39d50>, 'Connection to kapt.karnataka.gov.in timed out. (connect timeout=15)'))",
     "Failed to fetch LiveLaw - Tribunal Vacancy: 410 Client Error: Gone for url: https://www.livelaw.in/tags/tribunal-vacancy"
   ],
   "summary": {
